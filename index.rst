@@ -1,5 +1,7 @@
 :orphan:
 
+.. image:: _static/cover.jpg
+
 Intermediate Python
 ===================
 
