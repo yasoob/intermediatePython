@@ -2,27 +2,18 @@
 \definecolor{InnerLinkColor}{rgb}{0,0,0}
 \usepackage{geometry}
 \usepackage{xcolor}
+\usepackage{pdfpages}
 \usepackage{graphicx}
 \usepackage{lipsum}% Used for dummy text.
 \definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
 \definecolor{namecolor}{cmyk}{1,.50,0,.10}
+\definecolor{VerbatimBorderColor}{rgb}{1,1,1}
 
 \renewcommand{\maketitle}{%
 
   \begin{titlepage}
-  \newgeometry{left=5.5cm} %defines the geometry for the titlepage
-  \pagecolor{titlepagecolor}
-  \noindent
-  \color{white}
-  {\huge \textbf{\@title}}
-  \makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
-  \par
-  \noindent
-  \vfill
-  \noindent
-  \vskip\baselineskip
-  \noindent
-  \textbf{By: \@author}
+  \includepdf[pages={1}]{Large_Book_cover.pdf}
+
   \end{titlepage}
   \restoregeometry % restores the geometry
   \nopagecolor% Use this to restore the color pages to white
