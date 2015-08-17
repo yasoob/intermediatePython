@@ -61,7 +61,7 @@ of a list of inputs we can even have a list of functions!
 ^^^^^^^^^
 
 As the name suggests, filter creates a list of elements for which a
-function returns true. Here is a short and consise example:
+function returns true. Here is a short and concise example:
 
 .. code:: python
 

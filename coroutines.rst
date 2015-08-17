@@ -41,7 +41,7 @@ example would be a ``grep`` alternative in Python:
                 print(line)
 
 Wait! What does ``yield`` return? Well we have turned it into a
-coroutine. It does not contain any value innitially instead we supply it
+coroutine. It does not contain any value initially instead we supply it
 values externally. We supply values by using the ``.send()`` method.
 Here is an example:
 

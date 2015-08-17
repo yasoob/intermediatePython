@@ -10,7 +10,7 @@ decorators can make your code concise.
 Firstly let's discuss how to write your own decorator.
 
 It is perhaps one of the most difficult concept to grasp. We will take
-it one step at a time so that you can fully inderstand it.
+it one step at a time so that you can fully understand it.
 
 Everything in python is an object:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -71,7 +71,7 @@ other functions:
 
     # This shows that whenever you call hi(), greet() and welcome()
     # are also called. However the greet() and welcome() functions
-    # are not available outsite the hi() function e.g:
+    # are not available outside the hi() function e.g:
 
     greet()
     #outputs: NameError: name 'greet' is not defined
@@ -207,7 +207,7 @@ Python. Now there is one problem with our code. If we run:
 
 That's not what we expected! It's name is
 "a\_function\_requiring\_decoration". Well our function was replaced by
-wrapTheFunction. It overrided the name and docstring of our function.
+wrapTheFunction. It overrode the name and docstring of our function.
 Luckily Python provides us a simple function to solve this problem and
 that is ``functools.wraps``. Let's modify our previous example to use
 ``functools.wraps``:

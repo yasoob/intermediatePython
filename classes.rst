@@ -86,7 +86,7 @@ check the next example.
     # Output: ['fly']
 
 That is the beauty of the wrong usage of mutable class variables. To
-make your code safe against this kind of surprize attacks then make sure
+make your code safe against this kind of surprise attacks then make sure
 that you do not use mutable class variables. You may use them only if
 you know what you are doing.
 
@@ -138,7 +138,7 @@ Python's classes are famous for their magic methods, commonly called
 
 -  ``__init__``
 
-It is a class innitializer. Whenever an instance of a class is created
+It is a class initializer. Whenever an instance of a class is created
 it's ``__init__`` method. For instance:
 
 .. code:: python
@@ -159,7 +159,7 @@ it's ``__init__`` method. For instance:
 
 You can see that ``__init__`` is called immediately after an instance is
 created. You can also pass arguments to the class during it's
-innitialization. Like this:
+initialization. Like this:
 
 .. code:: python
 

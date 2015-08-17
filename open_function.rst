@@ -75,7 +75,7 @@ to your liking (or the liking of the program that will eventually read
 your file).
 
 How do you find out which encoding a file you read has? Well,
-unfortunately, there is no sureproof way to detect the encoding - the
+unfortunately, there is no foolproof way to detect the encoding - the
 same bytes can represent different, but equally valid characters in
 different encodings. Therefore, you must rely on metadata (for example,
 in HTTP headers) to know the encoding. Increasingly, formats just define

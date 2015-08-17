@@ -162,7 +162,7 @@ generators, yield and decorators. In this example we have not caught any
 exceptions which might occur. It works in mostly the same way as the
 previous method.
 
-Let's disect this method a little.
+Let's dissect this method a little.
 
 1. Python encounters the ``yield`` keyword. Due to this it creates a
    generator instead of a normal function.
