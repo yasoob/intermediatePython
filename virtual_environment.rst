@@ -40,19 +40,16 @@ decision.
 
 Do you want this virtualenv to use packages from your system
 ``site-packages`` or install them in the virtualenv’s site-packages? By
-default, virtualenv will symlink to your system’s ``site-packages`` if
-you install a package in the virtualenv that is already installed on
-your system. If you want a totally isolated ``virtualenv`` then you’ll
-want to do the latter. To do this, you pass in the
-``-–no-site-packages`` switch when creating your virtualenv like this:
+default, virtualenv will not give access to the global ``site-packages``.
+If you want your ``virtualenv`` to have access to your systems
+``site-packages`` use the ``--system-site-packages`` switch when creating
+your virtualenv like this:
 
 .. code:: python
 
-    $ virtualenv --no-site-packages mycoolproject
+    $ virtualenv --system-site-packages mycoolproject
 
-Now you can install any library without disturbing the global libraries
-or the libraries of the other environments. You can turn off the ``env``
-by typing:
+You can turn off the ``env`` by typing:
 
 .. code:: python
 
