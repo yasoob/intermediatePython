@@ -14,3 +14,30 @@ I am sure you are as excited as I am so let’s start!
 Note: This book is a work in progress. If you find anything which you can further improve (I know you will find a lot of stuff) then kindly submit a pull request. :)
 
 Moreover, if you want to add more content to this book then kindly submit a pull request and I would be more than happy to merge it. :+1:
+
+Table of Contents:
+------------------
+- :doc:`args_and_kwargs.rst`
+- :doc:`debugging.rst`
+- :doc:`generators.rst`
+- :doc:`map_&_filter.rst`
+- :doc:`set_-_data_structure.rst`
+- :doc:`ternary_operators.rst`
+- :doc:`decorators.rst`
+- :doc:`global_&_return.rst`
+- :doc:`mutation.rst`
+- :doc:`__slots__magic.rst`
+- :doc:`virtual_environment.rst`
+- :doc:`collections.rst`
+- :doc:`enumerate.rst`
+- :doc:`object_introspection.rst`
+- :doc:`comprehensions.rst`
+- :doc:`exceptions.rst`
+- :doc:`lambdas.rst`
+- :doc:`one_liners.rst`
+- :doc:`for_-_else.rst`
+- :doc:`open_function.rst`
+- :doc:`targeting_python_2_3.rst`
+- :doc:`coroutines.rst`
+- :doc:`function_caching.rst`
+- :doc:`context_managers.rst`
