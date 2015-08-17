@@ -10,8 +10,8 @@ comprehensions in Python:
 -  dictionary comprehensions
 -  set comprehensions
 
-``list`` comprehensions were introduced in Python 2. ``set`` and
-``dictionary`` comprehensions became a part of Python in version 3.0.
+list comprehensions were introduced in Python 2. set and
+dictionary comprehensions became a part of Python in version 3.0.
 
 We will discuss them one by one. Once you get the hang of using ``list``
 comprehensions then you can use anyone of them easily.
@@ -41,7 +41,7 @@ Here is a short example:
     # Output: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
 
 This can be really useful to make lists quickly. It is even preferred by
-some instead of ``filter`` function. ``list`` comprehensions really
+some instead of the ``filter`` function. list comprehensions really
 shine when you want to supply a list to a method or function to make a
 new list by appending to it in each iteration of the ``for`` loop. For
 instance you would usually do something like this:
@@ -52,7 +52,7 @@ instance you would usually do something like this:
     for x in range(10):
         squared.append(x**2)
 
-You can simplify it using ``list`` comprehensions. For example:
+You can simplify it using list comprehensions. For example:
 
 .. code:: python
 
@@ -66,16 +66,18 @@ recently:
 
 .. code:: python
 
-    mcase = {'a':10, 'b': 34, 'A': 7, 'Z':3}
-
-    mcase_frequency = { k.lower() : mcase.get(k.lower(), 0) + \
-    mcase.get(k.upper(), 0) for k in mcase.keys() }
-
+    mcase = {'a': 10, 'b': 34, 'A': 7, 'Z': 3}
+    
+    mcase_frequency = {
+        k.lower(): mcase.get(k.lower(), 0) + mcase.get(k.upper(), 0)
+        for k in mcase.keys()
+    }
+    
     # mcase_frequency == {'a': 17, 'z': 3, 'b': 34}
 
 In the above example we are combining the values of keys which are same
 but in different typecase. I personally do not use ``dict``
-comprehensions a lot. You can also quickly reverse a dictionary:
+comprehensions a lot. You can also quickly switch keys and values of a dictionary:
 
 .. code:: python
 
