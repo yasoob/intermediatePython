@@ -10,7 +10,7 @@ this:
 
 .. code:: python
 
-    some_list = ['a','b','c','b','d','m','n','n']
+    some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
 
     duplicates = []
     for value in some_list:
@@ -26,7 +26,7 @@ can simply do something like this:
 
 .. code:: python
 
-    some_list = ['a','b','c','b','d','m','n','n']
+    some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
     duplicates = set([x for x in some_list if some_list.count(x) > 1])
     print(duplicates)
     # Output: set(['b', 'n'])
