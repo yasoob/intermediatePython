@@ -5,7 +5,7 @@ Decorators are a significant part of Python. In simple words they are
 functions which modify the functionality of another function. They help
 to make our code shorter and more Pythonic. Most of the beginners do not
 know where to use them so I am going to share some areas where
-decorators can make your code consise.
+decorators can make your code concise.
 
 Firstly let's discuss how to write your own decorator.
 
