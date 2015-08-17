@@ -278,4 +278,6 @@ Like this:
 
     Animal = namedtuple('Animal', 'name age type')
     perry = Animal(name="perry", age=31, type="cat")
+    print(perry._asdict())
+    # Output: OrderedDict([('name', 'perry'), ('age', 31), ...
 
