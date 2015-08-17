@@ -34,7 +34,7 @@ not. So we can do:
      
     favourite_colours = defaultdict(list)
      
-    for name, colour in order:
+    for name, colour in colours:
         favourite_colours[name].append(colour)
      
     print(favourite_colours)
