@@ -19,7 +19,7 @@ The first and most important method is to use ``__future__`` imports. It
 allows you to import Python 3 functionality in Python 2. Here is an
 example:
 
--  Context managers were new in Python 2.6+. For using them in Python 2.5+
+-  Context managers were new in Python 2.6+. For using them in Python 2.5
    you can use:
 
 .. code:: python
