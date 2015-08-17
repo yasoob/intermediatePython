@@ -1,20 +1,16 @@
-Python Tips
-===========
+Intermediate Python
+===================
 
-Python is an amazing language with a strong and friendly community of
-programmers. However, not all of them are familiar with the tips and
-patterns of this language. It is easy for the beginners to overlook them
-and most books do not mention these tips and patterns. In this book I
-aim to compile most of these tips, tricks and patterns. This way every
-Python programmer will have easy access to them.
+Python is an amazing language with a strong and friendly community of programmers. However, there is a lack of documentation on what to learn after getting the basics of Python down your throat. Through this book I aim to solve this problem. I would give you bits of information about some interesting topics which you can further explore.
 
-These tricks not only make your code more Pythonic but also reduce the
-amount of effort required to maintain it. This book is an outcome of my
-desire to have something like it when I was beginning to learn Python.
+The topics which are discussed in this book open up your mind towards some nice corners of Python language. This book is an outcome of my desire to have something like it when I was beginning to learn Python.
 
-If you are a beginner, intermediate or even an advanced programmer there
-is something for you in this book.
+If you are a beginner, intermediate or even an advanced programmer there is something for you in this book.
 
-Please note that this book is not a tutorial and does not teach you
-Python. Instead it teaches you how to write beautiful Python. I am sure
-you are as excited as I am so let's start!
+Please note that this book is not a tutorial and does not teach you Python. The topics are not explained in depth, instead only the minimum required information is given.
+
+I am sure you are as excited as I am so let’s start!
+
+Note: This book is a work in progress. If you find anything which you can further improve (I know you will find a lot of stuff) then kindly submit a pull request. :)
+
+Moreover, if you want to add more content to this book then kindly submit a pull request and I would be more than happy to merge it. :+1:
