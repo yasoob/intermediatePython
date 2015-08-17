@@ -13,7 +13,7 @@ Here is a simple example:
 .. code:: python
 
     try:
-        file = open('test.txt','rb')
+        file = open('test.txt', 'rb')
     except IOError as e:
         print('An IOError occured. {}'.format(e.args[-1]))
 
@@ -31,7 +31,7 @@ tuple. Like so:
 
     try:
         file = open('test.txt', 'rb')
-    except (IOError,EOFError) as e:
+    except (IOError, EOFError) as e:
         print("An error occured. {}".format(e.args[-1]))
 
 Another method is to handle individual exception in a separate except
@@ -50,20 +50,20 @@ block. We can have as many except blocks as we want. Here is an example:
 
 This way if the exception is not handled by the first except block then
 it is passed on to the second block. Now the last method involves
-traping ALL exceptions:
+trapping ALL exceptions:
 
 .. code:: python
 
     try:
         file = open('test.txt', 'rb')
-    except:
-        # Some loggin if you want
+    except Exception:
+        # Some logging if you want
         raise
 
 This can be helpful when you have no idea about the exception which can
 be thrown by your program.
 
-``Finally`` caluse
+``Finally`` clause
 ~~~~~~~~~~~~~~~~~~
 
 We wrap our main code in the try clause. After that we wrap some code in
@@ -76,7 +76,7 @@ for cleaning up after a script. Here is a simple example:
 .. code:: python
 
     try:
-        file = open('test.txt','rb')
+        file = open('test.txt', 'rb')
     except IOError as e:
         print('An IOError occured. {}'.format(e.args[-1]))
     finally:
@@ -88,7 +88,7 @@ for cleaning up after a script. Here is a simple example:
 ``try/else`` clause
 ~~~~~~~~~~~~~~~~~~~
 
-Often times we might want some code to run IF no exception occurs. This
+Often times we might want some code to run if **no** exception occurs. This
 can easily be achieved by using an ``else`` clause. Most people don't
 use it and honestly I have myself not used it widely. Here is an
 example:
@@ -97,12 +97,12 @@ example:
 
     try:
         print('I am sure no exception is going to occur!')
-    except:
-        print("exception")
+    except Exception:
+        print('exception')
     else:
         print('This would only run if no exception occurs.')
     finally:
-        print("This would be printed in every case.")
+        print('This would be printed in every case.')
 
     # Output: I am sure no exception is going to occur!
     # This would only run if no exception occurs.
