@@ -17,27 +17,27 @@ Moreover, if you want to add more content to this book then kindly submit a pull
 
 Table of Contents:
 ------------------
-- :doc:`\*args and \*\*kwargs <args_and_kwargs.rst>`
-- :doc:`Debugging <debugging.rst>`
-- :doc:`Generators <generators.rst>`
-- :doc:`Map & Filter <map_&_filter.rst>`
-- :doc:```set`` Data Structure <set_-_data_structure.rst>`
-- :doc:`Ternary Operators <ternary_operators.rst>`
-- :doc:`Decorators <decorators.rst>`
-- :doc:`Global & Return <global_&_return.rst>`
-- :doc:`Mutation <mutation.rst>`
-- :doc:`__slots__ Magic <__slots__magic.rst>`
-- :doc:`Virtual Environment <virtual_environment.rst>`
-- :doc:`Collections <collections.rst>`
-- :doc:`Enumerate <enumerate.rst>`
-- :doc:`Object introspection <object_introspection.rst>`
-- :doc:`Comprehensions <comprehensions.rst>`
-- :doc:`Exceptions <exceptions.rst>`
-- :doc:`Lambdas <lambdas.rst>`
-- :doc:`One Liners <one_liners.rst>`
-- :doc:`For - Else <for_-_else.rst>`
-- :doc:`Open function <open_function.rst>`
-- :doc:`Targeting Python 2+3 <targeting_python_2_3.rst>`
-- :doc:`Coroutines <coroutines.rst>`
-- :doc:`Function caching <function_caching.rst>`
-- :doc:`Context managers <context_managers.rst>`
+- [\*args and \*\*kwargs](args_and_kwargs.rst)
+- [Debugging](debugging.rst)
+- [Generators](generators.rst)
+- [Map & Filter](map_&_filter.rst)
+- [``set`` Data Structure](set_-_data_structure.rst)
+- [Ternary Operators](ternary_operators.rst)
+- [Decorators](decorators.rst)
+- [Global & Return](global_&_return.rst)
+- [Mutation](mutation.rst)
+- [\_\_slots\_\_ Magic](__slots__magic.rst)
+- [Virtual Environment](virtual_environment.rst)
+- [Collections](collections.rst)
+- [Enumerate](enumerate.rst)
+- [Object introspection](object_introspection.rst)
+- [Comprehensions](comprehensions.rst)
+- [Exceptions](exceptions.rst)
+- [Lambdas](lambdas.rst)
+- [One Liners](one_liners.rst)
+- [For - Else](for_-_else.rst)
+- [Open function](open_function.rst)
+- [Targeting Python 2+3](targeting_python_2_3.rst)
+- [Coroutines](coroutines.rst)
+- [Function caching](function_caching.rst)
+- [Context managers](context_managers.rst)
