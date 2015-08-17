@@ -63,7 +63,7 @@ scope of the function as well. Let me demonstrate it with an example :
         global result
         result = value1 + value2
 
-    add(2 ,4)
+    add(2, 4)
     result
     6
 
