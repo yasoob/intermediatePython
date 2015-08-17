@@ -37,10 +37,10 @@ in Python 2 you can import it from ``__future__``.
     # Output:
 
     from __future__ import print_function
-    print
+    print(print)
     # Output: <built-in function print>
 
-**Using ``as`` in imports**
+**Dealing with module renaming**
 
 First tell me how you import packages in your script ? Most of us do
 this :
@@ -64,9 +64,9 @@ code below :
 .. code:: python
 
     try:
-        import urllib.request as urllib_request #for python 3
+        import urllib.request as urllib_request  # for python 3
     except ImportError:
-        import urllib2 as urllib_request # for python 2
+        import urllib2 as urllib_request  # for python 2
 
 So let me explain the above code a little. We are wrapping our importing
 code in a try except clause. We are doing it because in python2 there is
@@ -110,6 +110,7 @@ functionality in Python 2. For instance we have:
 -  enum ``pip install enum34``
 -  singledispatch ``pip install singledispatch``
 -  pathlib ``pip install pathlib``
+
 
 I am sure there are a lot of other methods and tricks which can be used
 to make you code compatible with both of these Python series. This was
