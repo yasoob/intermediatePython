@@ -9,7 +9,7 @@ Context managers allow you to do specifically that. For example:
 
 ::
 
-    with open('some_file', 'wb') as opened_file:
+    with open('some_file', 'w') as opened_file:
         opened_file.write('Hola!')
 
 The above code opens the file, writes some data to it and then closes
@@ -18,7 +18,7 @@ close it. The above code is equivalent to:
 
 ::
 
-    file = open('some_file', 'wb')
+    file = open('some_file', 'w')
     try:
         file.write('Hola!')
     finally:
@@ -57,7 +57,7 @@ a ``with`` statement. Let's try:
 
 ::
 
-    with File('demo.txt', 'wb') as opened_file:
+    with File('demo.txt', 'w') as opened_file:
         opened_file.write('Hola!')
 
 Our ``__exit__`` function accepts three arguments. They are required by
@@ -89,8 +89,8 @@ instance:
 
 ::
 
-    with File('demo.txt', 'wb') as opened_file:
-        opened_file.fuck('Hola!')
+    with File('demo.txt', 'w') as opened_file:
+        opened_file.undefined_function('Hola!')
 
 Let's list down the steps which are taken by the ``with`` statement when
 an error is encountered.
@@ -111,7 +111,7 @@ statement is encountered then the method returns ``None``). Therefore,
 
     Traceback (most recent call last):
       File "<stdin>", line 2, in <module>
-    AttributeError: 'file' object has no attribute 'fuck'
+    AttributeError: 'file' object has no attribute 'undefined_function'
 
 Let's try handling the exception in the ``__exit__`` method:
 
@@ -127,8 +127,8 @@ Let's try handling the exception in the ``__exit__`` method:
             self.file_obj.close()
             return True
 
-    with File('demo.txt', 'wb') as opened_file:
-        opened_file.fuck()
+    with File('demo.txt', 'w') as opened_file:
+        opened_file.undefined_function()
 
     # Output: Exception has been handled
 
@@ -152,7 +152,7 @@ Let's see a basic, useless example:
 
     @contextmanager
     def open_file(name):
-        f = open(name, 'wb')
+        f = open(name, 'w')
         yield f
         f.close()
 
