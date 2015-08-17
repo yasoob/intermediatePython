@@ -83,7 +83,7 @@ which calculates fibonacci numbers:
     # generator version
     def fibon(n):
         a = b = 1
-        for i in xrange(n):
+        for i in range(n):
             yield a
             a, b = b, a + b
 
@@ -102,7 +102,7 @@ However, if we would have implemented it like this:
     def fibon(n):
         a = b = 1
         result = []
-        for i in xrange(n):
+        for i in range(n):
             result.append(a)
             a, b = b, a + b
         return result
@@ -164,5 +164,5 @@ iterable. Here is how we can use it:
 Now that is much better. I am sure that you loved learning about
 generators. Do bear it in mind that you can fully grasp this concept
 only when you use it. Make sure that you follow this pattern and use
-``generators`` whenever they make sense to you. You wont be
+``generators`` whenever they make sense to you. You won't be
 disappointed!
