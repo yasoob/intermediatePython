@@ -67,12 +67,12 @@ recently:
 .. code:: python
 
     mcase = {'a': 10, 'b': 34, 'A': 7, 'Z': 3}
-    
+
     mcase_frequency = {
         k.lower(): mcase.get(k.lower(), 0) + mcase.get(k.upper(), 0)
         for k in mcase.keys()
     }
-    
+
     # mcase_frequency == {'a': 17, 'z': 3, 'b': 34}
 
 In the above example we are combining the values of keys which are same
@@ -87,14 +87,10 @@ comprehensions a lot. You can also quickly switch keys and values of a dictionar
 ^^^^^^^^^^^^^^^^^^^^^^
 
 They are also similar to list comprehensions. The only difference is
-that they use round brackets ``()`` and return a generator. Here is an
-example:
+that they use braces ``{}``. Here is an example:
 
 .. code:: python
 
-    squared = (x**2 for x in range(10))
+    squared = {x for x in [1, 1, 2]}
     print(squared)
-    # Output: <generator object <genexpr> at 0x00000000029931B0>
-    squared.next()
-    # Output: 0
-
+    # Output: {1, 2}
