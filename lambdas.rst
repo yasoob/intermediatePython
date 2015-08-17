@@ -16,9 +16,9 @@ normal functions and even behave like them.
 
 .. code:: python
 
-    add = lambda x,y: x+y
+    add = lambda x, y: x + y
 
-    print(add(3,5))
+    print(add(3, 5))
     # Output: 8
 
 Here are a few useful use cases for lambdas and just a few way in which
