@@ -86,15 +86,14 @@ comprehensions a lot. You can also quickly switch keys and values of a dictionar
 ``set`` comprehensions
 ^^^^^^^^^^^^^^^^^^^^^^
 
-They are also similar to list comprehensions. The only difference is
-that they use round brackets ``()`` and return a generator. Here is an
-example:
+They are also similar to list comprehensions. The difference is that they use
+curly brackets ``{}`` like ``dict`` comprehensions, but without a key/value pair.
+Here is an example:
 
 .. code:: python
 
-    squared = (x**2 for x in range(10))
+    squared = {x**2 for x in [1, 2, 3, 1, 2, 4]}
     print(squared)
-    # Output: <generator object <genexpr> at 0x00000000029931B0>
-    squared.next()
-    # Output: 0
+    # Output: set([16, 1, 4, 9])
+    
 
