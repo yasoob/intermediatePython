@@ -60,7 +60,7 @@ of a list of inputs we can even have a list of functions!
 2. Filter
 ^^^^^^^^^
 
-As the name suggests, filter creats a list of elements for which a
+As the name suggests, filter creates a list of elements for which a
 function returns true. Here is a short and consise example:
 
 .. code:: python
