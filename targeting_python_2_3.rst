@@ -4,11 +4,11 @@ Targeting Python 2+3
 In a lot of cases you might want to develop programs which can be run in
 both, Python 2+ and 3+.
 
-Just imagine that you have a very popular python module which is use by
-hundreds of people but not all of them have python 2 or 3. In that case
+Just imagine that you have a very popular Python module which is use by
+hundreds of people but not all of them have Python 2 or 3. In that case
 you have two choices. The first one is to distribute 2 modules, one for
-python 2 and the other for python 3. The other choice is to modify your
-current code and make is compatible with both python 2 and 3.
+Python 2 and the other for Python 3. The other choice is to modify your
+current code and make is compatible with both Python 2 and 3.
 
 In this section I am going to highlight some of the tricks which you can
 employ to make a script compatible with both of them.
@@ -58,21 +58,21 @@ Do you know that you can do something like this as well?
     import foo as foo
 
 I know it’s function is the same as above listed code but it is vital
-for making your script compatible with python 2 and 3. Now examine the
+for making your script compatible with Python 2 and 3. Now examine the
 code below :
 
 .. code:: python
 
     try:
-        import urllib.request as urllib_request  # for python 3
+        import urllib.request as urllib_request  # for Python 3
     except ImportError:
-        import urllib2 as urllib_request  # for python 2
+        import urllib2 as urllib_request  # for Python 2
 
 So let me explain the above code a little. We are wrapping our importing
-code in a try except clause. We are doing it because in python2 there is
+code in a try except clause. We are doing it because in Python 2 there is
 no urllib.request module and will result in an ImportError. The
 functionality of urllib.request is provided by urllib2 module in
-python2. So now when in Python2 we try to import ``urllib.request`` and
+Python 2. So now when in Python 2 we try to import ``urllib.request`` and
 get an ``ImportError`` we tell Python to import urllib2 instead.
 
 The final thing you need to know about is the ``as`` keyword. It is
