@@ -28,8 +28,7 @@ repl. Here is the relevant code:
 
     from pprint import pprint
 
-    my_dict = {'name':'Yasoob',
-    'age':'undefined','personality':'awesome'}
+    my_dict = {'name': 'Yasoob', 'age': 'undefined', 'personality': 'awesome'}
     pprint(my_dict)
 
 This is more effective on dicts. Moreover, if you want to pretty print
@@ -74,4 +73,4 @@ is a simple example:
     # Output: [1, 2, 3, 4, 5, 6]
 
 A couple of more one liners can be found on the `Python
-website <https://wiki.python.org/moin/Powerful%20Python%20One-Liners>`__
+website <https://wiki.python.org/moin/Powerful%20Python%20One-Liners>`__.
