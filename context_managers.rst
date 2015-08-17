@@ -49,7 +49,7 @@ Manager and learn the basics.
             self.file_obj = open(file_name, method)
         def __enter__(self):
             return self.file_obj
-        def __exit__(self, type, value, trace_back):
+        def __exit__(self, type, value, traceback):
             self.file_obj.close()
 
 Just by defining ``__enter__`` and ``__exit__`` methods we can use it in
@@ -76,7 +76,7 @@ Let's talk about what happens under-the-hood.
 Handling exceptions
 ^^^^^^^^^^^^^^^^^^^
 
-We did not talk about the ``type``, ``value`` and ``trace_back``
+We did not talk about the ``type``, ``value`` and ``traceback``
 arguments of the ``__exit__`` method. Between the 4th and 6th step, if
 an exception occurs, Python passes the type, value and traceback of the
 exception to the ``__exit__`` method. It allows the ``__exit__`` method
@@ -122,7 +122,7 @@ Let's try handling the exception in the ``__exit__`` method:
             self.file_obj = open(file_name, method)
         def __enter__(self):
             return self.file_obj
-        def __exit__(self, type, value, trace_back):
+        def __exit__(self, type, value, traceback):
             print "Exception has been handled"
             self.file_obj.close()
             return True
