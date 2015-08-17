@@ -2,7 +2,7 @@ Targeting Python 2+3
 --------------------
 
 In a lot of cases you might want to develop programs which can be run in
-both, Python 2+ and 3+.
+both Python 2+ and 3+.
 
 Just imagine that you have a very popular Python module which is use by
 hundreds of people but not all of them have Python 2 or 3. In that case
@@ -57,7 +57,7 @@ Do you know that you can do something like this as well?
 
     import foo as foo
 
-I know it’s function is the same as above listed code but it is vital
+I know its function is the same as the above listed code but it is vital
 for making your script compatible with Python 2 and 3. Now examine the
 code below :
 
