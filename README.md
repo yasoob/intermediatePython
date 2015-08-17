@@ -1,3 +1,5 @@
+![Intermediate Python Book Cover](_static/cover.jpg)
+
 Intermediate Python
 ===================
 
