@@ -1,7 +1,7 @@
 Debugging
 ---------
 
-Debuggin is also something which once mastered can greatly enhance your
+Debugging is also something which once mastered can greatly enhance your
 bug hunting skills. Most of the newcommers neglect the importance of the
 Python debugger (``pdb``). In this section I am going to tell you only a
 few important commands. You can learn more about it from the official
