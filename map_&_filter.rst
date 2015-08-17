@@ -15,7 +15,7 @@ the blueprint:
 
 .. code:: python
 
-    map(functions_to_apply, list_of_inputs)
+    map(function_to_apply, list_of_inputs)
 
 Most of the times we want to pass all the list elements to a function
 one-by-one and then collect the output. For instance:
@@ -65,8 +65,8 @@ function returns true. Here is a short and consise example:
 
 .. code:: python
 
-    number_list = range(-5,5)
-    less_than_zero = list(filter(lambda x: x<0, number_list))
+    number_list = range(-5, 5)
+    less_than_zero = list(filter(lambda x: x < 0, number_list))
     print(less_than_zero)
 
     # Output: [-5, -4, -3, -2, -1]
