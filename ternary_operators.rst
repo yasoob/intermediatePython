@@ -12,7 +12,7 @@ expressions.
 
 .. code:: python
 
-    condition_is_true if condition_true else condition_is_false
+    condition_is_true if condition else condition_is_false
 
 **Example:**
 
