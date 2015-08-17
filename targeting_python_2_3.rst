@@ -70,15 +70,15 @@ code below :
 
 So let me explain the above code a little. We are wrapping our importing
 code in a try except clause. We are doing it because in Python 2 there is
-no urllib.request module and will result in an ImportError. The
-functionality of urllib.request is provided by urllib2 module in
+no ``urllib.request`` module and will result in an ImportError. The
+functionality of ``urllib.request`` is provided by ``urllib2`` module in
 Python 2. So now when in Python 2 we try to import ``urllib.request`` and
-get an ``ImportError`` we tell Python to import urllib2 instead.
+get an ``ImportError`` we tell Python to import ``urllib2`` instead.
 
 The final thing you need to know about is the ``as`` keyword. It is
 mapping the imported module to ``urllib_request``. So that now all of
-the Classes and methods of urllib2 are available to us by
-urllib\_request.
+the Classes and methods of ``urllib2`` are available to us by
+``urllib_request``.
 
 **Obsolete Python 2 builtins**
 
@@ -111,7 +111,6 @@ functionality in Python 2. For instance we have:
 -  singledispatch ``pip install singledispatch``
 -  pathlib ``pip install pathlib``
 
-
-I am sure there are a lot of other methods and tricks which can be used
-to make you code compatible with both of these Python series. This was
-just to give you some ideas.
+For further reading, the Python documentation has a `comprehensive guide
+<https://docs.python.org/3/howto/pyporting.html>`_ of steps you need to
+take to make your code compatible with both Python 2 and 3.
