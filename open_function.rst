@@ -28,9 +28,7 @@ read was successful. If there is any error just after ``f = open(...)``,
 ``f.close()`` will not be called (depending on the Python interpreter,
 the file handle may still be returned, but that's another story). To
 make sure that the file gets closed whether an exception occurs or not,
-pack it into a
-```with`` <http://freepythontips.wordpress.com/2013/07/28/the-with-statement/>`__
-statement:
+pack it into a ```with`` statement:
 
 .. code:: python
 
@@ -64,7 +62,7 @@ computer, all files are just bytes, not characters.
 
 Unfortunately, ``open`` does not allow explicit encoding specification
 in Python 2.x. However, the function
-```io.open`` <http://docs.python.org/2/library/io.html#io.open>`__ is
+`io.open <http://docs.python.org/2/library/io.html#io.open>`__ is
 available in both Python 2.x and 3.x (where it is an alias of ``open``),
 and does the right thing. You can pass in the encoding with the
 ``encoding`` keyword. If you don't pass in any encoding, a system- (and
