@@ -4,12 +4,12 @@ Object introspection
 In computer programming, introspection is the ability to determine the
 type of an object at runtime. It is one of Python's strengths.
 Everything in Python is an object and we can examine those objects.
-Python ships with a few Built-in functions and modules to help us.
+Python ships with a few built-in functions and modules to help us.
 
-1.\ ``dir()`` BIF
-^^^^^^^^^^^^^^^^^
+1.\ ``dir``
+^^^^^^^^^^^
 
-In this section we will learn about ``dir()`` and how it facilitates us
+In this section we will learn about ``dir`` and how it facilitates us
 in introspection.
 
 It is one of the most important functions for introspection. It returns
@@ -34,8 +34,8 @@ can be handy when you are not able to recall a method name. If we run
 ``dir()`` without any argument then it returns all names in the current
 scope.
 
-2.\ ``type()`` and ``id()``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2.\ ``type`` and ``id``
+^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``type`` function returns the type of an object. For example:
 
@@ -50,7 +50,7 @@ The ``type`` function returns the type of an object. For example:
     print(type({}))
     # Output: <type 'dict'>
 
-    print(type(bool))
+    print(type(dict))
     # Output: <type 'type'>
 
     print(type(3))
