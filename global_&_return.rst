@@ -2,16 +2,16 @@ Global & Return
 ---------------
 
 You might have encountered some functions written in python which have a
-return keyword in the end of the function. Do you know what it does ? It
+return keyword in the end of the function. Do you know what it does? It
 is similar to return in other languages. Lets examine this little
 function:
 
 .. code:: python
 
-    def add(value1,value2):
+    def add(value1, value2):
         return value1 + value2
 
-    result = add(3,5)
+    result = add(3, 5)
     print(result)
     # Output: 8
 
@@ -41,10 +41,10 @@ scope of the function as well. Let me demonstrate it with an example :
 .. code:: python
 
     # first without the global variable
-    def add(value1,value2):
+    def add(value1, value2):
         result = value1 + value2
 
-    add(2,4)
+    add(2, 4)
     print(result)
 
     # Oh crap we encountered an exception. Why is it so ?
@@ -59,11 +59,11 @@ scope of the function as well. Let me demonstrate it with an example :
 
     # Now lets run the same code but after making the result 
     # variable global
-    def add(value1,value2):
+    def add(value1, value2):
         global result
         result = value1 + value2
 
-    add(2,4)
+    add(2 ,4)
     result
     6
 
@@ -71,3 +71,4 @@ So hopefully there are no errors in the second run as expected. In
 practical programming you should try to stay away from ``global``
 keyword as it only makes life difficult by introducing unwated variables
 to the global scope.
+    
