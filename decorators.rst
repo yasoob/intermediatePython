@@ -9,8 +9,8 @@ decorators can make your code concise.
 
 Firstly let's discuss how to write your own decorator.
 
-It is perhaps one of the most difficult concept to grasp. We will take
-it one step at a time so that you can fully inderstand it.
+It is perhaps one of the most difficult concepts to grasp. We will take
+it one step at a time so that you can fully understand it.
 
 Everything in python is an object:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -205,9 +205,9 @@ Python. Now there is one problem with our code. If we run:
     print(a_function_requiring_decoration.__name__)
     # Output: wrapTheFunction
 
-That's not what we expected! It's name is
+That's not what we expected! Its name is
 "a\_function\_requiring\_decoration". Well our function was replaced by
-wrapTheFunction. It overrided the name and docstring of our function.
+wrapTheFunction. It overrode the name and docstring of our function.
 Luckily Python provides us a simple function to solve this problem and
 that is ``functools.wraps``. Let's modify our previous example to use
 ``functools.wraps``:
@@ -291,7 +291,7 @@ authentication:
         def decorated(*args, **kwargs):
             auth = request.authorization
             if not auth or not check_auth(auth.username, auth.password):
-                return authenticate()
+                authenticate()
             return f(*args, **kwargs)
         return decorated
 
