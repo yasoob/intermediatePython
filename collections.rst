@@ -158,7 +158,7 @@ You can pop values from both sides of the deque:
 
 .. code:: python
 
-    d = deque([i for i in range(5)])
+    d = deque(range(5))
     print(len(d))
     # Output: 5
 
