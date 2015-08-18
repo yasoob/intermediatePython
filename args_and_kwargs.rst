@@ -52,7 +52,7 @@ arguments** in a function. Here is an example to get you going with it:
     def greet_me(**kwargs):
         if kwargs is not None:
             for key, value in kwargs.iteritems():
-                print "%s == %s" %(key,value)
+                print "%s == %s" %(key, value)
 
     >>> greet_me(name="yasoob")
     name == yasoob
