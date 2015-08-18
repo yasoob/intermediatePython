@@ -65,5 +65,5 @@ about it on `GitHub <https://github.com/cxreg/smartcd>`__
 
 This was just a short intro to virtualenv. There's a lot more to it. For
 further study i recommend `this
-link. <http://docs.python-guide.org/en/latest/dev/virtualenvs.html>`__
+link. <http://docs.python-guide.org/en/latest/dev/virtualenvs/>`__
 It will remove all of your confusions about virtualenv.
