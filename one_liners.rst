@@ -72,5 +72,17 @@ is a simple example:
     print(list(itertools.chain.from_iterable(a_list)))
     # Output: [1, 2, 3, 4, 5, 6]
 
+
+**One Line Constructors**
+
+Avoid a lot of boilerplate assignments when initializing a class
+
+.. code:: python
+
+    class A(object):
+        def __init__(self, a, b, c, d, e, f):
+            self.__dict__.update({k: v for k, v in locals().items() if k != 'self'})
+
+
 A couple of more one liners can be found on the `Python
 website <https://wiki.python.org/moin/Powerful%20Python%20One-Liners>`__.
