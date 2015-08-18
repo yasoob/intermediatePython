@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Decorators</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="global_&_return.html" title="Global &amp; Return"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="ternary_operators.html" title="Ternary Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="decorators">
+<h1>Decorators</h1>
+<p>Decorators are a significant part of Python. In simple words they are
+functions which modify the functionality of another function. They help
+to make our code shorter and more Pythonic. Most of the beginners do not
+know where to use them so I am going to share some areas where
+decorators can make your code consise.</p>
+<p>Firstly let&#8217;s discuss how to write your own decorator.</p>
+<p>It is perhaps one of the most difficult concept to grasp. We will take
+it one step at a time so that you can fully inderstand it.</p>
+<div class="section" id="everything-in-python-is-an-object">
+<h2>Everything in python is an object:</h2>
+<p>First of all let&#8217;s understand functions in python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">hi</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;yasoob&quot;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&quot;hi &quot;</span><span class="o">+</span><span class="n">name</span>
+
+<span class="k">print</span> <span class="n">hi</span><span class="p">()</span>
+<span class="c">#output: &#39;hi yasoob&#39;</span>
+
+<span class="c">#We can even assign a function to a variable like</span>
+<span class="n">greet</span> <span class="o">=</span> <span class="n">hi</span>
+<span class="c">#We are not using parentheses here because we are not calling the function hi</span>
+<span class="c">#instead we are just putting it into the greet variable. Let&#39;s try to run this</span>
+
+<span class="k">print</span> <span class="n">greet</span><span class="p">()</span>
+<span class="c">#output: &#39;hi yasoob&#39;</span>
+
+<span class="c">#lets see what happens if we delete the old hi function!</span>
+<span class="k">del</span> <span class="n">hi</span>
+<span class="k">print</span> <span class="n">hi</span><span class="p">()</span>
+<span class="c">#outputs: NameError</span>
+
+<span class="k">print</span> <span class="n">greet</span><span class="p">()</span>
+<span class="c">#outputs: &#39;hi yasoob&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="defining-functions-within-functions">
+<h2>Defining functions within functions:</h2>
+<p>So those are the basics when it comes to functions. Lets take your
+knowledge one step further. In Python we can define functions inside
+other functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">hi</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;yasoob&quot;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;now you are inside the hi() function&quot;</span>
+
+    <span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s">&quot;now you are in the greet() function&quot;</span>
+
+    <span class="k">def</span> <span class="nf">welcome</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s">&quot;now you are in the welcome() function&quot;</span>
+
+    <span class="k">print</span> <span class="n">greet</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">welcome</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s">&quot;now you are back in the hi() function&quot;</span>
+
+<span class="n">hi</span><span class="p">()</span>
+<span class="c">#output:now you are inside the hi() function</span>
+<span class="c">#       now you are in the greet() function</span>
+<span class="c">#       now you are in the welcome() function</span>
+<span class="c">#       now you are back in the hi() function</span>
+
+<span class="c"># This shows that whenever you call hi(), greet() and welcome()</span>
+<span class="c"># are also called. However the greet() and welcome() functions</span>
+<span class="c"># are not available outsite the hi() function e.g:</span>
+
+<span class="n">greet</span><span class="p">()</span>
+<span class="c">#outputs: NameError: name &#39;greet&#39; is not defined</span>
+</pre></div>
+</div>
+<p>So now we know that we can define functions in other functions. In
+simpler words we can make nested functions. Now you need to learn one
+more thing that functions can return functions too.</p>
+</div>
+<div class="section" id="returning-functions-from-within-functions">
+<h2>Returning functions from within functions:</h2>
+<p>It is not necessary to execute a function within another function, we
+can return it as an output as well:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">hi</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;yasoob&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s">&quot;now you are in the greet() function&quot;</span>
+
+    <span class="k">def</span> <span class="nf">welcome</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s">&quot;now you are in the welcome() function&quot;</span>
+
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&quot;yasoob&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">greet</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">welcome</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">hi</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">a</span>
+<span class="c">#outputs: &lt;function greet at 0x7f2143c01500&gt;</span>
+
+<span class="c">#This clearly shows that `a` now points to the greet() function in hi()</span>
+<span class="c">#Now try this</span>
+
+<span class="k">print</span> <span class="n">a</span><span class="p">()</span>
+<span class="c">#outputs: now you are in the greet() function</span>
+</pre></div>
+</div>
+<p>Just take a look at the code again. In the <code class="docutils literal"><span class="pre">if/else</span></code> clause we are
+returning <code class="docutils literal"><span class="pre">greet</span></code> and <code class="docutils literal"><span class="pre">welcome</span></code>, not <code class="docutils literal"><span class="pre">greet()</span></code> and <code class="docutils literal"><span class="pre">welcome()</span></code>.
+Why is that? It is so because when you put parentheses around it the
+function gets executed whereas if you don&#8217;t put parenthesis around it
+then it can be passed around and can be assigned to other variables
+without executing it. Did you get it ? Let me explain it a little bit in
+more detail. When we write <code class="docutils literal"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">hi()</span></code>, <code class="docutils literal"><span class="pre">hi()</span></code> gets executed and
+because the name is yasoob by default, the function greet is returned.
+If we change the statement to <code class="docutils literal"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">hi(name</span> <span class="pre">=</span> <span class="pre">&quot;ali&quot;)</span></code> then the welcome
+function will be returned. We can also do print <code class="docutils literal"><span class="pre">hi()()</span></code> which outputs
+<em>now you are in the greet() function</em>.</p>
+</div>
+<div class="section" id="giving-a-function-as-an-argument-to-another-function">
+<h2>Giving a function as an argument to another function:</h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">hi</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&quot;hi yasoob!&quot;</span>
+
+<span class="k">def</span> <span class="nf">doSomethingBeforeHi</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;I am doing some  boring work before executing hi()&quot;</span>
+    <span class="k">print</span> <span class="n">func</span><span class="p">()</span>
+
+<span class="n">doSomethingBeforeHi</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span>
+<span class="c">#outputs:I am doing some  boring work before executing hi()</span>
+<span class="c">#        hi yasoob!</span>
+</pre></div>
+</div>
+<p>Now you have all the required knowledge to learn what decorators really
+are. Decorators let you execute code before and after a function.</p>
+</div>
+<div class="section" id="writing-your-first-decorator">
+<h2>Writing your first decorator:</h2>
+<p>In the last example we actually made a decorator! Lets modify the
+previous decorator and make a little bit more usable program:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">a_new_decorator</span><span class="p">(</span><span class="n">a_func</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">wrapTheFunction</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&quot;I am doing some  boring work before executing a_func()&quot;</span>
+
+        <span class="n">a_func</span><span class="p">()</span>
+
+        <span class="k">print</span> <span class="s">&quot;I am doing some boring work after executing a_func()&quot;</span>
+
+    <span class="k">return</span> <span class="n">wrapTheFunction</span>
+
+<span class="k">def</span> <span class="nf">a_function_requiring_decoration</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&quot;I am the function which needs some decoration to remove my foul smell&quot;</span>
+
+<span class="n">a_function_requiring_decoration</span><span class="p">()</span>
+<span class="c">#outputs: &quot;I am the function which needs some decoration to remove my foul smell&quot;</span>
+
+<span class="n">a_function_requiring_decoration</span> <span class="o">=</span> <span class="n">a_new_decorator</span><span class="p">(</span><span class="n">a_function_requiring_decoration</span><span class="p">)</span>
+<span class="c">#now a_function_requiring_decoration is wrapped by wrapTheFunction()</span>
+
+<span class="n">a_function_requiring_decoration</span><span class="p">()</span>
+<span class="c">#outputs:I am doing some  boring work before executing a_function_requiring_decoration()</span>
+<span class="c">#        I am the function which needs some decoration to remove my foul smell</span>
+<span class="c">#        I am doing some boring work after executing a_function_requiring_decoration()</span>
+</pre></div>
+</div>
+<p>Did you get it? We just applied the previously learned principles. This
+is exactly what the decorators do in python! They wrap a function and
+modify its behaviour in one way or the another. Now you might be
+wondering that we did not use the &#64; anywhere in our code? That is just a
+short way of making up a decorated function. Here is how we could have
+run the previous code sample using &#64;.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@a_new_decorator</span>
+<span class="k">def</span> <span class="nf">a_function_requiring_decoration</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Hey yo! Decorate me!&quot;&quot;&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;I am the function which needs some decoration to </span><span class="se">\</span>
+<span class="s">    remove my foul smell&quot;</span>
+
+<span class="n">a_function_requiring_decoration</span><span class="p">()</span>
+<span class="c">#outputs: I am doing some  boring work before executing a_function_requiring_decoration()</span>
+<span class="c">#         I am the function which needs some decoration to remove my foul smell</span>
+<span class="c">#         I am doing some boring work after executing a_function_requiring_decoration()</span>
+
+<span class="c">#the @a_new_decorator is just a short way of saying:</span>
+<span class="n">a_function_requiring_decoration</span> <span class="o">=</span> <span class="n">a_new_decorator</span><span class="p">(</span><span class="n">a_function_requiring_decoration</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I hope you now have a basic understanding of how decorators work in
+Python. Now there is one problem with our code. If we run:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a_function_requiring_decoration</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+<span class="c"># Output: wrapTheFunction</span>
+</pre></div>
+</div>
+<p>That&#8217;s not what we expected! It&#8217;s name is
+&#8220;a_function_requiring_decoration&#8221;. Well our function was replaced by
+wrapTheFunction. It overrided the name and docstring of our function.
+Luckily Python provides us a simple function to solve this problem and
+that is <code class="docutils literal"><span class="pre">functools.wraps</span></code>. Let&#8217;s modify our previous example to use
+<code class="docutils literal"><span class="pre">functools.wraps</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span> <span class="nf">a_new_decorator</span><span class="p">(</span><span class="n">a_func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">a_func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapTheFunction</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&quot;I am doing some  boring work before executing a_func()&quot;</span>
+        <span class="n">a_func</span><span class="p">()</span>
+        <span class="k">print</span> <span class="s">&quot;I am doing some boring work after executing a_func()&quot;</span>
+    <span class="k">return</span> <span class="n">wrapTheFunction</span>
+
+<span class="nd">@a_new_decorator</span>
+<span class="k">def</span> <span class="nf">a_function_requiring_decoration</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Hey yo! Decorate me!&quot;&quot;&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;I am the function which needs some decoration to </span><span class="se">\</span>
+<span class="s">    remove my foul smell&quot;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a_function_requiring_decoration</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+<span class="c"># Output: a_function_requiring_decoration</span>
+</pre></div>
+</div>
+<p>Now that is much better. Let&#8217;s move on and learn some use-cases of
+decorators.</p>
+<p><strong>Blueprint :</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="k">def</span> <span class="nf">decorator_name</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">decorated</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">can_run</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&quot;Function will not run&quot;</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">decorated</span>
+
+<span class="nd">@decorator_name</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&quot;Function is running&quot;</span>
+
+<span class="n">can_run</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">print</span><span class="p">(</span><span class="n">func</span><span class="p">())</span>
+<span class="c"># Output: Function is running</span>
+
+<span class="n">can_run</span><span class="o">=</span><span class="bp">False</span>
+<span class="k">print</span><span class="p">(</span><span class="n">func</span><span class="p">())</span>
+<span class="c"># Output: Function will not run</span>
+</pre></div>
+</div>
+<p>Note: <code class="docutils literal"><span class="pre">&#64;wraps</span></code> takes a function to be decorated and adds the
+functionality of copying over the function name, docstring, arguments
+list, etc. This allows to access the pre-decorated function&#8217;s properties
+in the decorator.</p>
+<div class="section" id="use-cases">
+<h3>Use-cases:</h3>
+<p>Now let&#8217;s take a look at the areas where decorators really shine and
+their usage makes something really easy to manage.</p>
+</div>
+</div>
+<div class="section" id="authorization">
+<h2>1. Authorization</h2>
+<p>Decorators can help to check whether someone is authorized to use an
+endpoint in a web application. They are extensively used in Flask web
+framework and Django. Here is an example to employ decorator based
+authentication:</p>
+<p><strong>Example :</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span> <span class="nf">requires_auth</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">decorated</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">auth</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">authorization</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">auth</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">check_auth</span><span class="p">(</span><span class="n">auth</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">auth</span><span class="o">.</span><span class="n">password</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">authenticate</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">decorated</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logging">
+<h2>2. Logging</h2>
+<p>Logging is another area where the decorators shine. Here is an example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span> <span class="nf">logit</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">with_logging</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span> <span class="o">+</span> <span class="s">&quot; was called&quot;</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">with_logging</span>
+
+<span class="nd">@logit</span>
+<span class="k">def</span> <span class="nf">addition_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;does some math&quot;&quot;&quot;</span>
+   <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">addition_func</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="c"># Output: addition_func was called</span>
+</pre></div>
+</div>
+<p>I am sure you are already thinking about some clever uses of decorators.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

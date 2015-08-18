@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Virtual Environment</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="collections.html" title="Collections"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="__slots__magic.html" title="__slots__ Magic"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="virtual-environment">
+<h1>Virtual Environment</h1>
+<p>Have you ever heard of <code class="docutils literal"><span class="pre">virtualenv</span></code>? The chances are that if you are a
+beginner then you might not have heard about it but if you are a
+seasoned programmer than it&#8217;s a vital part of your toolset. So what
+<code class="docutils literal"><span class="pre">virtualenv</span></code> really is? <code class="docutils literal"><span class="pre">Virtualenv</span></code> is a tool which allows us to
+make isolated python environments. Imagine you have an application that
+needs version 2 of a LibraryBar, but another application requires
+version 3. How can you use and develop both these applications?</p>
+<p>If you install everything into <code class="docutils literal"><span class="pre">/usr/lib/python2.7/site-packages</span></code> (or
+whatever your platform&#8217;s standard location is), it&#8217;s easy to end up in a
+situation where you unintentionally upgrade a package that shouldn&#8217;t be
+upgraded. In another case just imagine that you have an application
+which is fully developed and you do not want to make any change to the
+libraries it is using but at the same time you start developing another
+application which requires the updated versions of those libraries. What
+will you do? It is where <code class="docutils literal"><span class="pre">virtualenv</span></code> comes into play. It creates
+isolated environments for you python application and allows you to
+install Python libraries in that isolated environment instead of
+installing them globally.</p>
+<p>In order to install it just type this command in the shell:</p>
+<div class="code python highlight-python"><div class="highlight"><pre>$ pip install virtualenv
+</pre></div>
+</div>
+<p>Now i am going to list some of it&#8217;s commands. The most important ones
+are:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">$</span> <span class="pre">virtualenv</span> <span class="pre">myproject</span></code></li>
+<li><code class="docutils literal"><span class="pre">$</span> <span class="pre">source</span> <span class="pre">bin/activate</span></code></li>
+</ul>
+<p>This first one makes an isolated virtualenv environment in the
+<code class="docutils literal"><span class="pre">myproject</span></code> folder and the second command activates that isolated
+environment. While running the first command you have to make a
+decision.</p>
+<p>Do you want this virtualenv to use packages from your system
+<code class="docutils literal"><span class="pre">site-packages</span></code> or install them in the virtualenv’s site-packages? By
+default, virtualenv will symlink to your system’s <code class="docutils literal"><span class="pre">site-packages</span></code> if
+you install a package in the virtualenv that is already installed on
+your system. If you want a totally isolated <code class="docutils literal"><span class="pre">virtualenv</span></code> then you’ll
+want to do the latter. To do this, you pass in the
+<code class="docutils literal"><span class="pre">-–no-site-packages</span></code> switch when creating your virtualenv like this:</p>
+<div class="code python highlight-python"><div class="highlight"><pre>$ virtualenv --no-site-packages mycoolproject
+</pre></div>
+</div>
+<p>Now you can install any library without disturbing the global libraries
+or the libraries of the other environments. You can turn off the <code class="docutils literal"><span class="pre">env</span></code>
+by typing:</p>
+<div class="code python highlight-python"><div class="highlight"><pre>$ deactivate
+</pre></div>
+</div>
+<p><strong>Bonus</strong></p>
+<p>You can use <code class="docutils literal"><span class="pre">smartcd</span></code> which is a library for bash and zsh and allows
+you to alter your bash (or zsh) environment as you cd. It can be really
+helpful to activate and deactivate a <code class="docutils literal"><span class="pre">virtualenv</span></code> when you change
+directories. I have used it quite a lot and love it. You can read more
+about it on <a class="reference external" href="https://github.com/cxreg/smartcd">GitHub</a><span class="link-target"> [https://github.com/cxreg/smartcd]</span></p>
+<p>This was just a short intro to virtualenv. There&#8217;s a lot more to it. For
+further study i recommend <a class="reference external" href="http://docs.python-guide.org/en/latest/dev/virtualenvs.html">this
+link.</a><span class="link-target"> [http://docs.python-guide.org/en/latest/dev/virtualenvs.html]</span>
+It will remove all of your confusions about virtualenv.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

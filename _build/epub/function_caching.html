@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Function caching</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="context_managers.html" title="Context managers"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="coroutines.html" title="Coroutines"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="function-caching">
+<h1>Function caching</h1>
+<p>Function caching allows us to cache the return values of a function
+depending on the arguments. It can save time when an I/O bound function
+is periodically called with the same arguments. Before Python 3.2 we had
+to write a custom implementation. In Python 3.2+ there is an
+<code class="docutils literal"><span class="pre">lru_cache</span></code> decorator which allows us to quickly cache and uncache the
+return values of a function.</p>
+<p>Let&#8217;s see how we can use it in Python 3.2+ and the versions before it.</p>
+<div class="section" id="python-3-2">
+<h2>Python 3.2+</h2>
+<p>Let&#8217;s implement a ficonnaci calculator and use <code class="docutils literal"><span class="pre">lru_cache</span></code>.</p>
+<div class="code python highlight-python"><div class="highlight"><pre>from functools import lru_cache
+
+@lru_cache(maxsize=32)
+def fib(n):
+    if n &lt; 2:
+        return n
+    return fib(n-1) + fib(n-2)
+
+&gt;&gt;&gt; print([fib(n) for n in range(10)])
+# Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">maxsize</span></code> argument tells <code class="docutils literal"><span class="pre">lru_cache</span></code> about how many recent
+return values to cache.</p>
+<p>We can easily uncache the return values as well by using:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fib</span><span class="o">.</span><span class="n">cache_clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-2">
+<h2>Python 2+</h2>
+<p>There are a couple of ways to achieve the same effect. You can create
+any type of caching machanism. It entirely depends upon your needs. Here
+is a generic cache:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+    <span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">args</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">args</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">memo</span><span class="p">[</span><span class="n">args</span><span class="p">]</span> <span class="o">=</span> <span class="n">rv</span>
+            <span class="k">return</span> <span class="n">rv</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@memoize</span>
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/">Here</a><span class="link-target"> [https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/]</span>
+is a fine article by Caktus Group in which they caught a bug in Django
+which occured due to lru_cache. It&#8217;s an interesting read. Do check it
+out.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

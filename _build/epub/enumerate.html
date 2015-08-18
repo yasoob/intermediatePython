@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Enumerate</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="object_introspection.html" title="Object introspection"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="collections.html" title="Collections"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="enumerate">
+<h1>Enumerate</h1>
+<p>Enumerate is a built-in function of Python. It&#8217;s usefulness can not be
+summarized in a single line. Yet most of the newcommers and even some
+advanced programmers are unaware of it. It allows us to loop over
+something and have an automatic counter. Here is an example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">counter</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">some_list</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is not it. <code class="docutils literal"><span class="pre">enumerate</span></code> also accepts some optional arguments which
+make it even more useful.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;apple&#39;</span><span class="p">,</span> <span class="s">&#39;banana&#39;</span><span class="p">,</span> <span class="s">&#39;grapes&#39;</span><span class="p">,</span> <span class="s">&#39;pear&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="c"># Output:</span>
+<span class="c"># 1 apple</span>
+<span class="c"># 2 banana</span>
+<span class="c"># 3 grapes</span>
+<span class="c"># 4 pear</span>
+</pre></div>
+</div>
+<p>The optional argument allows us to tell <code class="docutils literal"><span class="pre">enumerate</span></code> from where to
+start the index. You can also create tuples containing the index and
+list item using a list. Here is an example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;apple&#39;</span><span class="p">,</span> <span class="s">&#39;banana&#39;</span><span class="p">,</span> <span class="s">&#39;grapes&#39;</span><span class="p">,</span> <span class="s">&#39;pear&#39;</span><span class="p">]</span>
+<span class="n">counter_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">counter_list</span><span class="p">)</span>
+<span class="c"># Output: [(1, &#39;apple&#39;), (2, &#39;banana&#39;), (3, &#39;grapes&#39;), (4, &#39;pear&#39;)]</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

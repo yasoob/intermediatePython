@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Collections</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="enumerate.html" title="Enumerate"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="virtual_environment.html" title="Virtual Environment"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="collections">
+<h1>Collections</h1>
+<p>Python ships with a module that contains a number of container data
+types called Collections. We will talk about a few of them and discuss
+their usefullness.</p>
+<p>The ones which we will talk about are:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">defaultdict</span></code></li>
+<li><code class="docutils literal"><span class="pre">counter</span></code></li>
+<li><code class="docutils literal"><span class="pre">deque</span></code></li>
+<li><code class="docutils literal"><span class="pre">namedtuple</span></code></li>
+</ul>
+<div class="section" id="defaultdict">
+<h2>1.<code class="docutils literal"><span class="pre">defaultdict</span></code></h2>
+<p>I personally use defaultdict quite a bit. Unlike <code class="docutils literal"><span class="pre">dict</span></code>, with
+<code class="docutils literal"><span class="pre">defaultdict</span></code> you do not need to check whether a key is present or
+not. So we can do:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="n">colours</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s">&#39;Yasoob&#39;</span><span class="p">,</span> <span class="s">&#39;Yellow&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Ali&#39;</span><span class="p">,</span> <span class="s">&#39;Blue&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Arham&#39;</span><span class="p">,</span> <span class="s">&#39;Green&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Ali&#39;</span><span class="p">,</span> <span class="s">&#39;Black&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Yasoob&#39;</span><span class="p">,</span> <span class="s">&#39;Red&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Ahmed&#39;</span><span class="p">,</span> <span class="s">&#39;Silver&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">favourite_colours</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">colour</span> <span class="ow">in</span> <span class="n">order</span><span class="p">:</span>
+    <span class="n">favourite_colours</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colour</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">favourite_colours</span><span class="p">)</span>
+
+<span class="c"># output</span>
+<span class="c"># defaultdict(&lt;type &#39;list&#39;&gt;,</span>
+<span class="c">#    {&#39;Arham&#39;: [&#39;Green&#39;],</span>
+<span class="c">#     &#39;Yasoob&#39;: [&#39;Yellow&#39;, &#39;Red&#39;],</span>
+<span class="c">#     &#39;Ahmed&#39;: [&#39;Silver&#39;],</span>
+<span class="c">#     &#39;Ali&#39;: [&#39;Blue&#39;, &#39;Black&#39;]</span>
+<span class="c"># })</span>
+</pre></div>
+</div>
+<p>One another very important use case is when you are appending to nested
+ists inside a dictionary. If a <code class="docutils literal"><span class="pre">key</span></code> is not already present in the
+dictionary then you are greeted with a <code class="docutils literal"><span class="pre">KeyError</span></code>. <code class="docutils literal"><span class="pre">defaultdict</span></code>
+allows us to circumvent this issue in a clever way. First let me share
+an example using <code class="docutils literal"><span class="pre">dict</span></code> which raises <code class="docutils literal"><span class="pre">KeyError</span></code> and then I will
+share a solution using <code class="docutils literal"><span class="pre">defaultdict</span></code>.</p>
+<p><strong>Problem:</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">some_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">some_dict</span><span class="p">[</span><span class="s">&#39;colours&#39;</span><span class="p">][</span><span class="s">&#39;favourite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;yellow&quot;</span>
+<span class="c"># Raises KeyError: &#39;colours&#39;</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">collections</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+<span class="n">some_dict</span> <span class="o">=</span> <span class="n">tree</span><span class="p">()</span>
+<span class="n">some_dict</span><span class="p">[</span><span class="s">&#39;colours&#39;</span><span class="p">][</span><span class="s">&#39;favourite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;yellow&quot;</span>
+<span class="c"># Works fine</span>
+</pre></div>
+</div>
+<p>You can print the <code class="docutils literal"><span class="pre">some_dict</span></code> using <code class="docutils literal"><span class="pre">json.dumps</span></code>. Here is some
+sample code:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">json</span>
+<span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">some_dict</span><span class="p">))</span>
+<span class="c"># Output: {&quot;colours&quot;: {&quot;favourite&quot;: &quot;yellow&quot;}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="counter">
+<h2>2.<code class="docutils literal"><span class="pre">counter</span></code></h2>
+<p>Counter allows us to count the occurances of a particular item. For
+instance it can be used to count the number of individual favourite
+colours:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">colours</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s">&#39;Yasoob&#39;</span><span class="p">,</span> <span class="s">&#39;Yellow&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Ali&#39;</span><span class="p">,</span> <span class="s">&#39;Blue&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Arham&#39;</span><span class="p">,</span> <span class="s">&#39;Green&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Ali&#39;</span><span class="p">,</span> <span class="s">&#39;Black&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Yasoob&#39;</span><span class="p">,</span> <span class="s">&#39;Red&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Ahmed&#39;</span><span class="p">,</span> <span class="s">&#39;Silver&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">favs</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">colour</span> <span class="ow">in</span> <span class="n">colours</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">favs</span><span class="p">)</span>
+<span class="c"># Output: Counter({</span>
+<span class="c">#    &#39;Yasoob&#39;: 2,</span>
+<span class="c">#    &#39;Ali&#39;: 2,</span>
+<span class="c">#    &#39;Arham&#39;: 1,</span>
+<span class="c">#    &#39;Ahmed&#39;: 1</span>
+<span class="c"># })</span>
+</pre></div>
+</div>
+<p>We can also count the most common lines in a file using it. For example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">line_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">line_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deque">
+<h2>3.<code class="docutils literal"><span class="pre">deque</span></code></h2>
+<p><code class="docutils literal"><span class="pre">deque</span></code> provides you with a double ended queue which means that you
+can append and delete elements from either side of the queue. First of
+all you have to import the deque module from the collections library:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+</pre></div>
+</div>
+<p>Now we can instantiate a deque object.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It works like python lists and provides you with somewhat similar
+methods as well. For example you can do:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;2&#39;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;3&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="c"># Output: 3</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c"># Output: &#39;1&#39;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c"># Output: &#39;3&#39;</span>
+</pre></div>
+</div>
+<p>You can pop values from both sides of the deque:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="c"># Output: 5</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+<span class="c"># Output: 0</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="c"># Output: 4</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="c"># Output: deque([1, 2, 3])</span>
+</pre></div>
+</div>
+<p>We can also limit the amount of items a deque can hold. By doing this
+when we achieve the maximum limit of out deque it will simply pop out
+the items from the opposite end. It is better to explain it using an
+example so here you go:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now whenever you insert values after 30, the leftmost value will be
+popped from the list. You can also expand the list in any direction with
+new values:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">d</span><span class="o">.</span><span class="n">extendleft</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">d</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="c"># Output: deque([0, 1, 2, 3, 4, 5, 6, 7, 8])</span>
+</pre></div>
+</div>
+<p>This was just a quick drive through the <code class="docutils literal"><span class="pre">collections</span></code> module. Make
+sure you read the official documentation after reading this.</p>
+</div>
+<div class="section" id="namedtuple">
+<h2>4.<code class="docutils literal"><span class="pre">namedtuple</span></code></h2>
+<p>You might already be acquainted with tuples. A tuple is a lightweight
+object type which&nbsp;allows to store a sequence of immutable Python
+objects. They are just like lists but have a few key differences. The
+major one is&nbsp;that unlike lists, <strong>you can not change a value in a
+tuple</strong>. In order to access the value in a tuple you use integer indexes
+like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">man</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;Ali&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">man</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c"># Output: Ali</span>
+</pre></div>
+</div>
+<p>Well, so now what are <code class="docutils literal"><span class="pre">namedtuples</span></code>? They turn tuples into convenient
+containers for simple tasks. With namedtuples you don&#8217;t have to use
+integer indexes for accessing members of a tuple. You can think of
+namedtuples like dictionaries but unlike dictionaries they are
+immutable.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">Animal</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Animal&#39;</span><span class="p">,</span> <span class="s">&#39;name age type&#39;</span><span class="p">)</span>
+<span class="n">perry</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;perry&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;cat&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">perry</span><span class="p">)</span>
+<span class="c"># Output: Animal(name=&#39;perry&#39;, age=31, type=&#39;cat&#39;)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">perry</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="c"># Output: &#39;perry&#39;</span>
+</pre></div>
+</div>
+<p>As you can see that now we can access members of a tuple just by their
+name using a <code class="docutils literal"><span class="pre">.</span></code>. Let&#8217;s disect it a little more. A named tuple has two
+required arguments. They are the tuple name and the tuple field_names.
+In the above example our tuple name was &#8216;Animal&#8217; and the tuple
+field_names were &#8216;name&#8217;, &#8216;age&#8217; and &#8216;cat&#8217;. Namedtuple makes your tuples
+<strong>self-document</strong>. You can easily understand what is going on by having
+a quick glance at your code. And as you are not bound to use integer
+indexes to access members of a tuple, it makes it more easy to maintain
+your code. Moreover, as <strong>``namedtuple`` instances do not have
+per-instance dictionaries</strong>, they are lightweight and require no more
+memory than regular tuples. This makes them faster than dictionaries.
+However, do remember that as with tuples, <strong>attributes in namedtuples
+are immutable</strong>. It means that this would not work:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">Animal</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Animal&#39;</span><span class="p">,</span> <span class="s">&#39;name age type&#39;</span><span class="p">)</span>
+<span class="n">perry</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;perry&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;cat&quot;</span><span class="p">)</span>
+<span class="n">perry</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="c"># Output: Traceback (most recent call last):</span>
+<span class="c">#            File &quot;&quot;, line 1, in</span>
+<span class="c">#         AttributeError: can&#39;t set attribute</span>
+</pre></div>
+</div>
+<p>You should use named tuples to make your code self-documenting. <strong>They
+are backwards compatible with normal tuples</strong>. It means that you can use
+integer indexes with namedtuples as well:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">Animal</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Animal&#39;</span><span class="p">,</span> <span class="s">&#39;name age type&#39;</span><span class="p">)</span>
+<span class="n">perry</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;perry&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;cat&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perry</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c"># Output: perry</span>
+</pre></div>
+</div>
+<p>Last but not the least, you can convert a namedtuple to a dictionary.
+Like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">Animal</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Animal&#39;</span><span class="p">,</span> <span class="s">&#39;name age type&#39;</span><span class="p">)</span>
+<span class="n">perry</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;perry&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;cat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

@@ -154,7 +154,7 @@ html_static_path = ['_static']
 #html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #html_show_copyright = True
@@ -257,6 +257,9 @@ epub_author = u'Muhammad Yasoob Ullah Khalid'
 epub_publisher = u'Muhammad Yasoob Ullah Khalid'
 epub_copyright = u'2015, Muhammad Yasoob Ullah Khalid'
 
+
+#epub_theme = 'epub'
+
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
 #epub_language = ''
@@ -272,7 +275,7 @@ epub_copyright = u'2015, Muhammad Yasoob Ullah Khalid'
 #epub_uid = ''
 
 # A tuple containing the cover image and cover page html template filenames.
-#epub_cover = ()
+epub_cover = ('_static/cover.png', 'epub-cover.html')
 
 # A sequence of (type, uri, title) tuples for the guide element of content.opf.
 #epub_guide = ()
@@ -304,7 +307,7 @@ epub_copyright = u'2015, Muhammad Yasoob Ullah Khalid'
 #epub_show_urls = 'inline'
 
 # If false, no index is generated.
-#epub_use_index = True
+epub_use_index = False
 
 sys.path.append(os.path.abspath('_themes'))
 #html_theme_path = ['_themes']
