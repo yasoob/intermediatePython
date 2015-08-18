@@ -11,7 +11,7 @@ Preface
 
 Python is an amazing language with a strong and friendly community of programmers. However, there is a lack of documentation on what to learn after getting the basics of Python down your throat. Through this book I aim to solve this problem. I would give you bits of information about some interesting topics which you can further explore.
 
-The topics which are discussed in this book open up your mind towards some nice corners of Python language. This book is an outcome of my desire to have something like it when I was beginning to learn Python.
+The topics which are discussed in this book open up your mind towards some nice corners of Python language. This book is an outcome of my desire to have something like this when I was beginning to learn Python.
 
 If you are a beginner, intermediate or even an advanced programmer there is something for you in this book.
 

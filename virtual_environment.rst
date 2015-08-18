@@ -17,7 +17,7 @@ which is fully developed and you do not want to make any change to the
 libraries it is using but at the same time you start developing another
 application which requires the updated versions of those libraries. What
 will you do? It is where ``virtualenv`` comes into play. It creates
-isolated environments for you python application and allows you to
+isolated environments for your python application and allows you to
 install Python libraries in that isolated environment instead of
 installing them globally.
 
