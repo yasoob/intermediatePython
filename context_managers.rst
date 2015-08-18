@@ -7,7 +7,7 @@ the ``with`` statement. Suppose you have two related operations which
 you’d like to execute as a pair, with a block of code in between.
 Context managers allow you to do specifically that. For example:
 
-::
+.. code:: python
 
     with open('some_file', 'w') as opened_file:
         opened_file.write('Hola!')
@@ -16,7 +16,7 @@ The above code opens the file, writes some data to it and then closes
 it. If an error occurs while writing the data to the file, it tries to
 close it. The above code is equivalent to:
 
-::
+.. code:: python
 
     file = open('some_file', 'w')
     try:
@@ -42,7 +42,7 @@ At the very least a context manager has an ``__enter__`` and
 ``__exit__`` methods defined. Let's make our own file opening Context
 Manager and learn the basics.
 
-::
+.. code:: python
 
     class File(object):
         def __init__(self, file_name, method):
@@ -55,7 +55,7 @@ Manager and learn the basics.
 Just by defining ``__enter__`` and ``__exit__`` methods we can use it in
 a ``with`` statement. Let's try:
 
-::
+.. code:: python
 
     with File('demo.txt', 'w') as opened_file:
         opened_file.write('Hola!')
@@ -87,7 +87,7 @@ What if our file object raises an exception? We might be trying to
 access a method on the file object which it does not supports. For
 instance:
 
-::
+.. code:: python
 
     with File('demo.txt', 'w') as opened_file:
         opened_file.undefined_function('Hola!')
@@ -107,7 +107,7 @@ In our case the ``__exit__`` method returns ``None`` (when no return
 statement is encountered then the method returns ``None``). Therefore,
 ``with`` statement raises the exception.
 
-::
+.. code:: python
 
     Traceback (most recent call last):
       File "<stdin>", line 2, in <module>
@@ -115,7 +115,7 @@ statement is encountered then the method returns ``None``). Therefore,
 
 Let's try handling the exception in the ``__exit__`` method:
 
-::
+.. code:: python
 
     class File(object):
         def __init__(self, file_name, method):
@@ -146,7 +146,7 @@ Python has a contextlib module for this very purpose. Instead of a
 class, we can implement a Context Manager using a generator function.
 Let's see a basic, useless example:
 
-::
+.. code:: python
 
     from contextlib import contextmanager
 
@@ -177,7 +177,7 @@ Let's dissect this method a little.
 So now that we know all this, we can use the newly generated Context
 Manager like this:
 
-::
+.. code:: python
 
     with open_file('some_file') as f:
         f.write('hola!')

@@ -9,7 +9,7 @@ going!
 1. Instance & Class variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Most beginners and even some advance Python programmers do not
+Most beginners and even some advanced Python programmers do not
 understand the distinction between instance and class variables. Their
 lack of understanding forces them to use these different types of
 variables incorrectly. Let's understand them.
@@ -53,7 +53,7 @@ Let's take a look at an example:
     b.pi
     # Output: 50
 
-There are not much issues while using mutable class variables. This is
+There are not many issues while using mutable class variables. This is
 the major reason due to which beginners do not try to learn more about
 this subject because everything works! If you also believe that instance
 and class variables can not cause any problem if used incorrectly then
@@ -90,7 +90,7 @@ make your code safe against this kind of surprise attacks then make sure
 that you do not use mutable class variables. You may use them only if
 you know what you are doing.
 
-2.New style classes:
+2. New style classes
 ^^^^^^^^^^^^^^^^^^^^
 
 New style classes were introduced in Python 2.1 but a lot of people do
@@ -130,16 +130,17 @@ classes.
 whether you subclass from ``object`` or not. However it is recommended
 that you still subclass from ``object``.
 
-3.Magic Methods:
+3. Magic Methods
 ^^^^^^^^^^^^^^^^
 
 Python's classes are famous for their magic methods, commonly called
-**dunder** methods. I am going to discuss a few of them.
+**dunder** (double underscore) methods. I am going to discuss a few of
+them.
 
 -  ``__init__``
 
 It is a class initializer. Whenever an instance of a class is created
-it's ``__init__`` method. For instance:
+its ``__init__`` method is called. For example:
 
 .. code:: python
 

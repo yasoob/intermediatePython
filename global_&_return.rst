@@ -2,7 +2,7 @@ Global & Return
 ---------------
 
 You might have encountered some functions written in python which have a
-return keyword in the end of the function. Do you know what it does? It
+``return`` keyword in the end of the function. Do you know what it does? It
 is similar to return in other languages. Lets examine this little
 function:
 

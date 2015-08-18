@@ -32,7 +32,7 @@ they are used in the wild:
     a.sort(key=lambda x: x[1])
 
     print(a)
-    # Output: [(13, -3), (4, 1), (1, 2), (9, 10)] 
+    # Output: [(13, -3), (4, 1), (1, 2), (9, 10)]
 
 **Parallel sorting of lists**
 
@@ -41,5 +41,3 @@ they are used in the wild:
     data = zip(list1, list2)
     data.sort()
     list1, list2 = map(lambda t: list(t), zip(*data))
-
-Note: We will learn about map in a later chapter so don't worry!

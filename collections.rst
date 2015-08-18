@@ -205,7 +205,7 @@ major one is that unlike lists, **you can not change a value in a
 tuple**. In order to access the value in a tuple you use integer indexes
 like:
 
-::
+.. code:: python
 
     man = ('Ali', 30)
     print(man[0])
@@ -217,7 +217,7 @@ integer indexes for accessing members of a tuple. You can think of
 namedtuples like dictionaries but unlike dictionaries they are
 immutable.
 
-::
+.. code:: python
 
     from collections import namedtuple
 
@@ -244,7 +244,7 @@ memory than regular tuples. This makes them faster than dictionaries.
 However, do remember that as with tuples, **attributes in namedtuples
 are immutable**. It means that this would not work:
 
-::
+.. code:: python
 
     from collections import namedtuple
 
@@ -260,7 +260,7 @@ You should use named tuples to make your code self-documenting. **They
 are backwards compatible with normal tuples**. It means that you can use
 integer indexes with namedtuples as well:
 
-::
+.. code:: python
 
     from collections import namedtuple
 
@@ -272,7 +272,7 @@ integer indexes with namedtuples as well:
 Last but not the least, you can convert a namedtuple to a dictionary.
 Like this:
 
-::
+.. code:: python
 
     from collections import namedtuple
 

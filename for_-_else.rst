@@ -9,7 +9,7 @@ one.
 Let's first start of by what we know. We know that we can use for loops
 like this:
 
-::
+.. code:: python
 
     fruits = ['apple', 'banana', 'mango']
     for fruit in fruits:
@@ -67,7 +67,7 @@ It outputs the prime numbers between 2 to 10. Now for the fun part. We
 can add an additional ``else`` block which catches the numbers which are
 not prime and tells us so:
 
-::
+.. code:: python
 
     for n in range(2, 10):
         for x in range(2, n):

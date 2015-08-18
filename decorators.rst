@@ -9,7 +9,7 @@ decorators can make your code concise.
 
 Firstly let's discuss how to write your own decorator.
 
-It is perhaps one of the most difficult concept to grasp. We will take
+It is perhaps one of the most difficult concepts to grasp. We will take
 it one step at a time so that you can fully understand it.
 
 Everything in python is an object:
@@ -17,7 +17,7 @@ Everything in python is an object:
 
 First of all let's understand functions in python:
 
-::
+.. code:: python
 
     def hi(name="yasoob"):
         return "hi " + name
@@ -48,7 +48,7 @@ So those are the basics when it comes to functions. Lets take your
 knowledge one step further. In Python we can define functions inside
 other functions:
 
-::
+.. code:: python
 
     def hi(name="yasoob"):
         print "now you are inside the hi() function"
@@ -86,7 +86,7 @@ Returning functions from within functions:
 It is not necessary to execute a function within another function, we
 can return it as an output as well:
 
-::
+.. code:: python
 
     def hi(name="yasoob"):
         def greet():
@@ -125,7 +125,7 @@ function will be returned. We can also do print ``hi()()`` which outputs
 Giving a function as an argument to another function:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-::
+.. code:: python
 
     def hi():
         return "hi yasoob!"
@@ -147,7 +147,7 @@ Writing your first decorator:
 In the last example we actually made a decorator! Lets modify the
 previous decorator and make a little bit more usable program:
 
-::
+.. code:: python
 
     def a_new_decorator(a_func):
 
@@ -181,7 +181,7 @@ wondering that we did not use the @ anywhere in our code? That is just a
 short way of making up a decorated function. Here is how we could have
 run the previous code sample using @.
 
-::
+.. code:: python
 
     @a_new_decorator
     def a_function_requiring_decoration():
@@ -200,19 +200,19 @@ run the previous code sample using @.
 I hope you now have a basic understanding of how decorators work in
 Python. Now there is one problem with our code. If we run:
 
-::
+.. code:: python
 
     print(a_function_requiring_decoration.__name__)
     # Output: wrapTheFunction
 
-That's not what we expected! It's name is
+That's not what we expected! Its name is
 "a\_function\_requiring\_decoration". Well our function was replaced by
 wrapTheFunction. It overrode the name and docstring of our function.
 Luckily Python provides us a simple function to solve this problem and
 that is ``functools.wraps``. Let's modify our previous example to use
 ``functools.wraps``:
 
-::
+.. code:: python
 
     from functools import wraps
 
@@ -291,7 +291,7 @@ authentication:
         def decorated(*args, **kwargs):
             auth = request.authorization
             if not auth or not check_auth(auth.username, auth.password):
-                return authenticate()
+                authenticate()
             return f(*args, **kwargs)
         return decorated
 
