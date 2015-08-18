@@ -257,7 +257,7 @@ decorators.
     print(func())
     # Output: Function is running
 
-    can_run=False
+    can_run = False
     print(func())
     # Output: Function will not run
 
