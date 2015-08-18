@@ -3,7 +3,7 @@ Collections
 
 Python ships with a module that contains a number of container data
 types called Collections. We will talk about a few of them and discuss
-their usefullness.
+their usefulness.
 
 The ones which we will talk about are:
 
@@ -48,7 +48,7 @@ not. So we can do:
     # })
 
 One another very important use case is when you are appending to nested
-ists inside a dictionary. If a ``key`` is not already present in the
+lists inside a dictionary. If a ``key`` is not already present in the
 dictionary then you are greeted with a ``KeyError``. ``defaultdict``
 allows us to circumvent this issue in a clever way. First let me share
 an example using ``dict`` which raises ``KeyError`` and then I will
@@ -84,7 +84,7 @@ sample code:
 2.\ ``counter``
 ^^^^^^^^^^^^^^^
 
-Counter allows us to count the occurances of a particular item. For
+Counter allows us to count the occurrences of a particular item. For
 instance it can be used to count the number of individual favourite
 colours:
 
@@ -231,7 +231,7 @@ immutable.
     # Output: 'perry'
 
 As you can see that now we can access members of a tuple just by their
-name using a ``.``. Let's disect it a little more. A named tuple has two
+name using a ``.``. Let's dissect it a little more. A named tuple has two
 required arguments. They are the tuple name and the tuple field\_names.
 In the above example our tuple name was 'Animal' and the tuple
 field\_names were 'name', 'age' and 'cat'. Namedtuple makes your tuples

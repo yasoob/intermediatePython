@@ -44,7 +44,7 @@ This is the basic structure of a ``for/else`` loop:
 .. code:: python
 
     for item in container:
-        if search_comething(item):
+        if search_something(item):
             # Found it!
             process(item)
             break

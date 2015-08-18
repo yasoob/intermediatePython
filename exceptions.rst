@@ -15,7 +15,7 @@ Here is a simple example:
     try:
         file = open('test.txt', 'rb')
     except IOError as e:
-        print('An IOError occured. {}'.format(e.args[-1]))
+        print('An IOError occurred. {}'.format(e.args[-1]))
 
 In the above example we are handling only the IOError exception. What
 most beginners do not know is that we can handle multiple exceptions.
@@ -32,7 +32,7 @@ tuple. Like so:
     try:
         file = open('test.txt', 'rb')
     except (IOError, EOFError) as e:
-        print("An error occured. {}".format(e.args[-1]))
+        print("An error occurred. {}".format(e.args[-1]))
 
 Another method is to handle individual exception in a separate except
 block. We can have as many except blocks as we want. Here is an example:
@@ -42,10 +42,10 @@ block. We can have as many except blocks as we want. Here is an example:
     try:
         file = open('test.txt', 'rb')
     except EOFError as e:
-        print("An EOF error occured.")
+        print("An EOF error occurred.")
         raise e
     except IOError as e:
-        print("An error occured.")
+        print("An error occurred.")
         raise e
 
 This way if the exception is not handled by the first except block then
@@ -78,11 +78,11 @@ for cleaning up after a script. Here is a simple example:
     try:
         file = open('test.txt', 'rb')
     except IOError as e:
-        print('An IOError occured. {}'.format(e.args[-1]))
+        print('An IOError occurred. {}'.format(e.args[-1]))
     finally:
         print("This would be printed even if no exception occurs!")
         
-    # Output: An IOError occured. No such file or directory
+    # Output: An IOError occurred. No such file or directory
     # This would be printed even if no exception occurs!
 
 ``try/else`` clause

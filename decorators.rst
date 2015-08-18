@@ -71,7 +71,7 @@ other functions:
 
     # This shows that whenever you call hi(), greet() and welcome()
     # are also called. However the greet() and welcome() functions
-    # are not available outsite the hi() function e.g:
+    # are not available outside the hi() function e.g:
 
     greet()
     #outputs: NameError: name 'greet' is not defined

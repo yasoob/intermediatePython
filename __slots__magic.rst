@@ -10,7 +10,7 @@ bottleneck. The ``dict`` wastes a lot of RAM. Python can’t just allocate
 a static amount of memory at object creation to store all the
 attributes. Therefore it sucks a lot of RAM if you create a lot of
 objects (I am talking in thousands and millions). Still there is a way
-to circumvent this issue. It involves the useage of ``__slots__`` to
+to circumvent this issue. It involves the usage of ``__slots__`` to
 tell Python not to use a dict, and only allocate space for a fixed set
 of attributes. Here is an example with and without ``__slots__``:
 

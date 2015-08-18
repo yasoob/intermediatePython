@@ -160,7 +160,7 @@ its ``__init__`` method is called. For example:
 
 You can see that ``__init__`` is called immediately after an instance is
 created. You can also pass arguments to the class during it's
-innitialization. Like this:
+initialization. Like this:
 
 .. code:: python
 
