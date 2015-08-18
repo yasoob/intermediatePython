@@ -63,9 +63,9 @@ documentation:
                 print n, 'equals', x, '*', n/x
                 break
 
-It outputs the prime numbers between 2 to 10. Now for the fun part. We
+It finds factors for numbers between 2 to 10. Now for the fun part. We
 can add an additional ``else`` block which catches the numbers which are
-not prime and tells us so:
+prime and tells us so:
 
 .. code:: python
 
