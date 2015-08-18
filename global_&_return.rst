@@ -2,7 +2,7 @@ Global & Return
 ---------------
 
 You might have encountered some functions written in python which have a
-return keyword in the end of the function. Do you know what it does? It
+``return`` keyword in the end of the function. Do you know what it does? It
 is similar to return in other languages. Lets examine this little
 function:
 
@@ -69,6 +69,6 @@ scope of the function as well. Let me demonstrate it with an example :
 
 So hopefully there are no errors in the second run as expected. In
 practical programming you should try to stay away from ``global``
-keyword as it only makes life difficult by introducing unwated variables
+keyword as it only makes life difficult by introducing unwanted variables
 to the global scope.
     
