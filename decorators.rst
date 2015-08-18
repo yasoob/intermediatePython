@@ -1,11 +1,11 @@
 Decorators
 ----------
 
-Decorators are a significant part of Python. In simple words they are
+Decorators are a significant part of Python. In simple words: they are
 functions which modify the functionality of another function. They help
 to make our code shorter and more Pythonic. Most of the beginners do not
 know where to use them so I am going to share some areas where
-decorators can make your code concise.
+decorators can make your code more concise.
 
 First, let's discuss how to write your own decorator.
 
@@ -44,7 +44,7 @@ First of all let's understand functions in python:
 Defining functions within functions:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-So those are the basics when it comes to functions. Lets take your
+So those are the basics when it comes to functions. Let's take your
 knowledge one step further. In Python we can define functions inside
 other functions:
 
@@ -77,8 +77,8 @@ other functions:
     #outputs: NameError: name 'greet' is not defined
 
 So now we know that we can define functions in other functions. In
-simpler words we can make nested functions. Now you need to learn one
-more thing that functions can return functions too.
+other words: we can make nested functions. Now you need to learn one
+more thing, that functions can return functions too.
 
 Returning functions from within functions:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -112,13 +112,13 @@ can return it as an output as well:
 
 Just take a look at the code again. In the ``if/else`` clause we are
 returning ``greet`` and ``welcome``, not ``greet()`` and ``welcome()``.
-Why is that? It is so because when you put parentheses around it the
-function gets executed whereas if you don't put parenthesis around it
+Why is that? It's because when you put a pair of parentheses after it, the
+function gets executed; whereas if you don't put parenthesis after it,
 then it can be passed around and can be assigned to other variables
-without executing it. Did you get it ? Let me explain it a little bit in
+without executing it. Did you get it? Let me explain it in a little bit
 more detail. When we write ``a = hi()``, ``hi()`` gets executed and
-because the name is yasoob by default, the function greet is returned.
-If we change the statement to ``a = hi(name = "ali")`` then the welcome
+because the name is yasoob by default, the function ``greet`` is returned.
+If we change the statement to ``a = hi(name = "ali")`` then the ``welcome``
 function will be returned. We can also do print ``hi()()`` which outputs
 *now you are in the greet() function*.
 
@@ -144,7 +144,7 @@ are. Decorators let you execute code before and after a function.
 Writing your first decorator:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the last example we actually made a decorator! Lets modify the
+In the last example we actually made a decorator! Let's modify the
 previous decorator and make a little bit more usable program:
 
 .. code:: python
