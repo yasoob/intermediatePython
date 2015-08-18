@@ -17,7 +17,7 @@ Here is an example:
     $ python -m pdb my_script.py
 
 It would cause the debugger to stop the execution on the first statement
-it finds. This is helpful if you script is short. You can then inspect
+it finds. This is helpful if your script is short. You can then inspect
 the variables and continue execution line-by-line.
 
 **Running from inside a script**
