@@ -257,6 +257,9 @@ epub_author = u'Muhammad Yasoob Ullah Khalid'
 epub_publisher = u'Muhammad Yasoob Ullah Khalid'
 epub_copyright = u'2015, Muhammad Yasoob Ullah Khalid'
 
+
+epub_theme = 'epub'
+
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
 #epub_language = ''
