@@ -40,8 +40,8 @@ You can intersect two sets. For instance:
 .. code:: python
 
     valid = set(['yellow', 'red', 'blue', 'green', 'black'])
-    input = set(['red', 'brown'])
-    print(input.intersection(valid))
+    input_set = set(['red', 'brown'])
+    print(input_set.intersection(valid))
     # Output: set(['red'])
 
 **Difference**
@@ -52,8 +52,8 @@ difference method. For example:
 .. code:: python
 
     valid = set(['yellow', 'red', 'blue', 'green', 'black'])
-    input = set(['red', 'brown'])
-    print(input.difference(valid))
+    input_set = set(['red', 'brown'])
+    print(input_set.difference(valid))
     # Output: set(['brown'])
 
 You can also create sets using the new notation:
