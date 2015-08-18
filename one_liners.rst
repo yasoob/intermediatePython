@@ -36,7 +36,7 @@ json quickly from a file then you can simply do:
 
 .. code:: python
 
-    cat file.json | python -m json.tools
+    cat file.json | python -m json.tool
 
 **Profiling a script**
 
