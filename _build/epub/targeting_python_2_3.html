@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Targeting Python 2+3</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="coroutines.html" title="Coroutines"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="open_function.html" title="Open function"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="targeting-python-2-3">
+<h1>Targeting Python 2+3</h1>
+<p>In a lot of cases you might want to develop programs which can be run in
+both, Python 2+ and 3+.</p>
+<p>Just imagine that you have a very popular python module which is use by
+hundreds of people but not all of them have python 2 or 3. In that case
+you have two choices. The first one is to distribute 2 modules, one for
+python 2 and the other for python 3. The other choice is to modify your
+current code and make is compatible with both python 2 and 3.</p>
+<p>In this section I am going to highlight some of the tricks which you can
+employ to make a script compatible with both of them.</p>
+<p><strong>Future imports</strong></p>
+<p>The first and most important method is to use <code class="docutils literal"><span class="pre">__future__</span></code> imports. It
+allows you to import Python 3 functionality in Python 2. Here is an
+example:</p>
+<ul class="simple">
+<li>Context manager were new in Python 3. For using them in Python 2.5+
+you can use:</li>
+</ul>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">with_statement</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">print</span></code> function</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">print</span></code> was changed to a function in Python 3. If you want to use it
+in Python 2 you can import it from <code class="docutils literal"><span class="pre">__future__</span></code>.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">print</span>
+<span class="c"># Output:</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="k">print</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+<span class="c"># Output: &lt;built-in function print&gt;</span>
+</pre></div>
+</div>
+<p><strong>Dealing with module renaming</strong></p>
+<p>First tell me how you import packages in your script ? Most of us do
+this :</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">foo</span>
+<span class="c"># or</span>
+<span class="kn">from</span> <span class="nn">foo</span> <span class="kn">import</span> <span class="n">bar</span>
+</pre></div>
+</div>
+<p>Do you know that you can do something like this as well?</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">foo</span> <span class="kn">as</span> <span class="nn">foo</span>
+</pre></div>
+</div>
+<p>I know it’s function is the same as above listed code but it is vital
+for making your script compatible with python 2 and 3. Now examine the
+code below :</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">urllib.request</span> <span class="kn">as</span> <span class="nn">urllib_request</span>  <span class="c"># for python 3</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">urllib2</span> <span class="kn">as</span> <span class="nn">urllib_request</span>  <span class="c"># for python 2</span>
+</pre></div>
+</div>
+<p>So let me explain the above code a little. We are wrapping our importing
+code in a try except clause. We are doing it because in python2 there is
+no urllib.request module and will result in an ImportError. The
+functionality of urllib.request is provided by urllib2 module in
+python2. So now when in Python2 we try to import <code class="docutils literal"><span class="pre">urllib.request</span></code> and
+get an <code class="docutils literal"><span class="pre">ImportError</span></code> we tell Python to import urllib2 instead.</p>
+<p>The final thing you need to know about is the <code class="docutils literal"><span class="pre">as</span></code> keyword. It is
+mapping the imported module to <code class="docutils literal"><span class="pre">urllib_request</span></code>. So that now all of
+the Classes and methods of urllib2 are available to us by
+urllib_request.</p>
+<p><strong>Obsolete Python 2 builtins</strong></p>
+<p>Another thing to keep in mind is that there are 12 Python 2 builtins
+which have been removed from Python 3. Make sure that you don&#8217;t use them
+in Python 2 as well in order to make your code compatible with Python 3.
+Here is a way to enforce you to abandon these 12 builtins in Python 2 as
+well.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">future.builtins.disabled</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>Now whenever you try to use the modules which are abandoned in Python 3,
+it raises a NameError like this:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">future.builtins.disabled</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nb">apply</span><span class="p">()</span>
+<span class="c"># Output: NameError: obsolete Python 2 builtin apply is disabled</span>
+</pre></div>
+</div>
+<p><strong>External standard-library backports</strong></p>
+<p>There are a few packages in the wild which provide Python 3
+functionality in Python 2. For instance we have:</p>
+<ul class="simple">
+<li>enum <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">enum34</span></code></li>
+<li>singledispatch <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">singledispatch</span></code></li>
+<li>pathlib <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pathlib</span></code></li>
+</ul>
+<p>I am sure there are a lot of other methods and tricks which can be used
+to make you code compatible with both of these Python series. This was
+just to give you some ideas.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Global &amp; Return</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="mutation.html" title="Mutation"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="decorators.html" title="Decorators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="global-return">
+<h1>Global &amp; Return</h1>
+<p>You might have encountered some functions written in python which have a
+return keyword in the end of the function. Do you know what it does ? It
+is similar to return in other languages. Lets examine this little
+function:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="n">value2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">value1</span> <span class="o">+</span> <span class="n">value2</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c"># Output: 8</span>
+</pre></div>
+</div>
+<p>The function above takes two values as input and then output their
+addition. We could have also done:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="n">value2</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">result</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">+</span> <span class="n">value2</span>
+
+<span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c"># Output: 8</span>
+</pre></div>
+</div>
+<p>So first lets talk about the first bit of code which involves the
+<code class="docutils literal"><span class="pre">return</span></code> keyword. What that function is doing is that it is assigning
+the value to the variable which is calling that function which in our
+case is <code class="docutils literal"><span class="pre">result</span></code>. In most cases and you won&#8217;t need to use the
+<code class="docutils literal"><span class="pre">global</span></code> keyword. However lets examine the other bit of code as well
+which includes the <code class="docutils literal"><span class="pre">global</span></code> keyword. So what that function is doing is
+that it is making a global variable <code class="docutils literal"><span class="pre">result</span></code>. What does global mean
+here? Global variable means that we can access that variable outside the
+scope of the function as well. Let me demonstrate it with an example :</p>
+<div class="code python highlight-python"><div class="highlight"><pre># first without the global variable
+def add(value1,value2):
+    result = value1 + value2
+
+add(2,4)
+print(result)
+
+# Oh crap we encountered an exception. Why is it so ?
+# the python interpreter is telling us that we do not
+# have any variable with the name of result. It is so
+# because the result variable is only accessible inside
+# the function in which it is created if it is not global.
+Traceback (most recent call last):
+  File &quot;&quot;, line 1, in
+    result
+NameError: name &#39;result&#39; is not defined
+
+# Now lets run the same code but after making the result
+# variable global
+def add(value1,value2):
+    global result
+    result = value1 + value2
+
+add(2,4)
+result
+6
+</pre></div>
+</div>
+<p>So hopefully there are no errors in the second run as expected. In
+practical programming you should try to stay away from <code class="docutils literal"><span class="pre">global</span></code>
+keyword as it only makes life difficult by introducing unwated variables
+to the global scope.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

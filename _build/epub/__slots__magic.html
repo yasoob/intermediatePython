@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>__slots__ Magic</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="virtual_environment.html" title="Virtual Environment"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="mutation.html" title="Mutation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="slots-magic">
+<h1>__slots__ Magic</h1>
+<p>In Python every class can have instance attributes. By default Python
+uses a dict to store an object’s instance attributes. This is really
+helpful as it allows setting arbitrary new attributes at runtime.</p>
+<p>However, for small classes with known attributes it might be a
+bottleneck. The <code class="docutils literal"><span class="pre">dict</span></code> wastes a lot of RAM. Python can’t just allocate
+a static amount of memory at object creation to store all the
+attributes. Therefore it sucks a lot of RAM if you create a lot of
+objects (I am talking in thousands and millions). Still there is a way
+to circumvent this issue. It involves the useage of <code class="docutils literal"><span class="pre">__slots__</span></code> to
+tell Python not to use a dict, and only allocate space for a fixed set
+of attributes. Here is an example with and without <code class="docutils literal"><span class="pre">__slots__</span></code>:</p>
+<p><strong>Without</strong> <code class="docutils literal"><span class="pre">__slots__</span></code>:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="n">identifier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_up</span><span class="p">()</span>
+    <span class="c"># ...</span>
+</pre></div>
+</div>
+<p><strong>With</strong> <code class="docutils literal"><span class="pre">__slots__</span></code>:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;identifier&#39;</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="n">identifier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_up</span><span class="p">()</span>
+    <span class="c"># ...</span>
+</pre></div>
+</div>
+<p>The second piece of code will reduce the burden on your RAM. Some people
+have seen almost 40 to 50% reduction in RAM usage by using this
+technique.</p>
+<p>On a sidenote, you might want to give PyPy a try. It does all of these
+optimizations by default.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

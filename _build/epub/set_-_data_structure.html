@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>set Data Structure</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="ternary_operators.html" title="Ternary Operators"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="map_&_filter.html" title="Map &amp; Filter"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="set-data-structure">
+<h1><code class="docutils literal"><span class="pre">set</span></code> Data Structure</h1>
+<p><code class="docutils literal"><span class="pre">set</span></code> is a really useful data structure. <code class="docutils literal"><span class="pre">sets</span></code> behave mostly like
+lists with the distinction that they can not contain duplicate values.
+It is really useful in a lot of cases. For instance you might want to
+check whether there are duplicates in a list or not. You have two
+options. The first one involves using a <code class="docutils literal"><span class="pre">for</span></code> loop. Something like
+this:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;c&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">,</span><span class="s">&#39;m&#39;</span><span class="p">,</span><span class="s">&#39;n&#39;</span><span class="p">,</span><span class="s">&#39;n&#39;</span><span class="p">]</span>
+
+<span class="n">duplicates</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">some_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">some_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">duplicates</span><span class="p">:</span>
+            <span class="n">duplicates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">duplicates</span><span class="p">)</span>
+<span class="c"># Output: [&#39;b&#39;, &#39;n&#39;]</span>
+</pre></div>
+</div>
+<p>But there is a simpler and more elegant solution involving <code class="docutils literal"><span class="pre">sets</span></code>. You
+can simply do something like this:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;c&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">,</span><span class="s">&#39;m&#39;</span><span class="p">,</span><span class="s">&#39;n&#39;</span><span class="p">,</span><span class="s">&#39;n&#39;</span><span class="p">]</span>
+<span class="n">duplicates</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_list</span> <span class="k">if</span> <span class="n">some_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">duplicates</span><span class="p">)</span>
+<span class="c"># Output: set([&#39;b&#39;, &#39;n&#39;])</span>
+</pre></div>
+</div>
+<p>Sets also have a few other methods. Below are some of them.</p>
+<p><strong>Intersection</strong></p>
+<p>You can intersect two sets. For instance:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">valid</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">&#39;yellow&#39;</span><span class="p">,</span> <span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="s">&#39;green&#39;</span><span class="p">,</span> <span class="s">&#39;black&#39;</span><span class="p">])</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;brown&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">valid</span><span class="p">))</span>
+<span class="c"># Output: set([&#39;red&#39;])</span>
+</pre></div>
+</div>
+<p><strong>Difference</strong></p>
+<p>You can find the invalid values in the above example using the
+difference method. For example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">valid</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">&#39;yellow&#39;</span><span class="p">,</span> <span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="s">&#39;green&#39;</span><span class="p">,</span> <span class="s">&#39;black&#39;</span><span class="p">])</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;brown&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">valid</span><span class="p">))</span>
+<span class="c"># Output: set([&#39;brown&#39;])</span>
+</pre></div>
+</div>
+<p>You can also create sets using the new notation:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">a_set</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="s">&#39;green&#39;</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a_set</span><span class="p">))</span>
+<span class="c"># Output: &lt;type &#39;set&#39;&gt;</span>
+</pre></div>
+</div>
+<p>There are a few other methods as well. I would recommend visiting the
+official documentation and giving it a quick read.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

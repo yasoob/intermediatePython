@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Map &amp; Filter</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="set_-_data_structure.html" title="set Data Structure"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="generators.html" title="Generators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="map-filter">
+<h1>Map &amp; Filter</h1>
+<p>These are two functions which facilitate a functional approach to
+programming. We will discuss them one by one and understand their use
+cases.</p>
+<div class="section" id="map">
+<h2>1. Map</h2>
+<p><code class="docutils literal"><span class="pre">Map</span></code> applies a function to all the items in an input_list. Here is
+the blueprint:</p>
+<p><strong>Blueprint</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="nb">map</span><span class="p">(</span><span class="n">functions_to_apply</span><span class="p">,</span> <span class="n">list_of_inputs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Most of the times we want to pass all the list elements to a function
+one-by-one and then collect the output. For instance:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Map</span></code> allows us to implement this in a much simpler and nicer way.
+Here you go:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Most of the times we use lambdas with <code class="docutils literal"><span class="pre">map</span></code> so I did the same. Instead
+of a list of inputs we can even have a list of functions!</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">funcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">multiply</span><span class="p">,</span> <span class="n">add</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">funcs</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c"># Output:</span>
+<span class="c"># [0, 0]</span>
+<span class="c"># [1, 2]</span>
+<span class="c"># [4, 4]</span>
+<span class="c"># [9, 6]</span>
+<span class="c"># [16, 8]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filter">
+<h2>2. Filter</h2>
+<p>As the name suggests, filter creats a list of elements for which a
+function returns true. Here is a short and consise example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">number_list</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">less_than_zero</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_list</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">less_than_zero</span><span class="p">)</span>
+
+<span class="c"># Output: [-5, -4, -3, -2, -1]</span>
+</pre></div>
+</div>
+<p>The filter resembles a for loop but it is a builtin function and faster.</p>
+<p><strong>Note:</strong> If map &amp; filter do not appear beautiful to you then you can
+read about <code class="docutils literal"><span class="pre">list/dict/tuple</span></code> comprehensions.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

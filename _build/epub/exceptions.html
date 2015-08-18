@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Exceptions</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="lambdas.html" title="Lambdas"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="comprehensions.html" title="Comprehensions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="exceptions">
+<h1>Exceptions</h1>
+<p>Exception handling is an art which once you master grants you immense
+powers. I am going to show you some of the ways in which we can handle
+exceptions.</p>
+<p>In basic terminology we are aware of <code class="docutils literal"><span class="pre">try/except</span></code> clause. The code
+which can cause an exception to occur is put in the <code class="docutils literal"><span class="pre">try</span></code> block and
+the handling of the exception is implemented in the <code class="docutils literal"><span class="pre">except</span></code> block.
+Here is a simple example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.txt&#39;</span><span class="p">,</span><span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;An IOError occured. {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>In the above example we are handling only the IOError exception. What
+most beginners do not know is that we can handle multiple exceptions.</p>
+<div class="section" id="handling-multiple-exceptions">
+<h2>Handling multiple exceptions:</h2>
+<p>We can use three methods to handle multiple exceptions. The first one
+involves putting all the exceptions which are likely to occur in a
+tuple. Like so:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span><span class="ne">EOFError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;An error occured. {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Another method is to handle individual exception in a separate except
+block. We can have as many except blocks as we want. Here is an example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">EOFError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;An EOF error occured.&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;An error occured.&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+</pre></div>
+</div>
+<p>This way if the exception is not handled by the first except block then
+it is passed on to the second block. Now the last method involves
+traping ALL exceptions:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="c"># Some loggin if you want</span>
+    <span class="k">raise</span>
+</pre></div>
+</div>
+<p>This can be helpful when you have no idea about the exception which can
+be thrown by your program.</p>
+<div class="section" id="finally-caluse">
+<h3><code class="docutils literal"><span class="pre">Finally</span></code> caluse</h3>
+<p>We wrap our main code in the try clause. After that we wrap some code in
+except clause which gets executed if an exception occurs in the code
+wrapped in try clause. But in this example we will use a third clause as
+well which is the <code class="docutils literal"><span class="pre">finally</span></code> clause. The code which is wrapped in the
+finally clause will run even if no exception occurs. It might be used
+for cleaning up after a script. Here is a simple example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.txt&#39;</span><span class="p">,</span><span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;An IOError occured. {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;This would be printed even if no exception occurs!&quot;</span><span class="p">)</span>
+
+<span class="c"># Output: An IOError occured. No such file or directory</span>
+<span class="c"># This would be printed even if no exception occurs!</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="try-else-clause">
+<h3><code class="docutils literal"><span class="pre">try/else</span></code> clause</h3>
+<p>Often times we might want some code to run IF no exception occurs. This
+can easily be achieved by using an <code class="docutils literal"><span class="pre">else</span></code> clause. Most people don&#8217;t
+use it and honestly I have myself not used it widely. Here is an
+example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;I am sure no exception is going to occur!&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;exception&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;This would only run if no exception occurs.&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;This would be printed in every case.&quot;</span><span class="p">)</span>
+
+<span class="c"># Output: I am sure no exception is going to occur!</span>
+<span class="c"># This would only run if no exception occurs.</span>
+<span class="c"># This would be printed in every case.</span>
+</pre></div>
+</div>
+<p>The else clause would only run if no exception occurs and it would run
+before the <code class="docutils literal"><span class="pre">finally</span></code> clause.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

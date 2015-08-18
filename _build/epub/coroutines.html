@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Coroutines</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="function_caching.html" title="Function caching"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="targeting_python_2_3.html" title="Targeting Python 2+3"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="coroutines">
+<h1>Coroutines</h1>
+<p>Coroutines are similar to generators with a few differences. The main
+differences are:</p>
+<ul class="simple">
+<li>generators are data producers</li>
+<li>coroutines are data consumers</li>
+</ul>
+<p>First of all let&#8217;s review the generator creation process. We can make
+generators like this:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fib</span><span class="p">():</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">a</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</pre></div>
+</div>
+<p>We then commonly use it in a <code class="docutils literal"><span class="pre">for</span></code> loop like this:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fib</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is fast and does not put a lot of pressure on memory because it
+<strong>generates</strong> the values on the fly rather then storing them in a list.
+Now if we use <code class="docutils literal"><span class="pre">yield</span></code> in the above example more generally we get a
+coroutine. Coroutines consume values which are sent to it. A very basic
+example would be a <code class="docutils literal"><span class="pre">grep</span></code> alternative in Python:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">grep</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;Searching for </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">pattern</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Wait! What does <code class="docutils literal"><span class="pre">yield</span></code> return? Well we have turned it into a
+coroutine. It does not contain any value innitially instead we supply it
+values externally. We supply values by using the <code class="docutils literal"><span class="pre">.send()</span></code> method.
+Here is an example:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">search</span> <span class="o">=</span> <span class="n">grep</span><span class="p">(</span><span class="s">&#39;coroutine&#39;</span><span class="p">)</span>
+<span class="n">search</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="c"># Output: Searching for coroutine</span>
+<span class="n">search</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;I love you&quot;</span><span class="p">)</span>
+<span class="n">search</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;Don&#39;t you love me?&quot;</span><span class="p">)</span>
+<span class="n">search</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;I love coroutines instead!&quot;</span><span class="p">)</span>
+<span class="c"># Output: I love coroutines instead!</span>
+</pre></div>
+</div>
+<p>The sent values are accessed by yield. Why did we run <code class="docutils literal"><span class="pre">.next()</span></code>? It is
+done to start the coroutine. Just like <code class="docutils literal"><span class="pre">generators</span></code> coroutines do not
+start the function immediately. Instead they run it in response to
+<code class="docutils literal"><span class="pre">.next()</span></code> and <code class="docutils literal"><span class="pre">.send()</span></code> methods. Therefore you have to run
+<code class="docutils literal"><span class="pre">.next()</span></code> so that the execution advances to the <code class="docutils literal"><span class="pre">yield</span></code> expression.</p>
+<p>We can close a coroutine by calling the <code class="docutils literal"><span class="pre">.close()</span></code> method. Like:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">search</span> <span class="o">=</span> <span class="n">grep</span><span class="p">(</span><span class="s">&#39;coroutine&#39;</span><span class="p">)</span>
+<span class="c"># ...</span>
+<span class="n">search</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>There is a lot more to <code class="docutils literal"><span class="pre">coroutines</span></code>. I suggest you check out <a class="reference external" href="http://www.dabeaz.com/coroutines/Coroutines.pdf">this
+awesome
+presentation</a><span class="link-target"> [http://www.dabeaz.com/coroutines/Coroutines.pdf]</span> by
+David Beazley.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>

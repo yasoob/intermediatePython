@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>For - Else</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="open_function.html" title="Open function"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="one_liners.html" title="One Liners"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Tips 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="for-else">
+<h1>For - Else</h1>
+<p>Loops are an integral part of any language. Likewise <code class="docutils literal"><span class="pre">for</span></code> loops are
+an important part of Python. However there are a few things which most
+beginners do not know about them. We will discuss a few of them one by
+one.</p>
+<p>Let&#8217;s first start of by what we know. We know that we can use for loops
+like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;apple&#39;</span><span class="p">,</span> <span class="s">&#39;banana&#39;</span><span class="p">,</span> <span class="s">&#39;mango&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">fruit</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+
+<span class="c"># Output: Apple</span>
+<span class="c">#         Banana</span>
+<span class="c">#         Mango</span>
+</pre></div>
+</div>
+<p>That is the very basic structure of a for loop. Now let&#8217;s move on to
+some of the lesser known features of <code class="docutils literal"><span class="pre">for</span></code> loops in Python.</p>
+<div class="section" id="else-clause">
+<h2>1.<code class="docutils literal"><span class="pre">else</span></code> clause:</h2>
+<p>For loops also have an <code class="docutils literal"><span class="pre">else</span></code> clause which most of us are unfamiliar
+with. The <code class="docutils literal"><span class="pre">else</span></code> clause executes when the loop completes normally.
+This means that the loop did not encounter any <code class="docutils literal"><span class="pre">break</span></code>. They are
+really useful once you understand where to use them. I myself came to
+know about them a lot later.</p>
+<p>The common construct is to run a loop and search for an item. If the
+item is found, we break the loop using <code class="docutils literal"><span class="pre">break</span></code>. There are two
+scenarios in which the loop may end. The first one is when the item is
+found and <code class="docutils literal"><span class="pre">break</span></code> is encountered. The second scenario is that the loop
+ends. Now we may want to know which one of these is the reason for a
+loops completion. One method is to set a flag and then check it once the
+loop ends. Another is to use the <code class="docutils literal"><span class="pre">else</span></code> clause.</p>
+<p>This is the basic structure of a <code class="docutils literal"><span class="pre">for/else</span></code> loop:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">container</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">search_comething</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+        <span class="c"># Found it!</span>
+        <span class="n">process</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># Didn&#39;t find anything..</span>
+    <span class="n">not_found_in_container</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Consider this simple example which I took from the official
+documentation:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">n</span><span class="p">,</span> <span class="s">&#39;equals&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">/</span><span class="n">x</span>
+            <span class="k">break</span>
+</pre></div>
+</div>
+<p>It outputs the prime numbers between 2 to 10. Now for the fun part. We
+can add an additional <code class="docutils literal"><span class="pre">else</span></code> block which catches the numbers which are
+not prime and tells us so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">n</span><span class="p">,</span> <span class="s">&#39;equals&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">/</span><span class="n">x</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># loop fell through without finding a factor</span>
+        <span class="k">print</span> <span class="n">n</span><span class="p">,</span> <span class="s">&#39;is a prime number&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Muhammad Yasoob Ullah Khalid.
+    </div>
+  </body>
+</html>
