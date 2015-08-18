@@ -112,10 +112,10 @@ can return it as an output as well:
 
 Just take a look at the code again. In the ``if/else`` clause we are
 returning ``greet`` and ``welcome``, not ``greet()`` and ``welcome()``.
-Why is that? It is so because when you put parentheses around it the
-function gets executed whereas if you don't put parenthesis around it
-then it can be passed around and can be assigned to other variables
-without executing it. Did you get it ? Let me explain it a little bit in
+Why is that? When you put parentheses after the function name, the
+function gets executed, whereas if you don't put parenthesis 
+then the function can be passed around and can be assigned to other variables
+without being executed. Did you get it ? Let me explain it a little bit in
 more detail. When we write ``a = hi()``, ``hi()`` gets executed and
 because the name is yasoob by default, the function greet is returned.
 If we change the statement to ``a = hi(name = "ali")`` then the welcome
