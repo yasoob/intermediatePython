@@ -40,7 +40,7 @@ is some sample code:
 
     fat = True
     fitness = ("skinny", "fat")[fat]
-    print("Ali is", fitness)
+    print("Ali is ", fitness)
     # Output: Ali is fat
 
 The above example is not widely used and is generally disliked by
