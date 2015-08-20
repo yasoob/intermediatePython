@@ -73,10 +73,11 @@ simple example of a ``generator`` function:
 It is not really useful in this case. Generators are best for
 calculating large sets of results (particularly calculations involving
 loops themselves) where you don't want to allocate the memory for all
-results at the same time. Python modified a lot of Python 2 functions
-which returned ``lists`` to return ``generators`` in Python 3. It is
-because ``generators`` are not resource intensive. Here is an example
-which calculates fibonacci numbers:
+results at the same time. Many Standard Library functions that return
+``lists`` in Python 2 have been modified to return ``generators`` in
+Python 3 because ``generators`` require fewer resources.
+
+Here is an example ``generator`` which calculates fibonacci numbers:
 
 .. code:: python
 
