@@ -22,20 +22,20 @@ an example to help you get a clear idea:
 .. code:: python
 
     def test_var_args(f_arg, *argv):
-        print "first normal arg:", f_arg
+        print("first normal arg:", f_arg)
         for arg in argv:
-            print "another arg through *argv :", arg
+            print("another arg through *argv:", arg)
 
-    test_var_args('yasoob','python','eggs','test')
+    test_var_args('yasoob', 'python', 'eggs', 'test')
 
 This produces the following result:
 
 .. code:: python
 
     first normal arg: yasoob
-    another arg through *argv : python
-    another arg through *argv : eggs
-    another arg through *argv : test
+    another arg through *argv: python
+    another arg through *argv: eggs
+    another arg through *argv: test
 
 I hope this cleared away any confusion that you had. So now let's talk
 about \*\*kwargs
@@ -50,9 +50,8 @@ arguments** in a function. Here is an example to get you going with it:
 .. code:: python
 
     def greet_me(**kwargs):
-        if kwargs is not None:
-            for key, value in kwargs.iteritems():
-                print "%s == %s" %(key, value)
+        for key, value in kwargs.items():
+            print("{0} == {1}".format(key, value))
 
     >>> greet_me(name="yasoob")
     name == yasoob
@@ -71,9 +70,9 @@ Just consider that you have this little function:
 .. code:: python
 
     def test_args_kwargs(arg1, arg2, arg3):
-        print "arg1:", arg1
-        print "arg2:", arg2
-        print "arg3:", arg3
+        print("arg1:", arg1)
+        print("arg2:", arg2)
+        print("arg3:", arg3)
 
 Now you can use \*args or \*\*kwargs to pass arguments to this little
 function. Here's how to do it:
