@@ -47,4 +47,4 @@ Table of Contents:
 Author:
 ------
 
-- Muhammad Yasoob Ullah Khalid  
+- [Muhammad Yasoob Ullah Khalid](https://github.com/yasoob)
