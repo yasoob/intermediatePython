@@ -39,8 +39,8 @@ is some sample code:
 .. code:: python
 
     fat = True
-    fitness = ("skinny","fat")[fat]
-    print("Ali is " + fitness)
+    fitness = ("skinny", "fat")[fat]
+    print("Ali is", fitness)
     # Output: Ali is fat
 
 The above example is not widely used and is generally disliked by

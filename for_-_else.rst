@@ -13,7 +13,7 @@ like this:
 
     fruits = ['apple', 'banana', 'mango']
     for fruit in fruits:
-        print fruit.capitalize()
+        print(fruit.capitalize())
 
     # Output: Apple
     #         Banana
@@ -60,7 +60,7 @@ documentation:
     for n in range(2, 10):
         for x in range(2, n):
             if n % x == 0:
-                print n, 'equals', x, '*', n/x
+                print(n, 'equals', x, '*', n/x)
                 break
 
 It finds factors for numbers between 2 to 10. Now for the fun part. We
@@ -72,9 +72,8 @@ prime and tells us so:
     for n in range(2, 10):
         for x in range(2, n):
             if n % x == 0:
-                print n, 'equals', x, '*', n/x
+                prin( n, 'equals', x, '*', n/x)
                 break
         else:
             # loop fell through without finding a factor
-            print n, 'is a prime number'
-
+            print(n, 'is a prime number')
