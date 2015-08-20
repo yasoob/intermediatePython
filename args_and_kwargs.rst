@@ -52,7 +52,7 @@ arguments** in a function. Here is an example to get you going with it:
     def greet_me(**kwargs):
         if kwargs is not None:
             for key, value in kwargs.iteritems():
-                print "%s == %s" %(key,value)
+                print "%s == %s" %(key, value)
 
     >>> greet_me(name="yasoob")
     name == yasoob
@@ -81,14 +81,14 @@ function. Here's how to do it:
 .. code:: python
 
     # first with *args
-    >>> args = ("two", 3,5)
+    >>> args = ("two", 3, 5)
     >>> test_args_kwargs(*args)
     arg1: two
     arg2: 3
     arg3: 5
 
     # now with **kwargs:
-    >>> kwargs = {"arg3": 3, "arg2": "two","arg1":5}
+    >>> kwargs = {"arg3": 3, "arg2": "two", "arg1": 5}
     >>> test_args_kwargs(**kwargs)
     arg1: 5
     arg2: two
@@ -100,7 +100,7 @@ So if you want to use all three of these in functions then the order is
 
 .. code:: python
 
-    some_func(fargs,*args,**kwargs)
+    some_func(fargs, *args, **kwargs)
 
 When to use them?
 ^^^^^^^^^^^^^^^^^
