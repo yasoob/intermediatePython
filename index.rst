@@ -2,9 +2,9 @@
 
 .. note::
 
-   You can donate me for my hardwork if you want to by buying the donation version of Intermediate Python from `Gumroad <https://gumroad.com/l/intermediate_python>`__.
-
-If you want to tip me then kindly signup at my `mailing list <http://eepurl.com/bwjcej>`__ and I will send you an email once I have a tip receiving system in place! :)
+   You can donate me for my hardwork if you want to by buying the donation version of Intermediate Python from `Gumroad <https://gumroad.com/l/intermediate_python>`__. Your help would be greatly appreciated!
+   
+   You can also sign up to my `mailing list <http://eepurl.com/bwjcej>`__ so that you remain in sync with any major updates to this book or my future projects! 
 
 Intermediate Python
 ===================
