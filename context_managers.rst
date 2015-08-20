@@ -123,7 +123,7 @@ Let's try handling the exception in the ``__exit__`` method:
         def __enter__(self):
             return self.file_obj
         def __exit__(self, type, value, traceback):
-            print "Exception has been handled"
+            print("Exception has been handled")
             self.file_obj.close()
             return True
 

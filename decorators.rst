@@ -30,7 +30,7 @@ First of all let's understand functions in python:
     # We are not using parentheses here because we are not calling the function hi
     # instead we are just putting it into the greet variable. Let's try to run this
 
-    print greet()
+    print(greet())
     # output: 'hi yasoob'
 
     # Let's see what happens if we delete the old hi function!
@@ -51,7 +51,7 @@ other functions:
 .. code:: python
 
     def hi(name="yasoob"):
-        print "now you are inside the hi() function"
+        print("now you are inside the hi() function")
 
         def greet():
             return "now you are in the greet() function"
@@ -131,11 +131,11 @@ Giving a function as an argument to another function:
         return "hi yasoob!"
 
     def doSomethingBeforeHi(func):
-        print("I am doing some  boring work before executing hi()")
+        print("I am doing some boring work before executing hi()")
         print(func())
 
     doSomethingBeforeHi(hi)
-    #outputs:I am doing some  boring work before executing hi()
+    #outputs:I am doing some boring work before executing hi()
     #        hi yasoob!
 
 Now you have all the required knowledge to learn what decorators really
@@ -152,7 +152,7 @@ previous decorator and make a little bit more usable program:
     def a_new_decorator(a_func):
 
         def wrapTheFunction():
-            print "I am doing some  boring work before executing a_func()"
+            print("I am doing some boring work before executing a_func()")
 
             a_func()
 
@@ -170,7 +170,7 @@ previous decorator and make a little bit more usable program:
     #now a_function_requiring_decoration is wrapped by wrapTheFunction()
 
     a_function_requiring_decoration()
-    #outputs:I am doing some  boring work before executing a_function_requiring_decoration()
+    #outputs:I am doing some boring work before executing a_function_requiring_decoration()
     #        I am the function which needs some decoration to remove my foul smell
     #        I am doing some boring work after executing a_function_requiring_decoration()
 
@@ -185,12 +185,12 @@ run the previous code sample using @.
 
     @a_new_decorator
     def a_function_requiring_decoration():
-        """Hey yo! Decorate me!"""
+        """Hey you! Decorate me!"""
         print("I am the function which needs some decoration to "
-              " remove my foul smell")
+              "remove my foul smell")
 
     a_function_requiring_decoration()
-    #outputs: I am doing some  boring work before executing a_function_requiring_decoration()
+    #outputs: I am doing some boring work before executing a_function_requiring_decoration()
     #         I am the function which needs some decoration to remove my foul smell
     #         I am doing some boring work after executing a_function_requiring_decoration()
 
@@ -219,7 +219,7 @@ that is ``functools.wraps``. Let's modify our previous example to use
     def a_new_decorator(a_func):
         @wraps(a_func)
         def wrapTheFunction():
-            print("I am doing some  boring work before executing a_func()")
+            print("I am doing some boring work before executing a_func()")
             a_func()
             print("I am doing some boring work after executing a_func()")
         return wrapTheFunction
@@ -236,7 +236,7 @@ that is ``functools.wraps``. Let's modify our previous example to use
 Now that is much better. Let's move on and learn some use-cases of
 decorators.
 
-**Blueprint :**
+**Blueprint:**
 
 .. code:: python
 
@@ -313,7 +313,7 @@ Logging is another area where the decorators shine. Here is an example:
 
     @logit
     def addition_func(x):
-       """does some math"""
+       """Do some math."""
        return x + x
 
 

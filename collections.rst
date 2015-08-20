@@ -11,6 +11,7 @@ The ones which we will talk about are:
 -  ``counter``
 -  ``deque``
 -  ``namedtuple``
+-  ``enum.Enum`` (outside of the module; Python 3.4+)
 
 1.\ ``defaultdict``
 ^^^^^^^^^^^^^^^^^^^
@@ -277,7 +278,68 @@ Like this:
     from collections import namedtuple
 
     Animal = namedtuple('Animal', 'name age type')
-    perry = Animal(name="perry", age=31, type="cat")
+    perry = Animal(name="Perry", age=31, type="cat")
     print(perry._asdict())
-    # Output: OrderedDict([('name', 'perry'), ('age', 31), ...
+    # Output: OrderedDict([('name', 'Perry'), ('age', 31), ...
 
+5.\ ``enum.Enum`` (Python 3.4+)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Another useful collection is the enum object. It is available in the ``enum``
+module, in Python 3.4 and up (also available as a backport in PyPI named ``enum34``.)
+Enums (`enumerated type <https://en.wikipedia.org/wiki/Enumerated_type>`) are
+basically a way to organize various things.
+
+Let’s consider the Animal namedtuple from the last example.  It had a ``type``
+field.  The problem is, the type was a string.  This poses some problems for
+us. What if the user types in ``Cat`` because they held the Shift key?  Or
+``CAT``?  Or ``kitten``?
+
+Enumerations can help us avoid this problem, by not using strings.  Consider
+this example:
+
+.. code:: python
+
+    from collections import namedtuple
+    from enum import Enum
+
+    class Species(Enum):
+        cat = 1
+        dog = 2
+        horse = 3
+        aardvark = 4
+        butterfly = 5
+        owl = 6
+        platypus = 7
+        dragon = 8
+        unicorn = 9
+        # The list goes on and on...
+
+        # But we don't really care about age, so we can use an alias.
+        kitten = 1
+        puppy = 2
+
+    Animal = namedtuple('Animal', 'name age type')
+    perry = Animal(name="Perry", age=31, type=Species.cat)
+    drogon = Animal(name="Drogon", age=4, type=Species.dragon)
+    tom = Animal(name="Tom", age=75, type=Species.cat)
+    charlie = Animal(name="Charlie", age=2, type=Species.kitten)
+
+    # And now, some tests.
+    >>> charlie.type == tom.type
+    True
+    >>> charlie.type
+    <Species.cat: 1>
+
+
+This is much less error-prone.  We have to be specific, and we should use only
+the enumeration to name types.
+
+There are three ways to access enumeration members.  For example, all three
+methods will get you the value for ``cat``:
+
+.. code:: python
+
+    Species(1)
+    Species['cat']
+    Species.cat
