@@ -43,3 +43,8 @@ Table of Contents:
 - [Coroutines](coroutines.rst)
 - [Function caching](function_caching.rst)
 - [Context managers](context_managers.rst)
+
+Author:
+------
+
+- Muhammad Yasoob Ullah Khalid  
