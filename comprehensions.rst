@@ -3,15 +3,12 @@ Comprehensions
 
 Comprehensions are a feature of Python which I would really miss if I
 ever have to leave it. Comprehensions are constructs that allow
-sequences to be built from other sequences. There are three type of
-comprehensions in Python:
+sequences to be built from other sequences. Three types of
+comprehensions are supported in both Python 2 and Python 3:
 
 -  list comprehensions
 -  dictionary comprehensions
 -  set comprehensions
-
-list comprehensions were introduced in Python 2. set and
-dictionary comprehensions became a part of Python in version 3.0.
 
 We will discuss them one by one. Once you get the hang of using ``list``
 comprehensions then you can use anyone of them easily.
