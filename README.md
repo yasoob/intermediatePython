@@ -48,3 +48,8 @@ Author:
 ------
 
 - [Muhammad Yasoob Ullah Khalid](https://github.com/yasoob)
+
+License:
+-------
+
+This book is released under the [following](http://creativecommons.org/licenses/by-nc-sa/4.0/) CC license (CC BY-NC-SA 4.0).
