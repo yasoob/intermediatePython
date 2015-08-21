@@ -5,7 +5,7 @@ These are two functions which facilitate a functional approach to
 programming. We will discuss them one by one and understand their use
 cases.
 
-1. Map
+Map
 ^^^^^^
 
 ``Map`` applies a function to all the items in an input\_list. Here is
@@ -49,7 +49,7 @@ of a list of inputs we can even have a list of functions!
     for i in range(5):
         value = map(lambda x: x(i), funcs)
         print(value)
-        
+
     # Output:
     # [0, 0]
     # [1, 2]
@@ -57,7 +57,7 @@ of a list of inputs we can even have a list of functions!
     # [9, 6]
     # [16, 8]
 
-2. Filter
+Filter
 ^^^^^^^^^
 
 As the name suggests, filter creates a list of elements for which a

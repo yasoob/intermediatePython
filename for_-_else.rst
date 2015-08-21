@@ -22,7 +22,7 @@ like this:
 That is the very basic structure of a for loop. Now let's move on to
 some of the lesser known features of ``for`` loops in Python.
 
-1.\ ``else`` clause:
+``else`` clause:
 ^^^^^^^^^^^^^^^^^^^^
 
 For loops also have an ``else`` clause which most of us are unfamiliar
