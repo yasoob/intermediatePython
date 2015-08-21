@@ -13,7 +13,7 @@ The ones which we will talk about are:
 -  ``namedtuple``
 -  ``enum.Enum`` (outside of the module; Python 3.4+)
 
-1.\ ``defaultdict``
+``defaultdict``
 ^^^^^^^^^^^^^^^^^^^
 
 I personally use defaultdict quite a bit. Unlike ``dict``, with
@@ -82,7 +82,7 @@ sample code:
     print(json.dumps(some_dict))
     # Output: {"colours": {"favourite": "yellow"}}
 
-2.\ ``counter``
+``counter``
 ^^^^^^^^^^^^^^^
 
 Counter allows us to count the occurrences of a particular item. For
@@ -119,7 +119,7 @@ We can also count the most common lines in a file using it. For example:
         line_count = Counter(f)
     print(line_count)
 
-3.\ ``deque``
+``deque``
 ^^^^^^^^^^^^^
 
 ``deque`` provides you with a double ended queue which means that you
@@ -196,7 +196,7 @@ new values:
 This was just a quick drive through the ``collections`` module. Make
 sure you read the official documentation after reading this.
 
-4.\ ``namedtuple``
+``namedtuple``
 ^^^^^^^^^^^^^^^^^^
 
 You might already be acquainted with tuples. A tuple is a lightweight
@@ -282,7 +282,7 @@ Like this:
     print(perry._asdict())
     # Output: OrderedDict([('name', 'Perry'), ('age', 31), ...
 
-5.\ ``enum.Enum`` (Python 3.4+)
+``enum.Enum`` (Python 3.4+)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Another useful collection is the enum object. It is available in the ``enum``
