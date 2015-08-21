@@ -3,8 +3,8 @@
 .. note::
 
    You can donate me for my hardwork if you want to by buying the donation version of Intermediate Python from `Gumroad <https://gumroad.com/l/intermediate_python>`__. Your help would be greatly appreciated!
-   
-   You can also sign up to my `mailing list <http://eepurl.com/bwjcej>`__ so that you remain in sync with any major updates to this book or my future projects! 
+
+   You can also sign up to my `mailing list <http://eepurl.com/bwjcej>`__ so that you remain in sync with any major updates to this book or my future projects!
 
 Intermediate Python
 ===================
@@ -23,17 +23,17 @@ Please note that this book is not a tutorial and does not teach you Python. The 
 
 I am sure you are as excited as I am so let’s start!
 
-Note: This book is a work in progress. If you find anything which you can further improve (I know you will find a lot of stuff) then kindly submit a pull request. :)
+**Note:** This book is a continuous work in progress. If you find anything which you can further improve (I know you will find a lot of stuff) then kindly submit a pull request!
 
-============
+==================
 Author
-============
+==================
 
 I am Muhammad Yasoob Ullah Khalid. I have been programming extensively in Python for over 3 years now. I have been involved in a lot of Open Source projects. I regularly blog about interesting Python topics over at my `blog <http://www.pythontips.com>`_ . In 2014 I also spoke at EuroPython which was held in Berlin. It is the biggest Python conference in Europe. If you have an interesting Internship opportunity for me then I would definitely like to hear from you!
 
-============
+==================
 Table of Contents
-============
+==================
 
 .. toctree::
    :maxdepth: 2
