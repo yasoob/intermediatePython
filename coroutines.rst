@@ -48,18 +48,18 @@ Here is an example:
 .. code:: python
 
     search = grep('coroutine')
-    search.next()
+    next(search)
     # Output: Searching for coroutine
     search.send("I love you")
     search.send("Don't you love me?")
     search.send("I love coroutines instead!")
     # Output: I love coroutines instead!
 
-The sent values are accessed by yield. Why did we run ``.next()``? It is
+The sent values are accessed by yield. Why did we run ``next()``? It is
 done to start the coroutine. Just like ``generators`` coroutines do not
 start the function immediately. Instead they run it in response to
-``.next()`` and ``.send()`` methods. Therefore you have to run
-``.next()`` so that the execution advances to the ``yield`` expression.
+``__next__()`` and ``.send()`` methods. Therefore you have to run
+``next()`` so that the execution advances to the ``yield`` expression.
 
 We can close a coroutine by calling the ``.close()`` method. Like:
 
