@@ -55,6 +55,13 @@ Author:
 
 - [Muhammad Yasoob Ullah Khalid](https://github.com/yasoob)
 
+Acknowledgement:
+----------------
+
+- [Philipp Hagemeister](https://github.com/phihag):
+
+He wrote the chapter on Open function and has helped me a lot along the way. Thanks Philipp! :+1:
+
 License:
 -------
 
