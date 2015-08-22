@@ -17,6 +17,12 @@ Note: This book is a work in progress. If you find anything which you can furthe
 
 Moreover, if you want to add more content to this book then kindly submit a pull request and I would be more than happy to merge it. :+1:
 
+-------------------
+
+**Note:** If you want to tip me for my work then you can buy the donation version of this book from [Gumroad](https://gum.co/intermediate_python). Apart from that, if this book somehow helps you then kindly share your experience with [me](mailto:yasoob.khld@gmail.com). I would really appreciate it.
+
+-------------------
+
 Table of Contents:
 ------------------
 - [\*args and \*\*kwargs](args_and_kwargs.rst)
