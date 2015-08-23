@@ -9,13 +9,13 @@ The topics which are discussed in this book open up your mind towards some nice 
 
 If you are a beginner, intermediate or even an advanced programmer there is something for you in this book.
 
-Please note that this book is not a tutorial and does not teach you Python. The topics are not explained in depth, instead only the minimum required information is given.
+Please note that this book is not a tutorial and does not teach you Python. The topics are not explained in-depth, instead only the minimum required information is given.
 
-I am sure you are as excited as I am so let’s start!
+I am sure you are as excited as I am. So, let’s start!
 
 Note: This book is a work in progress. If you find anything which you can further improve (I know you will find a lot of stuff) then kindly submit a pull request. :)
 
-Moreover, if you want to add more content to this book then kindly submit a pull request and I would be more than happy to merge it. :+1:
+Moreover, if you want to add more content to this book then kindly submit a pull request and I will be more than happy to merge it. :+1:
 
 -------------------
 
