@@ -68,8 +68,7 @@ share a solution using ``defaultdict``.
 .. code:: python
 
     import collections
-    tree = lambda: collections.defaultdict(tree)
-    some_dict = tree()
+    some_dict = collections.defaultdict(tree)
     some_dict['colours']['favourite'] = "yellow"
     # Works fine
 
