@@ -11,7 +11,7 @@ comprehensions are supported in both Python 2 and Python 3:
 -  set comprehensions
 
 We will discuss them one by one. Once you get the hang of using ``list``
-comprehensions then you can use anyone of them easily.
+comprehensions then you can use any of them easily.
 
 ``list`` comprehensions
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,6 +88,6 @@ that they use braces ``{}``. Here is an example:
 
 .. code:: python
 
-    squared = {x for x in [1, 1, 2]}
+    squared = {x**2 for x in [1, 1, 2]}
     print(squared)
-    # Output: {1, 2}
+    # Output: {1, 4}
