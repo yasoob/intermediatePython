@@ -23,7 +23,7 @@ not. So we can do:
 .. code:: python
 
     from collections import defaultdict
-     
+
     colours = (
         ('Yasoob', 'Yellow'),
         ('Ali', 'Blue'),
@@ -32,23 +32,23 @@ not. So we can do:
         ('Yasoob', 'Red'),
         ('Ahmed', 'Silver'),
     )
-     
+
     favourite_colours = defaultdict(list)
-     
+
     for name, colour in colours:
         favourite_colours[name].append(colour)
-     
+
     print(favourite_colours)
-     
-    # output 
-    # defaultdict(<type 'list'>, 
-    #    {'Arham': ['Green'], 
-    #     'Yasoob': ['Yellow', 'Red'], 
-    #     'Ahmed': ['Silver'], 
+
+    # output
+    # defaultdict(<type 'list'>,
+    #    {'Arham': ['Green'],
+    #     'Yasoob': ['Yellow', 'Red'],
+    #     'Ahmed': ['Silver'],
     #     'Ali': ['Blue', 'Black']
     # })
 
-One another very important use case is when you are appending to nested
+One other very important use case is when you are appending to nested
 lists inside a dictionary. If a ``key`` is not already present in the
 dictionary then you are greeted with a ``KeyError``. ``defaultdict``
 allows us to circumvent this issue in a clever way. First let me share
@@ -73,7 +73,7 @@ share a solution using ``defaultdict``.
     some_dict['colours']['favourite'] = "yellow"
     # Works fine
 
-You can print the ``some_dict`` using ``json.dumps``. Here is some
+You can print ``some_dict`` using ``json.dumps``. Here is some
 sample code:
 
 .. code:: python
@@ -92,7 +92,7 @@ colours:
 .. code:: python
 
     from collections import Counter
-     
+
     colours = (
         ('Yasoob', 'Yellow'),
         ('Ali', 'Blue'),
@@ -101,13 +101,13 @@ colours:
         ('Yasoob', 'Red'),
         ('Ahmed', 'Silver'),
     )
-     
+
     favs = Counter(name for name, colour in colours)
     print(favs)
     # Output: Counter({
-    #    'Yasoob': 2, 
-    #    'Ali': 2, 
-    #    'Arham': 1, 
+    #    'Yasoob': 2,
+    #    'Ali': 2,
+    #    'Arham': 1,
     #    'Ahmed': 1
     # })
 
@@ -254,7 +254,7 @@ are immutable**. It means that this would not work:
     perry.age = 42
 
     # Output: Traceback (most recent call last):
-    #            File "", line 1, in 
+    #            File "", line 1, in
     #         AttributeError: can't set attribute
 
 You should use named tuples to make your code self-documenting. **They
