@@ -199,12 +199,12 @@ sure you read the official documentation after reading this.
 ``namedtuple``
 ^^^^^^^^^^^^^^^^^^
 
-You might already be acquainted with tuples. A tuple is a lightweight
-object type which allows to store a sequence of immutable Python
-objects. They are just like lists but have a few key differences. The
-major one is that unlike lists, **you can not change a value in a
-tuple**. In order to access the value in a tuple you use integer indexes
-like:
+You might already be acquainted with tuples. A tuple is basically
+a immutable list which allows you to store a sequence of values
+separated by commas. They are just like lists but have a few key
+differences. The major one is that unlike lists, **you can not
+reassign an item in a tuple**. In order to access the value in a
+tuple you use integer indexes like:
 
 .. code:: python
 
