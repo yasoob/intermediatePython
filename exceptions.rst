@@ -34,8 +34,8 @@ tuple. Like so:
     except (IOError, EOFError) as e:
         print("An error occurred. {}".format(e.args[-1]))
 
-Another method is to handle individual exception in a separate except
-block. We can have as many except blocks as we want. Here is an example:
+Another method is to handle individual exceptions in separate ``except``
+blocks. We can have as many ``except`` blocks as we want. Here is an example:
 
 .. code:: python
 
@@ -48,8 +48,8 @@ block. We can have as many except blocks as we want. Here is an example:
         print("An error occurred.")
         raise e
 
-This way if the exception is not handled by the first except block then
-it is passed on to the second block. Now the last method involves
+This way if the exception is not handled by the first ``except`` block then
+it may be handled by a following block, or none at all. Now the last method involves
 trapping ALL exceptions:
 
 .. code:: python
@@ -60,18 +60,18 @@ trapping ALL exceptions:
         # Some logging if you want
         raise
 
-This can be helpful when you have no idea about the exception which can
+This can be helpful when you have no idea about the exceptions which may
 be thrown by your program.
 
-``Finally`` clause
+``finally`` clause
 ~~~~~~~~~~~~~~~~~~
 
-We wrap our main code in the try clause. After that we wrap some code in
-except clause which gets executed if an exception occurs in the code
-wrapped in try clause. But in this example we will use a third clause as
+We wrap our main code in the ``try`` clause. After that we wrap some code in
+an ``except`` clause which gets executed if an exception occurs in the code
+wrapped in the ``try`` clause. In this example we will use a third clause as
 well which is the ``finally`` clause. The code which is wrapped in the
-finally clause will run even if no exception occurs. It might be used
-for cleaning up after a script. Here is a simple example:
+``finally`` clause will run whether or not an exception occurred. It might be used
+to perform clean-up after a script. Here is a simple example:
 
 .. code:: python
 
@@ -80,10 +80,10 @@ for cleaning up after a script. Here is a simple example:
     except IOError as e:
         print('An IOError occurred. {}'.format(e.args[-1]))
     finally:
-        print("This would be printed even if no exception occurs!")
+        print("This would be printed whether or not an exception occurred!")
         
     # Output: An IOError occurred. No such file or directory
-    # This would be printed even if no exception occurs!
+    # This would be printed whether or not an exception occurred!
 
 ``try/else`` clause
 ~~~~~~~~~~~~~~~~~~~
@@ -108,5 +108,5 @@ example:
     # This would only run if no exception occurs.
     # This would be printed in every case.
 
-The else clause would only run if no exception occurs and it would run
+The ``else`` clause would only run if no exception occurs and it would run
 before the ``finally`` clause.
