@@ -42,7 +42,7 @@ Table of Contents
    args_and_kwargs
    debugging
    generators
-   map_&_filter
+   map_filter
    set_-_data_structure
    ternary_operators
    decorators
