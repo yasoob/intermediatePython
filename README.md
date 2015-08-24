@@ -28,7 +28,7 @@ Table of Contents:
 - [\*args and \*\*kwargs](args_and_kwargs.rst)
 - [Debugging](debugging.rst)
 - [Generators](generators.rst)
-- [Map & Filter](map_&_filter.rst)
+- [Map & Filter](map_filter.rst)
 - [``set`` Data Structure](set_-_data_structure.rst)
 - [Ternary Operators](ternary_operators.rst)
 - [Decorators](decorators.rst)
