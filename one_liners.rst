@@ -1,15 +1,15 @@
-One Liners
+One-Liners
 ----------
 
-In this chapter I will show you some one liner Python commands which can
-be really helpful sometimes.
+In this chapter I will show you some one-liner Python commands which can
+be really helpful.
 
-**Simple Webserver**
+**Simple Web Server**
 
 Ever wanted to quickly share a file over a network? Well you are in
-luck. Python has a similar feature just for you. Go to the directory
-which you want to serve over network and write the following code in
-terminal:
+luck. Python has a feature just for you. Go to the directory
+which you want to serve over the network and write the following code in
+your terminal:
 
 .. code:: python
 
@@ -19,9 +19,9 @@ terminal:
     # Python 3
     python -m http.server
 
-**Pretty printing**
+**Pretty Printing**
 
-You can print a list and dictionary in a beautiful format in Python
+You can print a list and dictionary in a beautiful format in the Python
 repl. Here is the relevant code:
 
 .. code:: python
@@ -31,7 +31,7 @@ repl. Here is the relevant code:
     my_dict = {'name': 'Yasoob', 'age': 'undefined', 'personality': 'awesome'}
     pprint(my_dict)
 
-This is more effective on dicts. Moreover, if you want to pretty print
+This is more effective on ``dict``s. Moreover, if you want to pretty print
 json quickly from a file then you can simply do:
 
 .. code:: python
@@ -40,8 +40,8 @@ json quickly from a file then you can simply do:
 
 **Profiling a script**
 
-This can be extremely helpful in pin pointing the bottlenecks in your
-scripts.
+This can be extremely helpful in pinpointing the bottlenecks in your
+scripts:
 
 .. code:: python
 
@@ -77,7 +77,7 @@ is a simple example:
     # Output: [1, 2, 3, 4, 5, 6]
 
 
-**One Line Constructors**
+**One-Line Constructors**
 
 Avoid a lot of boilerplate assignments when initializing a class
 
@@ -88,5 +88,5 @@ Avoid a lot of boilerplate assignments when initializing a class
             self.__dict__.update({k: v for k, v in locals().items() if k != 'self'})
 
 
-A couple of more one liners can be found on the `Python
+Additional one-liners can be found on the `Python
 website <https://wiki.python.org/moin/Powerful%20Python%20One-Liners>`__.
