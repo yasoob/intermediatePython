@@ -27,7 +27,7 @@ We then commonly use it in a ``for`` loop like this:
 
 It is fast and does not put a lot of pressure on memory because it
 **generates** the values on the fly rather then storing them in a list.
-Now if we use ``yield`` in the above example more generally we get a
+Now, if we use ``yield`` in the above example, more generally, we get a
 coroutine. Coroutines consume values which are sent to it. A very basic
 example would be a ``grep`` alternative in Python:
 
@@ -41,7 +41,7 @@ example would be a ``grep`` alternative in Python:
                 print(line)
 
 Wait! What does ``yield`` return? Well we have turned it into a
-coroutine. It does not contain any value initially instead we supply it
+coroutine. It does not contain any value initially, instead we supply it
 values externally. We supply values by using the ``.send()`` method.
 Here is an example:
 
@@ -55,13 +55,13 @@ Here is an example:
     search.send("I love coroutines instead!")
     # Output: I love coroutines instead!
 
-The sent values are accessed by yield. Why did we run ``next()``? It is
-done to start the coroutine. Just like ``generators`` coroutines do not
-start the function immediately. Instead they run it in response to
-``__next__()`` and ``.send()`` methods. Therefore you have to run
+The sent values are accessed by ``yield``. Why did we run ``next()``? It is
+required in order to start the coroutine. Just like ``generators``, coroutines do not
+start the function immediately. Instead they run it in response to the
+``__next__()`` and ``.send()`` methods. Therefore, you have to run
 ``next()`` so that the execution advances to the ``yield`` expression.
 
-We can close a coroutine by calling the ``.close()`` method. Like:
+We can close a coroutine by calling the ``.close()`` method:
 
 .. code:: python
 
