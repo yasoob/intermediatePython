@@ -1,4 +1,4 @@
-Function caching
+Function Caching
 ----------------
 
 Function caching allows us to cache the return values of a function
@@ -25,7 +25,7 @@ Let's implement a Fibonacci calculator and use ``lru_cache``.
             return n
         return fib(n-1) + fib(n-2)
 
-    >>> print([fib(n) for n in range(10)])
+    print([fib(n) for n in range(10)])
     # Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 
 The ``maxsize`` argument tells ``lru_cache`` about how many recent
@@ -48,7 +48,7 @@ is a generic cache:
 
     from functools import wraps
 
-    def memoize(function):
+    def memorize(function):
         memo = {}
         @wraps(function)
         def wrapper(*args):
@@ -60,13 +60,11 @@ is a generic cache:
                 return rv
         return wrapper
 
-    @memoize
+    @memorize
     def fibonacci(n):
         if n < 2: return n
         return fibonacci(n - 1) + fibonacci(n - 2)
 
     fibonacci(25)
 
-`Here <https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/>`__
-is a fine article by Caktus Group in which they caught a bug in Django
-which occurred due to ``lru_cache``. It's an interesting read. Do check it out.
+There is a fine article by Caktus Group in which they `caught a bug in Django <https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/>`__ which occurred due to ``lru_cache``. It's an interesting read. Do check it out.
