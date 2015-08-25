@@ -48,16 +48,16 @@ scope of the function as well. Let me demonstrate it with an example :
     print(result)
 
     # Oh crap we encountered an exception. Why is it so ?
-    # the python interpreter is telling us that we do not 
-    # have any variable with the name of result. It is so 
-    # because the result variable is only accessible inside 
+    # the python interpreter is telling us that we do not
+    # have any variable with the name of result. It is so
+    # because the result variable is only accessible inside
     # the function in which it is created if it is not global.
     Traceback (most recent call last):
-      File "", line 1, in 
+      File "", line 1, in
         result
     NameError: name 'result' is not defined
 
-    # Now lets run the same code but after making the result 
+    # Now lets run the same code but after making the result
     # variable global
     def add(value1, value2):
         global result
@@ -71,4 +71,59 @@ So hopefully there are no errors in the second run as expected. In
 practical programming you should try to stay away from ``global``
 keyword as it only makes life difficult by introducing unwanted variables
 to the global scope.
-    
+
+Multiple return values
+^^^^^^^^^^^^^^^^^^^^^^^
+
+So what if you want to return two variables from a function instead of one? There are a couple of approaches which new programmers take. The most famous approach is to use `global` keyword. Let's take a look at a useless example:
+
+.. code:: python
+
+    def profile():
+        global name
+        global age
+        name = "Danny"
+        age = 30
+
+    profile()
+    print(name)
+    # Output: Danny
+
+    print(age)
+    # Output: 30
+
+**Note:**Don't try to use the above mentioned method. I repeat, don't try to use the above mentioned method!
+
+Some *return* a `tuple`, `list` or `dict` with the reqired values after the function terminates. It is one way and works like a charm.
+
+.. code:: python
+
+    def profile():
+        name = "Danny"
+        age = 30
+        return (name, age)
+
+    profile_data = profile()
+    print(profile_data[0])
+    # Output: Danny
+
+    print(profile_data[1])
+    # Output: 30
+
+What many programmers don't know is that you can return two separate values as well. Let's take a look at an example so that you can better understand it:
+
+.. code:: python
+
+    def profile():
+        name = "Danny"
+        age = 30
+        return name, age
+
+    name, age = profile()
+    print(name)
+    # Output: Danny
+
+    print(age)
+    # Output: 30
+
+This is a better way to do it along with returning `tuples`, `lists` and `dicts`. Don't use `global` keyword unless you know what you are doing. `global` might be a better option in a few cases but is not in most of them.
