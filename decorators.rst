@@ -321,3 +321,123 @@ Logging is another area where the decorators shine. Here is an example:
     # Output: addition_func was called
 
 I am sure you are already thinking about some clever uses of decorators.
+
+Decorators with Arguments
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Come to think of it, isn't ``@wraps`` also a decorator?  But, it takes an
+argument like any normal function can do.  So, why can't we do that too?
+
+This is because when you use the ``@my_decorator`` syntax, you are
+applying a wrapper function with a single function as a parameter
+Remember, everything in Python is an object, and this includes
+functions!  With that in mind, we can write a function that returns
+a wrapper function.
+
+Nesting a Decorator Within a Function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Let's go back to our logging example, and create a wrapper which lets
+us specify a logfile to output to.
+
+.. code:: python
+
+    from functools import wraps
+    
+    def logit(logfile='out.log'):
+        def logging_decorator(func):
+            @wraps(func)
+            def wrapped_function(*args, **kwargs):
+                log_string = func.__name__ + " was called"
+                print(log_string)
+                # Open the logfile and append
+                with open(logfile, 'a') as opened_file:
+                    # Now we log to the specified logfile
+                    opened_file.write(log_string + '\n')
+            return wrapped_function
+        return logging_decorator
+
+    @logit()
+    def myfunc1():
+        pass
+        
+    myfunc1()
+    # Output: myfunc1 was called
+    # A file called out.log now exists, with the above string
+    
+    @logit(logfile='func2.log')
+    def myfunc2():
+        pass
+        
+    myfunc2():
+        pass
+        
+    myfunc2()
+    # Output: myfunc2 was called
+    # A file called func2.log now exists, with the above string
+
+Decorator Classes
+~~~~~~~~~~~~~~~~~
+
+Now we have our logit decorator in production, but when some parts
+of our application are considered critical, failure might be
+something that needs more immediate attention.  Let's say sometimes
+you want to just log to a file.  Other times you want an email sent
+the problem is brought to your attention, and still keep a log
+for your own records.  This is a case for using inheritence, but
+so far we've only seen functions being used to build decorators.
+
+Luckily, classes can also be used to build decorators.  So, let's
+rebuild logit as a class instead of a function.
+
+.. code:: python
+
+    class logit(object):
+        def __init__(self, logfile='out.log'):
+            self.logfile = logfile
+        
+        def __call__(self, func):
+            log_string = func.__name__ + " was called"
+            print(log_string)
+            # Open the logfile and append
+            with open(self.logfile, 'a') as opened_file:
+                # Now we log to the specified logfile
+                opened_file.write(log_string + '\n')
+            # Now, send a notification
+            self.notify()
+        
+        def notify(self):
+            # logit only logs, no more
+            pass
+    
+This implementation has an additional advantage of being much cleaner than
+the nested function approach, and wrapping a function still will use
+the same syntax as before:
+
+.. code:: python
+
+    @logit()
+    def myfunc1():
+        pass
+
+Now, let's subclass logit to add email functionality (though this topic
+will not be covered here).
+
+.. code:: python
+
+    class email_logit(logit):
+        '''
+        A logit implementation for sending emails to admins
+        when the function is called.
+        '''
+        def __init__(self, email='admin@myproject.com', *args, **kwargs):
+            self.email = email
+            super(logit, self).__init__(*args, **kwargs)
+            
+        def notify(self):
+            # Send an email to self.email
+            # Will not be implemented here
+            pass
+
+From here, ``@email_logit`` works just like ``@logit`` but sends an email
+to the admin in addition to logging.
