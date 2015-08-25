@@ -75,7 +75,7 @@ to the global scope.
 Multiple return values
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-So what if you want to return two variables from a function instead of one? There are a couple of approaches which new programmers take. The most famous approach is to use `global` keyword. Let's take a look at a useless example:
+So what if you want to return two variables from a function instead of one? There are a couple of approaches which new programmers take. The most famous approach is to use ``global`` keyword. Let's take a look at a useless example:
 
 .. code:: python
 
@@ -94,7 +94,7 @@ So what if you want to return two variables from a function instead of one? Ther
 
 **Note:**Don't try to use the above mentioned method. I repeat, don't try to use the above mentioned method!
 
-Some *return* a `tuple`, `list` or `dict` with the reqired values after the function terminates. It is one way and works like a charm.
+Some try to solve this problem by *returning* a ``tuple``, ``list`` or ``dict`` with the reqired values after the function terminates. It is one way to do it and works like a charm:
 
 .. code:: python
 
@@ -110,7 +110,7 @@ Some *return* a `tuple`, `list` or `dict` with the reqired values after the func
     print(profile_data[1])
     # Output: 30
 
-What many programmers don't know is that you can return two separate values as well. Let's take a look at an example so that you can better understand it:
+But what many programmers don't know is that you can return two separate values as well. Let's take a look at an example so that you can better understand it:
 
 .. code:: python
 
@@ -126,4 +126,4 @@ What many programmers don't know is that you can return two separate values as w
     print(age)
     # Output: 30
 
-This is a better way to do it along with returning `tuples`, `lists` and `dicts`. Don't use `global` keyword unless you know what you are doing. `global` might be a better option in a few cases but is not in most of them.
+This is a better way to do it along with returning ``tuples``, ``lists`` and ``dicts``. Don't use ``global`` keyword unless you know what you are doing. ``global`` might be a better option in a few cases but is not in most of them.
