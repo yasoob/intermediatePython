@@ -251,7 +251,7 @@ decorators.
 
     @decorator_name
     def func():
-        print("Function is running")
+        return("Function is running")
 
     can_run = True
     print(func())
