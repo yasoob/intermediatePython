@@ -44,6 +44,7 @@ Table of Contents:
 - [Lambdas](lambdas.rst)
 - [One Liners](one_liners.rst)
 - [For - Else](for_-_else.rst)
+- [Python C extensions](python_c_extension.rst)
 - [Open function](open_function.rst)
 - [Targeting Python 2+3](targeting_python_2_3.rst)
 - [Coroutines](coroutines.rst)
