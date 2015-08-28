@@ -110,7 +110,7 @@ Some try to solve this problem by *returning* a ``tuple``, ``list`` or ``dict`` 
     print(profile_data[1])
     # Output: 30
 
-But what many programmers don't know is that you can return two separate values as well. Let's take a look at an example so that you can better understand it:
+Or by more common convention:
 
 .. code:: python
 
@@ -119,11 +119,4 @@ But what many programmers don't know is that you can return two separate values 
         age = 30
         return name, age
 
-    name, age = profile()
-    print(name)
-    # Output: Danny
-
-    print(age)
-    # Output: 30
-
-This is a better way to do it along with returning ``tuples``, ``lists`` and ``dicts``. Don't use ``global`` keyword unless you know what you are doing. ``global`` might be a better option in a few cases but is not in most of them.
+This is a better way to do it along with returning ``lists`` and ``dicts``. Don't use ``global`` keyword unless you know what you are doing. ``global`` might be a better option in a few cases but is not in most of them.
