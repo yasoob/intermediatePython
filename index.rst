@@ -58,6 +58,7 @@ Table of Contents
    lambdas
    one_liners
    for_-_else
+   python_c_extension
    open_function
    targeting_python_2_3
    coroutines
