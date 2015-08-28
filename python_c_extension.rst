@@ -17,7 +17,7 @@ A few common reasons are :
 -   Certain low level resource access - from memory to file interfaces.
 -   Just because you want to.
 
-1. CTypes
+CTypes
 ---------
 
 The Python `ctypes
@@ -106,7 +106,7 @@ python decimal values, and then use them as arguments to the C code.
 This method is simple and clean, but limited. For example it's not
 possible to manipulate objects on the C side.
 
-2. SWIG
+SWIG
 -------
 
 Simplified Wrapper and Interface Generator, or SWIG for short is another
@@ -190,7 +190,7 @@ As we can see, SWIG achieves the same result, but requires a slightly
 more involved effort. But it's worth it if you are targeting multiple
 languages.
 
-3. Python/C API
+Python/C API
 ---------------
 
 The `C/Python API <https://docs.python.org/2/c-api/>`__ is probably the
