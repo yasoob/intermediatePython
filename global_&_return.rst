@@ -94,7 +94,7 @@ So what if you want to return two variables from a function instead of one? Ther
 
 **Note:**Don't try to use the above mentioned method. I repeat, don't try to use the above mentioned method!
 
-Some try to solve this problem by *returning* a ``tuple``, ``list`` or ``dict`` with the reqired values after the function terminates. It is one way to do it and works like a charm:
+Some try to solve this problem by *returning* a ``tuple``, ``list`` or ``dict`` with the required values after the function terminates. It is one way to do it and works like a charm:
 
 .. code:: python
 
