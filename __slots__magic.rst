@@ -19,7 +19,7 @@ of attributes. Here is an example with and without ``__slots__``:
 .. code:: python
 
     class MyClass(object):
-        def __init__(name, identifier):
+        def __init__(self, name, identifier):
             self.name = name
             self.identifier = identifier
             self.set_up()
@@ -31,7 +31,7 @@ of attributes. Here is an example with and without ``__slots__``:
 
     class MyClass(object):
         __slots__ = ['name', 'identifier']
-        def __init__(name, identifier):
+        def __init__(self, name, identifier):
             self.name = name
             self.identifier = identifier
             self.set_up()
