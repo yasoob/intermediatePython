@@ -170,9 +170,9 @@ previous decorator and make a little bit more usable program:
     #now a_function_requiring_decoration is wrapped by wrapTheFunction()
 
     a_function_requiring_decoration()
-    #outputs:I am doing some boring work before executing a_function_requiring_decoration()
+    #outputs:I am doing some boring work before executing a_func()
     #        I am the function which needs some decoration to remove my foul smell
-    #        I am doing some boring work after executing a_function_requiring_decoration()
+    #        I am doing some boring work after executing a_func()
 
 Did you get it? We just applied the previously learned principles. This
 is exactly what the decorators do in Python! They wrap a function and
