@@ -193,9 +193,6 @@ new values:
     print(d)
     # Output: deque([0, 1, 2, 3, 4, 5, 6, 7, 8])
 
-This was just a quick drive through the ``collections`` module. Make
-sure you read the official documentation after reading this.
-
 ``namedtuple``
 ^^^^^^^^^^^^^^^^^^
 
@@ -343,3 +340,6 @@ methods will get you the value for ``cat``:
     Species(1)
     Species['cat']
     Species.cat
+
+This was just a quick drive through the ``collections`` module. Make
+sure you read the official documentation after reading this.
