@@ -28,7 +28,7 @@ read was successful. If there is any error just after ``f = open(...)``,
 ``f.close()`` will not be called (depending on the Python interpreter,
 the file handle may still be returned, but that's another story). To
 make sure that the file gets closed whether an exception occurs or not,
-pack it into a ```with`` statement:
+pack it into a ``with`` statement:
 
 .. code:: python
 
