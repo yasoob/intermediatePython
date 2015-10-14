@@ -72,7 +72,7 @@ prime and tells us so:
     for n in range(2, 10):
         for x in range(2, n):
             if n % x == 0:
-                prin( n, 'equals', x, '*', n/x)
+                print( n, 'equals', x, '*', n/x)
                 break
         else:
             # loop fell through without finding a factor
