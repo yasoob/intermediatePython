@@ -232,7 +232,7 @@ You can now see that we can access members of a tuple just by their
 name using a ``.``. Let's dissect it a little more. A named tuple has two
 required arguments. They are the tuple name and the tuple field\_names.
 In the above example our tuple name was 'Animal' and the tuple
-field\_names were 'name', 'age' and 'cat'. Namedtuple makes your tuples
+field\_names were 'name', 'age' and 'type'. Namedtuple makes your tuples
 **self-document**. You can easily understand what is going on by having
 a quick glance at your code. And as you are not bound to use integer
 indexes to access members of a tuple, it makes it more easy to maintain
