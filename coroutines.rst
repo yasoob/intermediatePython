@@ -26,7 +26,7 @@ We then commonly use it in a ``for`` loop like this:
         print(i)
 
 It is fast and does not put a lot of pressure on memory because it
-**generates** the values on the fly rather then storing them in a list.
+**generates** the values on the fly rather than storing them in a list.
 Now, if we use ``yield`` in the above example, more generally, we get a
 coroutine. Coroutines consume values which are sent to it. A very basic
 example would be a ``grep`` alternative in Python:
