@@ -368,10 +368,7 @@ us specify a logfile to output to.
     @logit(logfile='func2.log')
     def myfunc2():
         pass
-        
-    myfunc2():
-        pass
-        
+    
     myfunc2()
     # Output: myfunc2 was called
     # A file called func2.log now exists, with the above string
