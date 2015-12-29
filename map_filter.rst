@@ -95,7 +95,9 @@ a basic for loop:
     
     # product = 24
 
-Now let's try it with reduce. 
+
+Now let's try it with reduce:
+
 .. code:: python
 
     from functools import reduce
