@@ -149,11 +149,11 @@ support iteration? Let's check it out:
     #    TypeError: str object is not an iterator
 
 Well that's not what we expected. The error says that ``str`` is not an
-iterator. Well it is right! It is an iterable but not an iterator. This
-means that it supports iteration but we can not directly iterate over
-it. How can we then iterate over it? It's time to learn about one more
+iterator. Well it's right! It's an iterable but not an iterator. This
+means that it supports iteration but we can't iterate over
+it directly. So how would we iterate over it? It's time to learn about one more
 built-in function, ``iter``. It returns an ``iterator`` object from an
-iterable. Here is how we can use it:
+iterable. While an ``int`` isn't an iterable, we can use it on string! 
 
 .. code:: python
 
