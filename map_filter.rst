@@ -84,13 +84,14 @@ a list and returning the result. For example, if you wanted to compute
 the product of a list of integers. 
 
 So the normal way you might go about doing this task in python us using
-a basic for loop.
+a basic for loop:
+
 
 .. code:: python
     product = 1
     list = [1, 2, 3, 4]
     for num in list: 
-        product = product * list
+        product = product * num
     
     # product = 24
 
