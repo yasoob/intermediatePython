@@ -1,7 +1,7 @@
-Map & Filter
+Map, Filter and Reduce
 ------------
 
-These are two functions which facilitate a functional approach to
+These are three functions which facilitate a functional approach to
 programming. We will discuss them one by one and understand their use
 cases.
 
@@ -60,7 +60,7 @@ of a list of inputs we can even have a list of functions!
 Filter
 ^^^^^^^^^
 
-As the name suggests, filter creates a list of elements for which a
+As the name suggests, ``filter`` creates a list of elements for which a
 function returns true. Here is a short and concise example:
 
 .. code:: python
@@ -75,3 +75,32 @@ The filter resembles a for loop but it is a builtin function and faster.
 
 **Note:** If map & filter do not appear beautiful to you then you can
 read about ``list/dict/tuple`` comprehensions.
+
+Reduce
+^^^^^^^^^
+
+``Reduce`` is a really useful function for performing some computation on 
+a list and returning the result. For example, if you wanted to compute 
+the product of a list of integers. 
+
+So the normal way you might go about doing this task in python is using
+a basic for loop:
+
+
+.. code:: python
+    product = 1
+    list = [1, 2, 3, 4]
+    for num in list: 
+        product = product * num
+    
+    # product = 24
+
+
+Now let's try it with reduce:
+
+.. code:: python
+
+    from functools import reduce
+    product = reduce( (lambda x, y: x * y), [1, 2, 3, 4] )
+
+    # Output: 24
