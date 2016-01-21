@@ -67,3 +67,5 @@ License:
 -------
 
 This book is released under the [following](http://creativecommons.org/licenses/by-nc-sa/4.0/) CC license (CC BY-NC-SA 4.0).
+
+If you end up using/recommending this book to someone then kindly [let me know](mailto:yasoob.khld@gmail.com). :smile:
