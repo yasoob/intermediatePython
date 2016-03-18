@@ -119,4 +119,10 @@ Or by more common convention:
         age = 30
         return name, age
 
+    profile_name, profile_age = profile()
+    print(profile_name)
+    # Output: Danny
+    print(profile_age)
+    # Output: 30
+
 This is a better way to do it along with returning ``lists`` and ``dicts``. Don't use ``global`` keyword unless you know what you are doing. ``global`` might be a better option in a few cases but is not in most of them.
