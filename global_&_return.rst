@@ -36,7 +36,7 @@ case is ``result``. In most cases and you won't need to use the
 which includes the ``global`` keyword. So what that function is doing is
 that it is making a global variable ``result``. What does global mean
 here? Global variable means that we can access that variable outside the
-scope of the function as well. Let me demonstrate it with an example :
+scope of the function as well. Let me demonstrate it with an example:
 
 .. code:: python
 
@@ -47,7 +47,7 @@ scope of the function as well. Let me demonstrate it with an example :
     add(2, 4)
     print(result)
 
-    # Oh crap we encountered an exception. Why is it so ?
+    # Oh crap, we encountered an exception. Why is it so?
     # the python interpreter is telling us that we do not
     # have any variable with the name of result. It is so
     # because the result variable is only accessible inside
