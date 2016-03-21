@@ -38,7 +38,7 @@ Here is a short example:
     # Output: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
 
 This can be really useful to make lists quickly. It is even preferred by
-some instead of the ``filter`` function. list comprehensions really
+some instead of the ``filter`` function. List comprehensions really
 shine when you want to supply a list to a method or function to make a
 new list by appending to it in each iteration of the ``for`` loop. For
 instance you would usually do something like this:
