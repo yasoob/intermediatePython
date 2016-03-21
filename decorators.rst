@@ -379,8 +379,8 @@ Decorator Classes
 Now we have our logit decorator in production, but when some parts
 of our application are considered critical, failure might be
 something that needs more immediate attention.  Let's say sometimes
-you want to just log to a file.  Other times you want an email sent
-the problem is brought to your attention, and still keep a log
+you want to just log to a file.  Other times you want an email sent,
+so the problem is brought to your attention, and still keep a log
 for your own records.  This is a case for using inheritence, but
 so far we've only seen functions being used to build decorators.
 
