@@ -321,7 +321,7 @@ and a python list in that order, the function signature would be
     int n;
     char *s;
     PyObject* list;
-    PyArg_ParseTuple(args, "siO", &n, &s, &list);
+    PyArg_ParseTuple(args, "siO", &s, &n, &list);
 
 In this case we only have to extract a list object, and store it in the
 variable ``listObj``. We then use the ``PyList_Size()`` function on our
