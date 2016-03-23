@@ -100,11 +100,11 @@ an error is encountered.
 2. It allows the ``__exit__`` method to handle the exception.
 3. If ``__exit__`` returns True then the exception was gracefully
    handled.
-4. If anything else than True is returned by ``__exit__`` method then
-   the exception is raised by ``with`` statement.
+4. If anything else than True is returned by the ``__exit__`` method then
+   an exception is raised by the ``with`` statement.
 
 In our case the ``__exit__`` method returns ``None`` (when no return
-statement is encountered then the method returns ``None``). Therefore,
+statement is encountered then the method returns ``None``). Therefore, the
 ``with`` statement raises the exception.
 
 .. code:: python
@@ -156,9 +156,9 @@ Let's see a basic, useless example:
         yield f
         f.close()
 
-Okay! This way of implementing Context Managers appear to be more
+Okay! This way of implementing Context Managers appears to be more
 intuitive and easy. However, this method requires some knowledge about
-generators, yield and decorators. In this example we have not caught any
+generators, yield, and decorators. In this example we have not caught any
 exceptions which might occur. It works in mostly the same way as the
 previous method.
 
