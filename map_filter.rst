@@ -41,9 +41,9 @@ of a list of inputs we can even have a list of functions!
 .. code:: python
 
     def multiply(x):
-            return (x*x)
+        return (x*x)
     def add(x):
-            return (x+x)
+        return (x+x)
 
     funcs = [multiply, add]
     for i in range(5):
