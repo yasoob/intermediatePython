@@ -22,7 +22,7 @@ CTypes
 
 The Python `ctypes
 module <https://docs.python.org/2/library/ctypes.html>`__ is probably
-the most easiest way to call C functions from Python. The ctypes module
+the easiest way to call C functions from Python. The ctypes module
 provides C compatible data types and functions to load DLLs so that
 calls can be made to C shared libraries without having to modify them.
 The fact that the C side needn't be touched adds to the simplicity of
@@ -50,7 +50,7 @@ Simple C code to add two numbers, save it as ``add.c``
     }
 
 Next compile the C file to a ``.so`` file (DLL in windows) This will
-generate a adder.so file.
+generate an adder.so file.
 
 .. code:: bash
 
@@ -93,7 +93,7 @@ functions, one to add two integers and another to add two floats.
 
 In the python file, first the ctypes module is imported. Then the CDLL
 function of the ctypes module is used to load the shared lib file we
-created. The functions defined in the C lib is now available to us via
+created. The functions defined in the C lib are now available to us via
 the ``adder`` variable. When ``adder.add_int()`` is called, internally a
 call is made to the ``add_int`` C function. The ctypes interface allows
 us to use native python integers and strings by default while calling
