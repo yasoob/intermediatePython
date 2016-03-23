@@ -160,8 +160,8 @@ iterable. While an ``int`` isn't an iterable, we can use it on string!
     int_var = 1779
     iter(int_var)
     # Output: Traceback (most recent call last):
-        File "<stdin>", line 1, in <module>
-      TypeError: 'int' object is not iterable
+    #   File "<stdin>", line 1, in <module>
+    # TypeError: 'int' object is not iterable
     # This is because int is not iterable
     
     my_string = "Yasoob"
