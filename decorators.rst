@@ -12,10 +12,10 @@ First, let's discuss how to write your own decorator.
 It is perhaps one of the most difficult concepts to grasp. We will take
 it one step at a time so that you can fully understand it.
 
-Everything in python is an object:
+Everything in Python is an object:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First of all let's understand functions in python:
+First of all let's understand functions in Python:
 
 .. code:: python
 
@@ -170,12 +170,12 @@ previous decorator and make a little bit more usable program:
     #now a_function_requiring_decoration is wrapped by wrapTheFunction()
 
     a_function_requiring_decoration()
-    #outputs:I am doing some boring work before executing a_function_requiring_decoration()
+    #outputs:I am doing some boring work before executing a_func()
     #        I am the function which needs some decoration to remove my foul smell
-    #        I am doing some boring work after executing a_function_requiring_decoration()
+    #        I am doing some boring work after executing a_func()
 
 Did you get it? We just applied the previously learned principles. This
-is exactly what the decorators do in python! They wrap a function and
+is exactly what the decorators do in Python! They wrap a function and
 modify its behaviour in one way or the another. Now you might be
 wondering that we did not use the @ anywhere in our code? That is just a
 short way of making up a decorated function. Here is how we could have
