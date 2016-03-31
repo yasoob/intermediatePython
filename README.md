@@ -65,7 +65,9 @@ He wrote the chapter on Open function. Thanks Philipp! :+1:
 
 Translation:
 ------------
-If you want to translate this book in any other language then kindly let [me know](mailto:yasoob.khld@gmail.com). I would love your contribution.
+If you want to translate this book in any other language then kindly let [me know](mailto:yasoob.khld@gmail.com). I would love your contribution. The currently translated versions are listed below:
+
+- [Chinese](https://github.com/eastlakeside/interpy-zh)
 
 License:
 -------
