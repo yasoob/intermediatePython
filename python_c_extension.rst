@@ -288,17 +288,12 @@ file, it's pretty straight forward.
                        "Add all ze lists");
     }
 
-A step by step explanation - \* The ``<Python.h>`` file consists of all
-the required types (to represent Python object types) and function
-definitions (to operate on the python objects). \* Next we write the
-function which we plan to call from python. Conventionally the function
-names are {module-name}\_{function-name}, which in this case is
-``addList_add``. More about the function later. \* Then fill in the info
-table - which contains all the relevant info of the functions we desire
-to have in the module. Every row corresponds to a function, with the
-last one being a sentinel value (row of null elements). \* Finally the
-module initialization block which is of the signature
-``PyMODINIT_FUNC init{module-name}``.
+A step by step explanation :
+
+- The ``<Python.h>`` file consists of all the required types (to represent Python object types) and function definitions (to operate on the python objects).
+- Next we write the function which we plan to call from python. Conventionally the function names are {module-name}\_{function-name}, which in this case is ``addList_add``. More about the function later.
+- Then fill in the info table - which contains all the relevant info of the functions we desire to have in the module. Every row corresponds to a function, with the last one being a sentinel value (row of null elements).
+- Finally the module initialization block which is of the signature ``PyMODINIT_FUNC init{module-name}``.
 
 The function ``addList_add`` accepts arguments as a PyObject type struct
 (args is also a tuple type - but since everything in python is an
