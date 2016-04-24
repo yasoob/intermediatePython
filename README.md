@@ -25,31 +25,51 @@ Moreover, if you want to add more content to this book then kindly submit a pull
 
 Table of Contents:
 ------------------
-- [\*args and \*\*kwargs](args_and_kwargs.rst)
+1) Programmer tools
+
+- [Virtual Environment](virtual_environment.rst)
 - [Debugging](debugging.rst)
-- [Generators](generators.rst)
-- [Map & Filter](map_filter.rst)
-- [``set`` Data Structure](set_-_data_structure.rst)
+- [Object introspection](object_introspection.rst)
+
+2) Syntax
+
+- [Exceptions](exceptions.rst)
+- [For - Else](for_-_else.rst)
 - [Ternary Operators](ternary_operators.rst)
-- [Decorators](decorators.rst)
 - [Global & Return](global_&_return.rst)
+- [Open function](open_function.rst)
+- [\*args and \*\*kwargs](args_and_kwargs.rst)
+- [Context managers](context_managers.rst)
+
+3) Functional programming
+
+- [Enumerate](enumerate.rst)
+- [Lambdas](lambdas.rst)
+- [``set`` Data Structure](set_-_data_structure.rst)
+- [Map & Filter](map_filter.rst)
+- [Comprehensions](comprehensions.rst)
+
+4) Data structures
+
+- [Generators](generators.rst)
+- [Coroutines](coroutines.rst)
+
+5) Data types
+
+- [Collections](collections.rst)
 - [Mutation](mutation.rst)
 - [\_\_slots\_\_ Magic](__slots__magic.rst)
-- [Virtual Environment](virtual_environment.rst)
-- [Collections](collections.rst)
-- [Enumerate](enumerate.rst)
-- [Object introspection](object_introspection.rst)
-- [Comprehensions](comprehensions.rst)
-- [Exceptions](exceptions.rst)
-- [Lambdas](lambdas.rst)
-- [One Liners](one_liners.rst)
-- [For - Else](for_-_else.rst)
-- [Python C extensions](python_c_extension.rst)
-- [Open function](open_function.rst)
-- [Targeting Python 2+3](targeting_python_2_3.rst)
-- [Coroutines](coroutines.rst)
+
+6) Decorators
+
+- [What is a decorator?](decorators.rst)
 - [Function caching](function_caching.rst)
-- [Context managers](context_managers.rst)
+
+7) Extras
+
+- [One Liners](one_liners.rst)
+- [Targeting Python 2+3](targeting_python_2_3.rst)
+- [Python C extensions](python_c_extension.rst)
 
 Author:
 ------
