@@ -68,6 +68,7 @@ Translation:
 If you want to translate this book in any other language then kindly let [me know](mailto:yasoob.khld@gmail.com). I would love your contribution. The currently translated versions are listed below:
 
 - [Chinese](https://github.com/eastlakeside/interpy-zh)
+- [Russian](https://github.com/lancelote/interpy-ru)
 
 License:
 -------
