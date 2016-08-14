@@ -31,7 +31,7 @@ repl. Here is the relevant code:
     my_dict = {'name': 'Yasoob', 'age': 'undefined', 'personality': 'awesome'}
     pprint(my_dict)
 
-This is more effective on ``dict``s. Moreover, if you want to pretty print
+This is more effective on ``dict`` s. Moreover, if you want to pretty print
 json quickly from a file then you can simply do:
 
 .. code:: python
