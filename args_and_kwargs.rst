@@ -51,10 +51,10 @@ arguments** in a function. Here is an example to get you going with it:
 
     def greet_me(**kwargs):
         for key, value in kwargs.items():
-            print("{0} == {1}".format(key, value))
+            print("{0} = {1}".format(key, value))
 
     >>> greet_me(name="yasoob")
-    name == yasoob
+    name = yasoob
 
 So you can see how we handled a keyworded argument list in our function.
 This is just the basics of \*\*kwargs and you can see how useful it is.
