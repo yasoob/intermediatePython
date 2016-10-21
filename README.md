@@ -81,7 +81,7 @@ Acknowledgement:
 
 - [Philipp Hagemeister](https://github.com/phihag):
 
-He wrote the chapter on Open function. Thanks Philipp! :+1:
+Ele escreveu o capítulo sobre a função Open. Obrigada Philipp! :+1:
 
 Traduções:
 ------------
@@ -95,3 +95,14 @@ Licença:
 Esse livro é licenciado [de acordo com](http://creativecommons.org/licenses/by-nc-sa/4.0/)a CC licença (CC BY-NC-SA 4.0).
 
 Se você terminar usando/recomendando esse livro para alguém, por favor [contate me](mailto:yasoob.khld@gmail.com). :smile:
+
+Contribua:
+-------
+
+Se você gostou da iniciativa de tradução desse livro e quiser colaborar, é só seguir os passos abaixo:
+
+1. Faça um **fork** do [repositório do projeto]
+(https://github.com/joanasouza/intermediatePython`).
+2. Clone o **seu** repositório.
+3. [Crie uma issue](https://github.com/gutomaia/inventwithpython/issues) informando o capítulo que quer traduzir.
+5. Envie um *pull request* com o que você traduziu.
