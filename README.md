@@ -20,7 +20,8 @@ Além do mais, se você quiser adicionar mais conteúdo para o livro, submeta um
 
 -------------------
 
-**Note:** If you want to tip me for my work then you can buy the donation version of this book from [Gumroad](https://gum.co/intermediate_python). Apart from that, if this book somehow helps you then kindly share your experience with [me](mailto:yasoob.khld@gmail.com). I would really appreciate it.
+**Nota:** 
+Se você quiser apoiar meu trabalho, você pode comprar a versão de doação desse livro no [Gumroad](https://gum.co/intermediate_python). Fora isso, se esse livro de alguma forma lhe ajudar, gentilmente compartilhe a sua experiência [comigo](mailto:yasoob.khld@gmail.com). Eu realmente apreciaria isso.
 
 -------------------
 
@@ -86,15 +87,10 @@ He wrote the chapter on Open function. Thanks Philipp! :+1:
 
 Traduções:
 ------------
-Se você quiser traduzir esse livro em qualquer outro idioma, [contate me](mailto:yasoob.khld@gmail.com). Eu apreciaria a sua contribuição. As atuais traduções estão disponíveis nos links abaixo.
+Se você quiser traduzir esse livro em qualquer outro idioma, [contate me](mailto:yasoob.khld@gmail.com). Eu adoraria a sua contribuição. As versões atualmente traduzido estão listados abaixo:
 - [Chinese](https://github.com/eastlakeside/interpy-zh)
 - [Russian](https://github.com/lancelote/interpy-ru)
 - [Portuguese](https://github.com/joanasouza/intermediatePython)
-
-If you want to translate this book in any other language then kindly let [me know](mailto:yasoob.khld@gmail.com). I would love your contribution. The currently translated versions are listed below:
-
-- [Chinese](https://github.com/eastlakeside/interpy-zh)
-- [Russian](https://github.com/lancelote/interpy-ru)
 
 Licença:
 -------
@@ -102,8 +98,5 @@ Licença:
 Esse livro é licenciado [de acordo com](http://creativecommons.org/licenses/by-nc-sa/4.0/)a CC licença (CC BY-NC-SA 4.0).
 This book is released under the [following](http://creativecommons.org/licenses/by-nc-sa/4.0/) CC license (CC BY-NC-SA 4.0).
 
-Se você terminar usando/recomendando esse livro para alguém then kindly [contate me](mailto:yasoob.khld@gmail.com). :smile:
-,6
-
-If you end up using/recommending this book to someone then kindly [let me know](mailto:yasoob.khld@gmail.com). :smile:
+Se você terminar usando/recomendando esse livro para alguém, por favor [contate me](mailto:yasoob.khld@gmail.com). :smile:
 ,6
