@@ -90,13 +90,10 @@ Traduções:
 Se você quiser traduzir esse livro em qualquer outro idioma, [contate me](mailto:yasoob.khld@gmail.com). Eu adoraria a sua contribuição. As versões atualmente traduzido estão listados abaixo:
 - [Chinese](https://github.com/eastlakeside/interpy-zh)
 - [Russian](https://github.com/lancelote/interpy-ru)
-- [Portuguese](https://github.com/joanasouza/intermediatePython)
 
 Licença:
 -------
 
 Esse livro é licenciado [de acordo com](http://creativecommons.org/licenses/by-nc-sa/4.0/)a CC licença (CC BY-NC-SA 4.0).
-This book is released under the [following](http://creativecommons.org/licenses/by-nc-sa/4.0/) CC license (CC BY-NC-SA 4.0).
 
 Se você terminar usando/recomendando esse livro para alguém, por favor [contate me](mailto:yasoob.khld@gmail.com). :smile:
-,6
