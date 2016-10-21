@@ -4,9 +4,7 @@ Intermediate Python
 ===================
 Python é uma linguagem com uma comunidade forte e amigável de programadores.Entretanto, falta documentação no que aprender depois de pegar o básico de Python guela abaixo. Através desse livro eu procuro resolver esse problema. Eu irei lhe dar bits de informação sobre alguns tópicos interessantes, os quais você pode explorar "further".
 
-Os tópicos os quais serão discutidos nesse livro, irão abrir a sua mente para alguns cantos (nice corners) da linguagem Python. Esse livro é um "outcome" do meu desejo de ter algo similar quando eu estava começando a aprender Python.
-
-The topics which are discussed in this book will open your mind to some nice corners of Python language. This book is an outcome of my desire to have something like this when I was beginning to learn Python.
+Os tópicos os quais serão discutidos nesse livro, irão abrir a sua mente para alguns cantos agradáveis da linguagem Python. Esse livro é um "outcome" do meu desejo de ter algo similar quando eu estava começando a aprender Python.
 
 Se você é um iniciante, intermediario ou mesmo um programador avançado há algo para você nesse livro.
 
