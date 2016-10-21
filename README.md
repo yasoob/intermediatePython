@@ -104,5 +104,5 @@ Se você gostou da iniciativa de tradução desse livro e quiser colaborar, é s
 1. Faça um **fork** do [repositório do projeto]
 (https://github.com/joanasouza/intermediatePython`).
 2. Clone o **seu** repositório.
-3. [Crie uma issue](https://github.com/gutomaia/inventwithpython/issues) informando o capítulo que quer traduzir.
+3. Abra uma issue informando o capítulo que quer traduzir.
 5. Envie um *pull request* com o que você traduziu.
