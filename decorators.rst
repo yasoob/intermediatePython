@@ -1,21 +1,22 @@
-Decorators
+Decoradores
 ----------
 
-Decorators are a significant part of Python. In simple words: they are
-functions which modify the functionality of another function. They help
-to make our code shorter and more Pythonic. Most of the beginners do not
-know where to use them so I am going to share some areas where
-decorators can make your code more concise.
+Decoradores são uma parte importante do Python. Em poucas palavras: 
+são funções que modificam a funcionalidade de outra função. Eles ajudam
+a tornar nosso código mais curto e mais Pythonico. A maioria dos iniciantes
+não sabem como utilizá-los, portanto, eu vou mostrar alguns lugares em que
+decoradores podem tornar seu código mais conciso. 
 
-First, let's discuss how to write your own decorator.
+Primeramente, vamos discutir como escrever seu próprio decorador.
 
-It is perhaps one of the most difficult concepts to grasp. We will take
-it one step at a time so that you can fully understand it.
+Isto é, possivelmente, um dos conceitos mais difíceis de compreender. 
+Iremos um passo de cada vez para que você possa compreendê-lo em sua totalidade.
 
-Everything in Python is an object:
+
+Tudo em Python é um objeto:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First of all let's understand functions in Python:
+Primeiramente, vamos entender o que são funções em Python:
 
 .. code:: python
 
@@ -23,77 +24,77 @@ First of all let's understand functions in Python:
         return "hi " + name
 
     print(hi())
-    # output: 'hi yasoob'
+    # resultado: 'hi yasoob'
 
-    # We can even assign a function to a variable like
+    # Nós podemos inclusive atribuir uma função à uma variável
     greet = hi
-    # We are not using parentheses here because we are not calling the function hi
-    # instead we are just putting it into the greet variable. Let's try to run this
+    # Nós não usamos parênteses aqui porque não estamos chamando a função hi
+    # ao contrário, estamos apenas colocando a função dentro da variável greet. Vamos tentar rodar o seguinte:
 
     print(greet())
-    # output: 'hi yasoob'
+    # resultado: 'hi yasoob'
 
-    # Let's see what happens if we delete the old hi function!
+    # Vamos verificar o que acontece quando deletamos a antiga função hi!
     del hi
     print(hi())
-    #outputs: NameError
+    # resultado: NameError
 
     print(greet())
-    #outputs: 'hi yasoob'
+    # resultado: 'hi yasoob'
 
-Defining functions within functions:
+Definindo funções dentro de funções:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-So those are the basics when it comes to functions. Let's take your
-knowledge one step further. In Python we can define functions inside
-other functions:
+Vimos o básico até agora em se tratando de funções. Vamos pegar nossos
+conhecimentos e ir um passo além. Em Python podemos definit funções dentro
+de outras funções:
 
 .. code:: python
 
     def hi(name="yasoob"):
-        print("now you are inside the hi() function")
+        print("você está dentro da função hi()")
 
         def greet():
-            return "now you are in the greet() function"
+            return "agora você está dentro da função greet()"
 
         def welcome():
-            return "now you are in the welcome() function"
+            return "agora você está dentro da função welcome()"
 
         print(greet())
         print(welcome())
-        print("now you are back in the hi() function")
+        print("agora você está dentro da função hi() novamente")
 
     hi()
-    #output:now you are inside the hi() function
-    #       now you are in the greet() function
-    #       now you are in the welcome() function
-    #       now you are back in the hi() function
+    #resultado: você está dentro da função hi()
+    #           agora você está dentro da função greet()
+    #           agora você está dentro da função welcome()
+    #           agora você está dentro da função hi() novamente
 
-    # This shows that whenever you call hi(), greet() and welcome()
-    # are also called. However the greet() and welcome() functions
-    # are not available outside the hi() function e.g:
+    # Isso mostra que quando você chama a função hi(), as funções greet() e welcome()
+    # também são chamadas. Entretanto, as funções greet() e welcome() 
+    # não são disponíveis fora da função hi() e.g:
 
     greet()
-    #outputs: NameError: name 'greet' is not defined
+    # resultado: NameError: name 'greet' is not defined
 
-So now we know that we can define functions in other functions. In
-other words: we can make nested functions. Now you need to learn one
-more thing, that functions can return functions too.
+Agora sabemos que podemos definir funções dentro de outras funções.
+Em outras palavras: podemos criar funções aninhadas. Agora você precisa
+aprender outra coisa, que funções também podem retornar funções.
 
-Returning functions from within functions:
+Retornando funções de dentro de funções:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is not necessary to execute a function within another function, we
-can return it as an output as well:
+Não é necessário executar a função dentro da outra função, 
+nos podemos apenas devolve-la como resultado também: 
 
 .. code:: python
 
     def hi(name="yasoob"):
         def greet():
-            return "now you are in the greet() function"
+            return "agora você está dentro da função greet()"
 
         def welcome():
-            return "now you are in the welcome() function"
+            return "agora você está dentro da função welcome()"
 
         if name == "yasoob":
             return greet
@@ -102,27 +103,26 @@ can return it as an output as well:
 
     a = hi()
     print(a)
-    #outputs: <function greet at 0x7f2143c01500>
+    # resultado: <function greet at 0x7f2143c01500>
 
-    #This clearly shows that `a` now points to the greet() function in hi()
-    #Now try this
+    # Isso nos mostra claramente que `a` aponta para a função greet() dentro da função hi()
+    # Agora tente isto:
 
     print(a())
-    #outputs: now you are in the greet() function
+    # resultado: agora você está dentro da função greet()
 
-Just take a look at the code again. In the ``if/else`` clause we are
-returning ``greet`` and ``welcome``, not ``greet()`` and ``welcome()``.
-Why is that? It's because when you put a pair of parentheses after it, the
-function gets executed; whereas if you don't put parenthesis after it,
-then it can be passed around and can be assigned to other variables
-without executing it. Did you get it? Let me explain it in a little bit
-more detail. When we write ``a = hi()``, ``hi()`` gets executed and
-because the name is yasoob by default, the function ``greet`` is returned.
-If we change the statement to ``a = hi(name = "ali")`` then the ``welcome``
-function will be returned. We can also do print ``hi()()`` which outputs
-*now you are in the greet() function*.
+Pare por um momento para olhar o código novamente. Dentro da cláusula ``if/else`` 
+estamos retornando ``greet`` e ``welcome``, e não ``greet()`` e ``welcome()``.
+Por que isso? É porque quando colocamos os parênteses, as funções são executadas;
+enquanto se não pusermos os parênteses após as funções, elas são passadas adiante
+e designadas a outras variáveis sem serem executadas. Conseguiu entender? 
+Vamos explicar mais detalhadamente. Quando escrevemos ``a = hi()``, a função ``hi()`` 
+é executada e porque o nome é yasoob por padrão, a função ``greet`` é retornada.
+Se mudarmos a declaração para ``a = hi(name = "ali")`` então a função ``welcome``
+será retornada.  Também podemos dar um print da seguinte forma: ``hi()()`` cujo resultado
+é *agora vocês está dentro da função greet()*.
 
-Giving a function as an argument to another function:
+Dando uma função como argumento de outra função:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
@@ -131,86 +131,87 @@ Giving a function as an argument to another function:
         return "hi yasoob!"
 
     def doSomethingBeforeHi(func):
-        print("I am doing some boring work before executing hi()")
+        print("Estou fazendo alguma coisa entediante antes de executar a função hi()")
         print(func())
 
     doSomethingBeforeHi(hi)
-    #outputs:I am doing some boring work before executing hi()
-    #        hi yasoob!
+    # resultado: Estou fazendo alguma coisa entediante antes de executar a função hi()
+    #            hi yasoob!
 
-Now you have all the required knowledge to learn what decorators really
-are. Decorators let you execute code before and after a function.
+Agora temos todo o conhecimento necessário para aprender o que decoradores
+realmente sçao. Decoradores permitem executar algum código antes e depois de uma função.
 
-Writing your first decorator:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Escrevendo seu primeiro decorador:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the last example we actually made a decorator! Let's modify the
-previous decorator and make a little bit more usable program:
+No último exemplo você, na realidade, fez um decorador!
+Vamos modificá-lo e fazer um código um pouco mais útil.
 
 .. code:: python
 
     def a_new_decorator(a_func):
 
         def wrapTheFunction():
-            print("I am doing some boring work before executing a_func()")
+            print("Estou fazendo algo entediante antes de executar a_func()")
 
             a_func()
 
-            print("I am doing some boring work after executing a_func()")
+            print("Estou fazendo algo entediante depois de executar a_func()")
 
         return wrapTheFunction
 
     def a_function_requiring_decoration():
-        print("I am the function which needs some decoration to remove my foul smell")
+        print("Estou sou a função que precisa de decorador para remover meu mau cheiro")
 
     a_function_requiring_decoration()
-    #outputs: "I am the function which needs some decoration to remove my foul smell"
+    # resultado: "Estou sou a função que precisa de decorador para remover meu mau cheiro"
 
     a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration)
-    #now a_function_requiring_decoration is wrapped by wrapTheFunction()
+    # agora a função a_function_requiring_decoration stá aninhada na função wrapTheFunction()
 
     a_function_requiring_decoration()
-    #outputs:I am doing some boring work before executing a_func()
-    #        I am the function which needs some decoration to remove my foul smell
-    #        I am doing some boring work after executing a_func()
+    # resultado: Estou fazendo algo entediante antes de executar a_func()
+    #            Estou sou a função que precisa de decorador para remover meu mau cheiro
+    #            Estou fazendo algo entediante depois de executar a_func()
 
-Did you get it? We just applied the previously learned principles. This
-is exactly what the decorators do in Python! They wrap a function and
-modify its behaviour in one way or the another. Now you might be
-wondering that we did not use the @ anywhere in our code? That is just a
-short way of making up a decorated function. Here is how we could have
-run the previous code sample using @.
+Você percebeu? Acabamos de aplicar os conceitos que aprendemos. 
+Isso é exatamente o que decoradores fazem em Python! Eles aninham uma função
+e modificam o seu comportamento de uma maneira ou de outra. Agora você
+deve estar se perguntando o porque não usamos o @ em nenhum lugar do nosso código?
+Este é só uma maneira rápida de criar uma função com decorador. Aqui está um
+exemplo de como devemos usar o @ no exemplo anterior.
 
 .. code:: python
 
     @a_new_decorator
     def a_function_requiring_decoration():
-        """Hey you! Decorate me!"""
-        print("I am the function which needs some decoration to "
-              "remove my foul smell")
+        """Ei você! Decore-me!"""
+        print("Eu sou a função que precisa de um decorador "
+              "para remover meu mau cheiro!")
 
     a_function_requiring_decoration()
-    #outputs: I am doing some boring work before executing a_func()
-    #         I am the function which needs some decoration to remove my foul smell
-    #         I am doing some boring work after executing a_func()
+    # resultado: Estou fazendo algo entediante antes de executar a_func()
+    #            Estou sou a função que precisa de decorador para remover meu mau cheiro
+    #            Estou fazendo algo entediante depois de executar a_func()
 
-    #the @a_new_decorator is just a short way of saying:
+    # a declaração @a_new_decorator é só uma forma resumida de se dizer:
     a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration)
 
-I hope you now have a basic understanding of how decorators work in
-Python. Now there is one problem with our code. If we run:
+Espero que você tenha entendido o básico de como decoradores funcionam
+em Python. No entanto, temos um problema com nosso código. Se rodarmos:
 
 .. code:: python
 
     print(a_function_requiring_decoration.__name__)
-    # Output: wrapTheFunction
+    # resultado: wrapTheFunction
 
-That's not what we expected! Its name is
-"a\_function\_requiring\_decoration". Well our function was replaced by
-wrapTheFunction. It overrode the name and docstring of our function.
-Luckily Python provides us a simple function to solve this problem and
-that is ``functools.wraps``. Let's modify our previous example to use
-``functools.wraps``:
+Isso não é o que esperávamos! O nome da função é 
+"a\_function\_requiring\_decoration". Bem, nossa função na verdade
+foi substituída pela função wrapTheFunction. Esta reescreveu o nome
+e o docstring da nossa função.
+Por sorte, Python nos provê uma função simples para resolver este 
+problema cujo nome é ``functools.wraps``. 
+Vamos modificar nosso exemplo anterior para usar ``functools.wraps``:
 
 .. code:: python
 
@@ -219,22 +220,23 @@ that is ``functools.wraps``. Let's modify our previous example to use
     def a_new_decorator(a_func):
         @wraps(a_func)
         def wrapTheFunction():
-            print("I am doing some boring work before executing a_func()")
+            print("Estou fazendo algo entediante antes de executar a_func()")
             a_func()
-            print("I am doing some boring work after executing a_func()")
+            print("Estou fazendo algo entediante depois de executar a_func()")
         return wrapTheFunction
 
     @a_new_decorator
     def a_function_requiring_decoration():
-        """Hey yo! Decorate me!"""
-        print("I am the function which needs some decoration to "
-              "remove my foul smell")
+        """Ei você! Decore-me!"""
+        print("Eu sou a função que precisa de um decorador "
+              "para remover meu mau cheiro!")
 
     print(a_function_requiring_decoration.__name__)
-    # Output: a_function_requiring_decoration
+    # resultado: a_function_requiring_decoration
 
-Now that is much better. Let's move on and learn some use-cases of
-decorators.
+
+Agora sim, está muito melhor. Vamos seguir em frente e aprender alguns
+casos de uso de decoradores.
 
 **Blueprint:**
 
@@ -245,40 +247,40 @@ decorators.
         @wraps(f)
         def decorated(*args, **kwargs):
             if not can_run:
-                return "Function will not run"
+                return "Função não irá rodar"
             return f(*args, **kwargs)
         return decorated
 
     @decorator_name
     def func():
-        return("Function is running")
+        return("Função está rodando")
 
     can_run = True
     print(func())
-    # Output: Function is running
+    # resultado: Função está rodando
 
     can_run = False
     print(func())
-    # Output: Function will not run
+    # Output: Função não irá rodar
 
-Note: ``@wraps`` takes a function to be decorated and adds the
-functionality of copying over the function name, docstring, arguments
-list, etc. This allows to access the pre-decorated function's properties
-in the decorator.
+Nota: ``@wraps`` pega uma função que deve ser decoradas e adiciona
+a funcionalidade de copiar o nome da função bem como os docstrings,
+argumentos, listas, etc. Isso permite acessar as propriedades da função
+pré-decorada no decorador.
 
-Use-cases:
-~~~~~~~~~~
+Casos de Uso:
+~~~~~~~~~~~~~~
 
-Now let's take a look at the areas where decorators really shine and
-their usage makes something really easy to manage.
+Agora vamos dar uma olhada em área onde decoradores realmente brilham
+e seu uso realmente facilita a sua manutenção.
 
-Authorization
+Authorização
 ~~~~~~~~~~~~
 
-Decorators can help to check whether someone is authorized to use an
-endpoint in a web application. They are extensively used in Flask web
-framework and Django. Here is an example to employ decorator based
-authentication:
+Decoradores podem ajudar a checar se alguém está autorizado a usar
+um endpoint da sua aplicação web. Eles são extensivamente usados em
+nos frameworks Flask e Django. Aqui está um exemplo para empregar um
+decorador baseado em autenticação:
 
 **Example :**
 
@@ -298,7 +300,7 @@ authentication:
 Logging
 ~~~~~~~~~~~~
 
-Logging is another area where the decorators shine. Here is an example:
+Logging é outra área onde decoradores brilham. Aqui está um exemplo:
 
 .. code:: python
 
@@ -307,38 +309,41 @@ Logging is another area where the decorators shine. Here is an example:
     def logit(func):
         @wraps(func)
         def with_logging(*args, **kwargs):
-            print(func.__name__ + " was called")
+            print(func.__name__ + " foi chamada")
             return func(*args, **kwargs)
         return with_logging
 
     @logit
     def addition_func(x):
-       """Do some math."""
+       """Faz alguma matemática."""
        return x + x
 
 
     result = addition_func(4)
-    # Output: addition_func was called
+    # resultado: addition_func foi chamada
 
-I am sure you are already thinking about some clever uses of decorators.
+Eu tenho certeza que você já deve estar pensando em usos
+inteligentes de decoradores.
 
-Decorators with Arguments
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Decoradores com argumentos
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Come to think of it, isn't ``@wraps`` also a decorator?  But, it takes an
-argument like any normal function can do.  So, why can't we do that too?
+Vamos pensar com calma, ``@wraps`` não é também um decorador?
+Mas, ele pega um argumento da mesma forma que uma função o faz normalmente.
+Então, não podemos fazer isso também?
 
-This is because when you use the ``@my_decorator`` syntax, you are
-applying a wrapper function with a single function as a parameter
-Remember, everything in Python is an object, and this includes
-functions!  With that in mind, we can write a function that returns
-a wrapper function.
+Isso é porque quando você usa a sintaxe ``@my_decorator``, você
+está aplicando uma função wrapper (de aninhamento) com uma única
+função como parâmetro. Lembre-se, tudo em Python é um objeto, e isso 
+inclui funções! Com isso em mente, podemos escrveer uma função que retorna
+uma função wrapper (de aninhamento). 
 
 Nesting a Decorator Within a Function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Let's go back to our logging example, and create a wrapper which lets
-us specify a logfile to output to.
+Vamos voltar ao nosso exemplo de logging, e criar um wrapper
+que nos permite especificar um arquivo de log (logfile) para
+escrever os retornos.
 
 .. code:: python
 
@@ -348,11 +353,11 @@ us specify a logfile to output to.
         def logging_decorator(func):
             @wraps(func)
             def wrapped_function(*args, **kwargs):
-                log_string = func.__name__ + " was called"
+                log_string = func.__name__ + " foi chamada"
                 print(log_string)
-                # Open the logfile and append
+                # Abre o logfile e adiciona o resultado
                 with open(logfile, 'a') as opened_file:
-                    # Now we log to the specified logfile
+                    # Agora nos abrimos o logfile específico
                     opened_file.write(log_string + '\n')
             return wrapped_function
         return logging_decorator
@@ -362,30 +367,32 @@ us specify a logfile to output to.
         pass
         
     myfunc1()
-    # Output: myfunc1 was called
-    # A file called out.log now exists, with the above string
+    # resultado: myfunc1 foi chamada
+    # Um arquivo chamado out.log passou a existir e contém a string acima
     
     @logit(logfile='func2.log')
     def myfunc2():
         pass
     
     myfunc2()
-    # Output: myfunc2 was called
-    # A file called func2.log now exists, with the above string
+    # resultado: myfunc2 foi chamada
+    # Um arquivo chamado func2.log passou a existir e contém a string acima
 
-Decorator Classes
-~~~~~~~~~~~~~~~~~
+Classes de Decoradores
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Now we have our logit decorator in production, but when some parts
-of our application are considered critical, failure might be
-something that needs more immediate attention.  Let's say sometimes
-you want to just log to a file.  Other times you want an email sent,
-so the problem is brought to your attention, and still keep a log
-for your own records.  This is a case for using inheritence, but
-so far we've only seen functions being used to build decorators.
+Agora temos nosso decorador logit em produção, mas algumas
+partes da nossa aplicação pode ser considerada críticas, falhas
+são algo que devem ter atenção imediata. Vamos dizer que em alguns
+momentos você só precisar inserir um log a um arquivo. Outros momentos,
+você quer que um email seja enviado, de forma que o problema seja levado 
+à sua atenção, e ainda precisa manter um log para seus registros. Isso é
+um caso para se usar herança, mas até agora só vimos funções endo usadas
+para construir decoradores.
 
-Luckily, classes can also be used to build decorators.  So, let's
-rebuild logit as a class instead of a function.
+Por sorte, classes também podem ser usadas para construir decoradores.
+Vamos reconsturir o decorador logit como uma classe ao invés de uma 
+função.
 
 .. code:: python
 
@@ -394,22 +401,22 @@ rebuild logit as a class instead of a function.
             self.logfile = logfile
         
         def __call__(self, func):
-            log_string = func.__name__ + " was called"
+            log_string = func.__name__ + " foi chamada"
             print(log_string)
-            # Open the logfile and append
+            # Abre o logfile e adiciona o resultado
             with open(self.logfile, 'a') as opened_file:
-                # Now we log to the specified logfile
+                # Agora nos abrimos o logfile específico
                 opened_file.write(log_string + '\n')
-            # Now, send a notification
+            # Agora mandamos uma notificação
             self.notify()
         
         def notify(self):
-            # logit only logs, no more
+            # o decorador logit apenas grava o log no arquivo, nada mais
             pass
-    
-This implementation has an additional advantage of being much cleaner than
-the nested function approach, and wrapping a function still will use
-the same syntax as before:
+
+Esta implementação tem uma vantagem adicional de ser muito mais clara
+que o método de aninhamento de funções, e o decorador será usado em uma
+função com a mesma sintaxe anterior:
 
 .. code:: python
 
@@ -417,24 +424,24 @@ the same syntax as before:
     def myfunc1():
         pass
 
-Now, let's subclass logit to add email functionality (though this topic
-will not be covered here).
+Agora, vamos modificar o decorador logit para adicionar a 
+funcionalidade de email (apesar desse tópico não ser coberto aqui). 
 
 .. code:: python
 
     class email_logit(logit):
         '''
-        A logit implementation for sending emails to admins
-        when the function is called.
+        Uma implementação de logit para envio de emails para os adminstradores
+        quando essa função for chamada.
         '''
         def __init__(self, email='admin@myproject.com', *args, **kwargs):
             self.email = email
             super(email_logit, self).__init__(*args, **kwargs)
             
         def notify(self):
-            # Send an email to self.email
-            # Will not be implemented here
+            # Manda um email para self.email
+            # Isto não será implementado aqui
             pass
 
-From here, ``@email_logit`` works just like ``@logit`` but sends an email
-to the admin in addition to logging.
+A partir daqui, ``@email_logit`` funcionará da mesma forma que ``@logit`` mas
+irá enviar um email para o administrador ao mesmo tempo que modificará o arquivo de log.
