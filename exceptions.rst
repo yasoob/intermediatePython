@@ -1,118 +1,121 @@
-Exceptions
-----------
+Exceções
+--------
 
-Exception handling is an art which once you master grants you immense
-powers. I am going to show you some of the ways in which we can handle
-exceptions.
+O tratamento de exceção é uma arte que uma vez dominada te concede imensos
+poderes. Eu irei mostrar para você algumas das maneiras que podemos tratar
+exceções.
 
-In basic terminology we are aware of ``try/except`` clause. The code
-which can cause an exception to occur is put in the ``try`` block and
-the handling of the exception is implemented in the ``except`` block.
-Here is a simple example:
+Na teminologia básica estamos cientes da cláusula ``try/except``. O código
+que pode causar a ocorrência de uma exceção é colocado dentro do bloco ``try``
+e o tratamento da exceção é implementado no bloco ``except``. Aqui está um
+exemplo simples:
 
 .. code:: python
 
     try:
-        file = open('test.txt', 'rb')
+        arquivo = open('teste.txt', 'rb')
     except IOError as e:
-        print('An IOError occurred. {}'.format(e.args[-1]))
+        print('Ocorreu um IOError. {}'.format(e.args[-1]))
 
-In the above example we are handling only the IOError exception. What
-most beginners do not know is that we can handle multiple exceptions.
+No exemplo acima tratamos apenas a exceção IOError. O que a maioria dos
+iniciantes não sabem é que podemos lidar com múltiplas exceções.
 
-Handling multiple exceptions:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Tratando multiplas exceções:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We can use three methods to handle multiple exceptions. The first one
-involves putting all the exceptions which are likely to occur in a
-tuple. Like so:
+Nós podemos utilizar três métodos para tratar múltiplas exceções. O primeiro
+envolve colocar todas as exceções que são prováveis de ocorrer em uma tupla.
+Por exemplo:
 
 .. code:: python
 
     try:
-        file = open('test.txt', 'rb')
+        arquivo = open('teste.txt', 'rb')
     except (IOError, EOFError) as e:
-        print("An error occurred. {}".format(e.args[-1]))
+        print("Ocorreu um erro. {}".format(e.args[-1]))
 
-Another method is to handle individual exceptions in separate ``except``
-blocks. We can have as many ``except`` blocks as we want. Here is an example:
+Outro método é tratar individualmente cada exceção em separados blocos
+``except``. Podemos ter quantos blocos ``except`` quisermos. Aqui está um
+exemplo:
 
 .. code:: python
 
     try:
-        file = open('test.txt', 'rb')
+        arquivo = open('teste.txt', 'rb')
     except EOFError as e:
-        print("An EOF error occurred.")
+        print("Ocorreu um erro EOF.")
         raise e
     except IOError as e:
-        print("An error occurred.")
+        print("Ocorreu um erro.")
         raise e
 
-This way if the exception is not handled by the first ``except`` block then
-it may be handled by a following block, or none at all. Now the last method involves
-trapping ALL exceptions:
+Desta maneira se uma exceção não for tratada pelo primeiro bloco ``except``
+então ela poderá ser tratada pelo bloco seguinte, ou por nenhum. Agora o
+último método envolve pegar TODAS as exceções:
 
 .. code:: python
 
     try:
-        file = open('test.txt', 'rb')
+        arquivo = open('teste.txt', 'rb')
     except Exception:
-        # Some logging if you want
+        # Algum log se você desejar
         raise
 
-This can be helpful when you have no idea about the exceptions which may
-be thrown by your program.
+Isto pode ser útil quando você não tem ideia sobre quais exceções serão
+lançadas por seu programa.
 
-``finally`` clause
-~~~~~~~~~~~~~~~~~~
+Cláusula ``finally``
+~~~~~~~~~~~~~~~~~~~~
 
-We wrap our main code in the ``try`` clause. After that we wrap some code in
-an ``except`` clause which gets executed if an exception occurs in the code
-wrapped in the ``try`` clause. In this example we will use a third clause as
-well which is the ``finally`` clause. The code which is wrapped in the
-``finally`` clause will run whether or not an exception occurred. It might be used
-to perform clean-up after a script. Here is a simple example:
+Envolvemos nosso código principal na cláusula ``try``. Depois disso,
+envolvemos um código na cláusula ``except`` que é executado se ocorrer uma
+exceção no código envolvido na cláusula ``try``. Neste exemplo usaremos uma
+terceira cláusula conhecida como ``finally``. O código envolvido na cláusula
+``finally`` será executado independente se uma exceção ocorrer ou não. Ela
+pode ser utilizada em ações de limpeza depois de um script. Aqui está um
+exemplo simples:
 
 .. code:: python
 
     try:
-        file = open('test.txt', 'rb')
+        arquivo = open('teste.txt', 'rb')
     except IOError as e:
-        print('An IOError occurred. {}'.format(e.args[-1]))
+        print('Ocorreu um IOError. {}'.format(e.args[-1]))
     finally:
-        print("This would be printed whether or not an exception occurred!")
+        print("Isto seria impresso independente se uma exceção ocorrer ou não!")
         
-    # Output: An IOError occurred. No such file or directory
-    # This would be printed whether or not an exception occurred!
+    # Resultado: Ocorreu um IOError. No such file or directory
+    # Isto seria impresso independente se uma exceção ocorrer ou não!
 
-``try/else`` clause
-~~~~~~~~~~~~~~~~~~~
+Cláusula ``try/else``
+~~~~~~~~~~~~~~~~~~~~~
 
-Often times we might want some code to run if **no** exception occurs. This
-can easily be achieved by using an ``else`` clause. One might ask: why, if
-you only want some code to run if no exception occurs, wouldn't you simply
-put that code inside the ``try``? The answer is that then any exceptions in
-that code will be caught by the ``try``, and you might not want that. Most
-people don't use it and honestly I have myself not used it widely. Here is an
-example:
+Muitas vezes queremos que um código execute caso **nenhuma** exceção ocorra.
+Isto pode ser facilmente alcançado utilizando uma cláusula ``else``. Alguém
+pode perguntar: Se você apenas deseja executar um código caso nenhuma exceção
+ocorra, por que você simplesmente não coloca este código dentro do ``try``?
+A resposta é que desta forma nenhuma exceção neste código será pega através
+do ``try``, e você pode não querer isto. Muitas pessoas não utilizam este
+método, e honestamente, nem mesmo eu o utilizo com frequência. Segue um
+exemplo:
 
 .. code:: python
 
     try:
-        print('I am sure no exception is going to occur!')
+        print('Eu tenho certeza que nenhuma exceção ocorrerá!')
     except Exception:
-        print('exception')
+        print('exceção')
     else:
-        # any code that should only run if no exception occurs in the try,
-        # but for which exceptions should NOT be caught
-        print('This would only run if no exception occurs. And an error here '
-              'would NOT be caught.')
+        # determinado código será executado apenas se nenhuma exceção ocorrer
+        # no bloco try, porém, NENHUMA exceção será pega
+        print('Isto só seria executado caso nenhuma exceção ocorra. 
+              'E um erro aqui não seria pego.')
     finally:
-        print('This would be printed in every case.')
+        print('Isto seria impresso em todos os casos.')
 
-    # Output: I am sure no exception is going to occur!
-    # This would only run if no exception occurs.
-    # This would be printed in every case.
+    # Resultado: Eu tenho certeza que nenhuma exceção ocorrerá!
+    # Isto só seria executado caso nenhuma exceção ocorra.
+    # Isto seria impresso em todos os casos.
 
-The ``else`` clause would only run if no exception occurs and it would run
-before the ``finally`` clause.
+A cláusula ``else`` só seria executada caso nenhuma exceção ocorra e seria
+executada antes da cláusula ``finally``.
