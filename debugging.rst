@@ -1,30 +1,32 @@
 Debugging
 ---------
 
-Debugging is also something which once mastered can greatly enhance your
-bug hunting skills. Most of the newcomers neglect the importance of the
-Python debugger (``pdb``). In this section I am going to tell you only a
-few important commands. You can learn more about it from the official
-documentation.
+Debugging é algo que uma vez compreendido pode te ajudar enormemente
+em sua capacidade de encontrar erros (bugs). A maioria dos iniciantes 
+negligencia a importancia do Python debugger (``pdb``). Nesta seção,
+eu vou mostrar alguns comandos importantes. Você pode aprender mais 
+sobre isso a partir da documentação oficial.
 
-**Running from commandline**
+**Rodando a partir da linha de comando**
 
-You can run a script from the commandline using the Python debugger.
-Here is an example:
+Quando você roda um script a partir da linha de comando usando um
+Python debugger. Aqui está um exemplo:
 
 .. code:: python
 
     $ python -m pdb my_script.py
 
-It would cause the debugger to stop the execution on the first statement
-it finds. This is helpful if your script is short. You can then inspect
-the variables and continue execution line-by-line.
+Este comando faz com que o debuuger pare a execução do código na primeira
+linha de comando que ele encontrar. Isso é muito útil se o seu script for
+pequeno. Você pode inspecionar as variáveis e continuar a execução linha
+por linha.
 
-**Running from inside a script**
+**Rodando de dentro de um script**
 
-You can set break points in the script itself so that you can inspect
-the variables and stuff at particular points. This is possible using the
-``pdb.set_trace()`` method. Here is an example:
+Você pode inserir pontos de quebra (break points) dentro do próprio script
+para que você inspecione as variáveis e demais itens em pontos específicos do
+seu código. Isso é possível utilizando o método ``pdb.set_trace()``.
+Aqui está um exemplo:
 
 .. code:: python
 
@@ -32,29 +34,27 @@ the variables and stuff at particular points. This is possible using the
 
     def make_bread():
         pdb.set_trace()
-        return "I don't have time"
+        return "Eu não tenho tempo"
 
     print(make_bread())
 
-Try running the above script after saving it. You would enter the
-debugger as soon as you run it. Now it's time to learn some of the
-commands of the debugger.
+Tente rodar o script acima após salvá-lo. Você irá entrar no debugger
+assim que você o rodar. Agora é hora de aprender alguns dos comandos 
+do debugger.
 
-**Commands:**
+**Comandos:**
 
--  ``c``: continue execution
--  ``w``: shows the context of the current line it is executing.
--  ``a``: print the argument list of the current function
--  ``s``: Execute the current line and stop at the first possible
-   occasion.
--  ``n``: Continue execution until the next line in the current function
-   is reached or it returns.
+-  ``c``: continua a execução
+-  ``w``: mostra o contexto da linha atual que ele estpa executando
+-  ``a``: mostra a lista de argumentos da função atual
+-  ``s``: executa a linha atual e para a execução assim que possível
+-  ``n``: continua a execução até a próxima linha da função atual ou o seu retorno
 
-The difference between ``n``\ ext and ``s``\ tep is that step stops
-inside a called function, while next executes called functions at
-(nearly) full speed, only stopping at the next line in the current
-function.
+A diferença entre ``n``\ ext e ``s``\ tep  é que o método step para a execução
+dentro da função que foi chamada, enquanto o método next executa a função
+chanada em (quase) velocidade total, apenas parando na próxima linha da função
+onde o pdb foi inserido.
 
-These are just a few commands. ``pdb`` also supports post mortem. It is
-also a really handy function. I would highly suggest you to look at the
-official documentation and learn more about it.
+Esses são apenas alguns comandos. ``pdb`` também suporta post mortem. Esta é
+realmente uma função muito útil. Eu também sugiro que você olhe a documentação
+oficial e aprenda mais sobre isso.
