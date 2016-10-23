@@ -1,39 +1,33 @@
 Enumerate
 ---------
 
-Enumerate is a built-in function of Python. It's usefulness can not be
-summarized in a single line. Yet most of the newcomers and even some
-advanced programmers are unaware of it. It allows us to loop over
-something and have an automatic counter. Here is an example:
+Enumerate é uma função interna (*built-in*) do Python. Seu uso não pode ser resumido em uma única linha. Ainda assim, muitos programadores iniciantes e avançados, não tem conhecimento dela. Ela nos permite iterar sobre algo e automaticamente ter um contador nesse processo. Aqui tem um exemplo:
 
 .. code:: python
 
-    for counter, value in enumerate(some_list):
-        print(counter, value)
+    for contador, valor in enumerate(alguma_lista):
+        print(contador, valor)
 
-This is not it. ``enumerate`` also accepts some optional arguments which
-make it even more useful.
+Isso não é tudo. A função ``enumerate`` também aceita alguns argumentos opcionais que a torna ainda mais útil.
 
 .. code:: python
 
-    my_list = ['apple', 'banana', 'grapes', 'pear']
-    for c, value in enumerate(my_list, 1):
-        print(c, value)
+    minha_lista = ['maçã', 'banana', 'uva', 'pera']
+    for c, valor in enumerate(minha_lista, 1):
+        print(c, valor)
 
-    # Output:
-    # 1 apple
+    # Saida:
+    # 1 maçã
     # 2 banana
-    # 3 grapes
-    # 4 pear
+    # 3 uva
+    # 4 pera
 
-The optional argument allows us to tell ``enumerate`` from where to
-start the index. You can also create tuples containing the index and
-list item using a list. Here is an example:
+Esse argumento opcional permite-nos dizer para a função ``enumerate`` a partir de onde começar o indice. Você também pode criar tuplas contendo o indice e o item da lista usando um ``list``. Aqui tem um exemplo:
 
 .. code:: python
 
-    my_list = ['apple', 'banana', 'grapes', 'pear']
-    counter_list = list(enumerate(my_list, 1))
-    print(counter_list)
-    # Output: [(1, 'apple'), (2, 'banana'), (3, 'grapes'), (4, 'pear')]
+    minha_lista = ['maçã', 'banana', 'uva', 'pera']
+    lista_contador = list(enumerate(minha_lista, 1))
+    print(lista_contador)
+    # Saida: [(1, 'maçã'), (2, 'banana'), (3, 'uva'), (4, 'pera')]
 
