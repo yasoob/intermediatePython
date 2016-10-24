@@ -1,7 +1,7 @@
 Ambiente Virtual 
 -------------------
 
-VOcê já ouviu falar de ``virtualenv``? Se você é um iniciante, 
+Você já ouviu falar de ``virtualenv``? Se você é um iniciante, 
 então deve não ter escutado sobre, mas se você for 
 um programador experiente, então deve ser uma parte vital do seu conjunto de ferramentas. 
 
