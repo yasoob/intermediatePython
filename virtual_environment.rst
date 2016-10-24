@@ -1,73 +1,62 @@
-Virtual Environment
+Ambiente Virtual 
 -------------------
 
-Have you ever heard of ``virtualenv``? If you are a beginner,
-then you might not have heard about it but if you are a
-seasoned programmer then it may well be a vital part of your toolset. 
+VOcê já ouviu falar de ``virtualenv``? Se você é um iniciante, 
+então deve não ter escutado sobre, mas se você for 
+um programador experiente, então deve ser uma parte vital do seu conjunto de ferramentas. 
 
-So what is ``virtualenv``? ``Virtualenv`` is a tool which allows us to
-make isolated python environments. Imagine you have an application that
-needs version 2 of a library, but another application requires
-version 3. How can you use and develop both these applications?
+Então o que é ``virtualenv``? ``Virtualenv`  é uma ferramenta a qual nos permite
+criar ambientes isolados de python. Imagine que você tem uma aplicação que
+precisa da versão 2 de uma biblioteca, mas outra precisa da versão 3. 
+Como você pode usar e desenvolver ambas dessas aplicações?
 
-If you install everything into ``/usr/lib/python2.7/site-packages`` (or
-whatever your platform's standard location is), it's easy to end up in a
-situation where you unintentionally upgrade a package.
+Se você instalar tudo em ``/usr/lib/python2.7/site-packages`` (ou qual for o local padrão da sua plataforma). é fácil de terminar em uma situação onde você intencionalmente atualiza o pacote.
 
-In another case, imagine that you have an application which is fully
-developed and you do not want to make any change to the libraries it is
-using but at the same time you start developing another application
-which requires the updated versions of those libraries.
+Em outro caso, imagine que você tem uma aplicação a qual está totalmente 
+finalizada e você não quer fazer nenhuma outra mudança para as bibliotecas
+que está usando, mas ao mesmo tempo você começou a desenvolver uma outra aplicação 
+que requer uma versão atualizada dessas bibliotecas.
 
-What will you do? Use ``virtualenv``! It creates isolated environments
-for your python application and allows you to install Python libraries
-in that isolated environment instead of installing them globally.
+O que você irá fazer? Use ``virtualenv``! Um ambiente isolado será criado
+para a sua aplicação python e permitirá você instalar bibliotecas Python 
+nesse ambiente isolado ao invés de criá-los globalmente.
 
-To install it, just type this command in the shell:
+Para instalar, apenas digite o comando no terminal:
 
-.. code:: python
+..code:: python
+	
+	$ pip install virtualenv
 
-    $ pip install virtualenv
-
-The most important commands are:
+Os comandos mais importantes são:
 
 -  ``$ virtualenv myproject``
 -  ``$ source bin/activate``
 
-This first one makes an isolated virtualenv environment in the
-``myproject`` folder and the second command activates that isolated
-environment.
+O primeiro irá criar um ambiente isolado na pasta 
+``myproject`` e o segundo comando ativa o ambiente isolado.
 
-While creating the virtualenv you have to make a decision. Do you
-want this virtualenv to use packages from your system ``site-packages``
-or install them in the virtualenv’s site-packages? By default,
-virtualenv will not give access to the global ``site-packages``.
-
-If you want your ``virtualenv`` to have access to your systems
-``site-packages``, use the ``--system-site-packages`` switch when creating
-your virtualenv like this:
+Enquanto estiver criando a virtualenv você tem que tomar uma decisão. Você
+quer que essa virtualenv utilize pacotes do seu sistema ``site-packages``
+ou instá-los no site-packages do virtualenv? Por padrão, o
+virtualenv não irá dar acesso ao ``site-packages`` global.
 
 .. code:: python
 
     $ virtualenv --system-site-packages mycoolproject
 
-You can turn off the ``env`` by typing:
+Você pode desligar a ``env`` digitando:
 
 .. code:: python
 
     $ deactivate
 
-Running `python` after deactivating will use your system installation
-of Python again.
+Rodando `python` e depois desativando o ambiente, o sistema irá utilizar novamente as suas configurações padrões do Python.
+
 
 **Bonus**
 
-You can use ``smartcd`` which is a library for bash and zsh and allows
-you to alter your bash (or zsh) environment as you cd. It can be really
-helpful to activate and deactivate a ``virtualenv`` when you change
-directories. I have used it quite a lot and love it. You can read more
-about it on `GitHub <https://github.com/cxreg/smartcd>`__
+Você pode usar ``smartcd`` que é uma biblioteca para bash e zsh, que lhe 
+permite alterar o seu ambiente bash (ou zsh) enquanto troca de pastas (cd). Pode ser útil ativar e desativar a ``virtualenv``quando você muda
+os diretórios. Eu tenho usado bastante e amado. Você pode ler mais sobre em GitHub <https://github.com/cxreg/smartcd>`__
 
-This was just a short intro to virtualenv. There's a lot more to it; `this
-link <http://docs.python-guide.org/en/latest/dev/virtualenvs/>`__ has more
-information.
+Essa foi uma rápida intodução sobre virtualven. Há muito mais sobre; `esse link <http://docs.python-guide.org/en/latest/dev/virtualenvs/>`__ tem mais informações.
