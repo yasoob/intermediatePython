@@ -1,14 +1,14 @@
-Coroutines
+Co-rotinas
 ----------
 
-Coroutines are similar to generators with a few differences. The main
-differences are:
+Co-rotinas e geradores são similares com umas poucas diferenças. As principais 
+diferenças são:
 
--  generators are data producers
--  coroutines are data consumers
+- geradores são produtores de dados
+- co-rotinas são consumidoras de dados
 
-First of all let's review the generator creation process. We can make
-generators like this:
+Primeiramente, vamos revisar o processo de criação de um gerador. Podemos
+criar um gerador da seguinte forma:
 
 .. code:: python
 
@@ -18,18 +18,20 @@ generators like this:
             yield a
             a, b = b, a+b
 
-We then commonly use it in a ``for`` loop like this:
+
+Nós utilizamos isso normalmente dentro de um laço ``for``, como no exemplo abaixo:
 
 .. code:: python
 
     for i in fib():
         print(i)
 
-It is fast and does not put a lot of pressure on memory because it
-**generates** the values on the fly rather than storing them in a list.
-Now, if we use ``yield`` in the above example, more generally, we get a
-coroutine. Coroutines consume values which are sent to it. A very basic
-example would be a ``grep`` alternative in Python:
+
+Isso é rápido e não coloca muito pressão na memória porque ela **gera** os
+valores em tempo real em vez de armazená-lo numa lista. Agora, se utilizármos
+``yield`` como no exemplo abaixo, de forma geral nós iremos ter uma co-rotina.
+Co-rotina consome valore que são enviados para ela. Um exemplo muito básico seria um
+``grep`` alternativo em Python:
 
 .. code:: python
 
@@ -40,10 +42,10 @@ example would be a ``grep`` alternative in Python:
             if pattern in line:
                 print(line)
 
-Wait! What does ``yield`` return? Well we have turned it into a
-coroutine. It does not contain any value initially, instead we supply it
-values externally. We supply values by using the ``.send()`` method.
-Here is an example:
+Espere! O que ``yield``retorna? Bom, nós o transformamos em uma co-rotina.
+Ele não contém nenhum valor inicializado, em vez disso, nós fornecemos os valores
+para ele externamente. Nós fornecemos os valores utilizando o método ``.send()``.
+Segue um exemplo:
 
 .. code:: python
 
@@ -55,13 +57,13 @@ Here is an example:
     search.send("I love coroutines instead!")
     # Output: I love coroutines instead!
 
-The sent values are accessed by ``yield``. Why did we run ``next()``? It is
-required in order to start the coroutine. Just like ``generators``, coroutines do not
-start the function immediately. Instead they run it in response to the
-``__next__()`` and ``.send()`` methods. Therefore, you have to run
-``next()`` so that the execution advances to the ``yield`` expression.
+Os valores são acessados pelo ``yield``. Por que que nós executamos ``next()``?
+Isso é necessário para começar as co-rotinas. Assim como ``geradores``, co-rotinas não 
+iniciam a função imediatamente. Em vez disso elas executam isso como resposta aos métodos 
+``__next__`` e ``.send()``. Portanto, você precisa executar o método ``next()`` e então
+a execução avança para a expressão ``yield`` 
 
-We can close a coroutine by calling the ``.close()`` method:
+Nós podemos fechar a co-rotina chamando o método ``.close()``:
 
 .. code:: python
 
@@ -69,7 +71,6 @@ We can close a coroutine by calling the ``.close()`` method:
     # ...
     search.close()
 
-There is a lot more to ``coroutines``. I suggest you check out `this
-awesome
-presentation <http://www.dabeaz.com/coroutines/Coroutines.pdf>`__ by
-David Beazley.
+
+Há muito mais sobre ``co-rotinas``. Eu sugiro você dar uma olhada nessa `maravilhosa
+apresentação <http://www.dabeaz.com/coroutines/Coroutines.pdf>`__ por David Beazley.
