@@ -3,9 +3,7 @@ Object introspection
 Na programação de computadores, introspeção é a habilidade de determinar
 o tipo de um objeto em um tempo de execução. Esse é um dos pontos fortes de Python.
 Tudo em Python é um objeto e nós podemos examinar esses objetos.
-Python  
-
-Python ships with a few built-in functions and modules to help us.
+Python vem com algumas funções e módulos embutidos para nos ajudar.
 
 ``dir``
 ^^^^^^^^^^^
