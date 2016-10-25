@@ -33,7 +33,7 @@ Here is a short example:
 
 .. code:: python
 
-    multiples = [i for i in range(30) if i % 3 is 0]
+    multiples = [i for i in range(30) if i % 3 == 0]
     print(multiples)
     # Output: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
 
