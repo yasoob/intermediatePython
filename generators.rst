@@ -166,7 +166,7 @@ iterable. While an ``int`` isn't an iterable, we can use it on string!
     
     my_string = "Yasoob"
     my_iter = iter(my_string)
-    next(my_iter)
+    print(next(my_iter))
     # Output: 'Y'
 
 Now that is much better. I am sure that you loved learning about
