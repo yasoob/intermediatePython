@@ -8,6 +8,7 @@ their usefulness.
 The ones which we will talk about are:
 
 -  ``defaultdict``
+-  ``OrderedDict``
 -  ``counter``
 -  ``deque``
 -  ``namedtuple``
@@ -81,6 +82,42 @@ sample code:
     import json
     print(json.dumps(some_dict))
     # Output: {"colours": {"favourite": "yellow"}}
+
+``OrderedDict``
+^^^^^^^^^^^^^^^^^^^
+
+``OrderedDict`` keeps its entries sorted as they are initially inserted.
+Overwriting a value of an existing key doesn't change the position of
+that key. However, deleting and reinserting an entry moves the key to
+the end of the dictionary. 
+
+**Problem:**
+
+.. code:: python
+
+    colours =  {"Red" : 198, "Green" : 170, "Blue" : 160}
+    for key, value in colours.items():
+        print(key, value)
+    # Output:
+    #   Green 170
+    #   Blue 160
+    #   Red 198
+    # Entries are retrieved in an unpredictable order
+   
+**Solution:**
+
+.. code:: python
+
+    from collections import OrderedDict
+    
+    colours = OrderedDict([("Red", 198), ("Green", 170), ("Blue", 160)])
+    for key, value in colours.items():
+        print(key, value)
+    # Output:
+    #   Red 198
+    #   Green 170
+    #   Blue 160
+    # Insertion order is preserved
 
 ``counter``
 ^^^^^^^^^^^^^^^
