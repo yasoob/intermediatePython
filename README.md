@@ -2,36 +2,36 @@
 
 Intermediate Python
 ===================
+Python é uma linguagem com uma comunidade forte e amigável de programadores.Entretanto, falta documentação no que aprender depois de pegar o básico de Python guela abaixo. Através desse livro eu procuro resolver esse problema. Eu irei lhe dar bits de informação sobre alguns tópicos interessantes, os quais você pode explorar "further".
 
-Python is an amazing language with a strong and friendly community of programmers. However, there is a lack of documentation on what to learn after getting the basics of Python down your throat. Through this book I aim to solve this problem. I will give you bits of information about some interesting topics which you can further explore.
+Os tópicos os quais serão discutidos nesse livro, irão abrir a sua mente para alguns cantos agradáveis da linguagem Python. Esse livro é um "outcome" do meu desejo de ter algo similar quando eu estava começando a aprender Python.
 
-The topics which are discussed in this book will open your mind to some nice corners of Python language. This book is an outcome of my desire to have something like this when I was beginning to learn Python.
+Se você é um iniciante, intermediario ou mesmo um programador avançado há algo para você nesse livro.
 
-If you are a beginner, intermediate or even an advanced programmer there is something for you in this book.
+Por favor note que esse livro não é um tutorial e não irá lhe ensinar Python. Os tópicos aqui apresentados não estão explicados de maneira aprofudandada, apenas o minimo de informação requerida está sendo dado.
 
-Please note that this book is not a tutorial and does not teach you Python. The topics are not explained in-depth and only the minimum required information is given.
+Eu tenho certeza que você está tão animado quanto eu. Então, vamos começar!
 
-I am sure you are as excited as I am. So, let’s start!
+Nota: Esse livro ainda está em progresso. Se você encontrar algo que possa melhorar (Eu sei que você irá encontrar várias outras coisas) então gentimente submita um pull request. :)
 
-Note: This book is a work in progress. If you find anything which you can further improve (I know you will find a lot of stuff) then kindly submit a pull request. :)
-
-Moreover, if you want to add more content to this book then kindly submit a pull request and I will be more than happy to merge it. :+1:
-
--------------------
-
-**Note:** If you want to tip me for my work then you can buy the donation version of this book from [Gumroad](https://gum.co/intermediate_python). Apart from that, if this book somehow helps you then kindly share your experience with [me](mailto:yasoob.khld@gmail.com). I would really appreciate it.
+Além do mais, se você quiser adicionar mais conteúdo para o livro, submeta um pull request e eu estarei mais do que feliz em dar merge it. :+1:
 
 -------------------
 
-Table of Contents:
+**Nota:** 
+Se você quiser apoiar meu trabalho, você pode comprar a versão de doação desse livro no [Gumroad](https://gum.co/intermediate_python). Fora isso, se esse livro de alguma forma lhe ajudar, gentilmente compartilhe a sua experiência [comigo](mailto:yasoob.khld@gmail.com). Eu realmente apreciaria isso.
+
+-------------------
+
+Sumário:
 ------------------
-1) Programmer tools
+1) Ferramentas de programação
 
 - [Virtual Environment](virtual_environment.rst)
 - [Debugging](debugging.rst)
 - [Object introspection](object_introspection.rst)
 
-2) Syntax
+2) Sintaxe
 
 - [Exceptions](exceptions.rst)
 - [For - Else](for_-_else.rst)
@@ -41,7 +41,7 @@ Table of Contents:
 - [\*args and \*\*kwargs](args_and_kwargs.rst)
 - [Context managers](context_managers.rst)
 
-3) Functional programming
+3) Programing Funcional
 
 - [Enumerate](enumerate.rst)
 - [Lambdas](lambdas.rst)
@@ -49,12 +49,12 @@ Table of Contents:
 - [Map & Filter](map_filter.rst)
 - [Comprehensions](comprehensions.rst)
 
-4) Data structures
+4) Estrutura de Dados 
 
 - [Generators](generators.rst)
 - [Coroutines](coroutines.rst)
 
-5) Data types
+5) Tipos de Datas
 
 - [Collections](collections.rst)
 - [Mutation](mutation.rst)
@@ -71,28 +71,38 @@ Table of Contents:
 - [Targeting Python 2+3](targeting_python_2_3.rst)
 - [Python C extensions](python_c_extension.rst)
 
-Author:
+Autor:
 ------
 
 - [Muhammad Yasoob Ullah Khalid](https://github.com/yasoob)
 
-Acknowledgement:
+Acknowledgement: 
 ----------------
 
 - [Philipp Hagemeister](https://github.com/phihag):
 
-He wrote the chapter on Open function. Thanks Philipp! :+1:
+Ele escreveu o capítulo sobre a função Open. Obrigada Philipp! :+1:
 
-Translation:
+Traduções:
 ------------
-If you want to translate this book in any other language then kindly let [me know](mailto:yasoob.khld@gmail.com). I would love your contribution. The currently translated versions are listed below:
-
+Se você quiser traduzir esse livro em qualquer outro idioma, [contate me](mailto:yasoob.khld@gmail.com). Eu adoraria a sua contribuição. As versões atualmente traduzido estão listados abaixo:
 - [Chinese](https://github.com/eastlakeside/interpy-zh)
 - [Russian](https://github.com/lancelote/interpy-ru)
 
-License:
+Licença:
 -------
 
-This book is released under the [following](http://creativecommons.org/licenses/by-nc-sa/4.0/) CC license (CC BY-NC-SA 4.0).
+Esse livro é licenciado [de acordo com](http://creativecommons.org/licenses/by-nc-sa/4.0/)a CC licença (CC BY-NC-SA 4.0).
 
-If you end up using/recommending this book to someone then kindly [let me know](mailto:yasoob.khld@gmail.com). :smile:
+Se você terminar usando/recomendando esse livro para alguém, por favor [contate me](mailto:yasoob.khld@gmail.com). :smile:
+
+Contribua:
+-------
+
+Se você gostou da iniciativa de tradução desse livro e quiser colaborar, é só seguir os passos abaixo:
+
+1. Faça um **fork** do [repositório do projeto]
+(https://github.com/joanasouza/intermediatePython`).
+2. Clone o **seu** repositório.
+3. Abra uma [issue](https://github.com/joanasouza/intermediatePython/issues) informando o capítulo que quer traduzir.
+5. Envie um *pull request* com o que você traduziu.

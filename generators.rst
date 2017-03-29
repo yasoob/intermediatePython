@@ -1,54 +1,47 @@
-Generators
+Geradores
 ----------
 
-First lets understand iterators. According to Wikipedia, an iterator is
-an object that enables a programmer to traverse a container,
-particularly lists. However, an iterator performs traversal and gives
-access to data elements in a container, but does not perform iteration.
-You might be confused so lets take it a bit slow. There are three parts
-namely:
+Primeiramente vamos entender o que são iteradores. De acordo com o Wikipedia, um iterador
+é um objeto que possibilita ao desenvolvedor percorrer um conjunto de dados, particurlamente listas.
+O iterador dá acesso aos elementos dentro do conjunto de dados, mas ele não faz a iteração.
+Você deve estar confuso, então vamos mais devagar. Existem três partes chamadas:
 
--  Iterable
--  Iterator
--  Iteration
+- Iterável
+- Iterador
+- Iteração
 
-All of these parts are linked to each other. We will discuss them one by
-one and later talk about generators.
+Todas essas partes estão conectadas uma com as outras. Iremos discutir cada uma.
 
-Iterable
+Iterável
 ^^^^^^^^
 
-An ``iterable`` is any object in Python which has an ``__iter__`` or a
-``__getitem__`` method defined which returns an **iterator** or can take
-indexes (Both of these dunder methods are fully explained in a previous
-chapter). In short an ``iterable`` is any object which can provide us
-with an **iterator**. So what is an **iterator**?
+Um objeto ``iterável`` é qualquer objeto em Python que possui um método ``__iter__`` ou um método
+``__getitem__`` definido que retorna um **iterador** ou que pode ter índices (Ambos os métodos já
+foram explicados em capítulos anteriores). Em resumo, um objeto ``iterável`` é qualquer objeto 
+que nos fornece um **iterador**. E, o que é um **iterador**?
 
-Iterator
+Iterador
 ^^^^^^^^
 
-An iterator is any object in Python which has a ``next`` (Python2) or
-``__next__`` method defined. That's it. That's an iterator. Now let's
-understand **iteration**.
+Um iterador é qualquer objeto em Python que possui um método ``next`` (Python2)
+ou um método ``__next__`` definido. Agora vamos entender o que é **iteração**.
 
-Iteration
+Iteração
 ^^^^^^^^^
 
-In simple words it is the process of taking an item from something e.g a
-list. When we use a loop to loop over something it is called iteration.
-It is the name given to the process itself. Now as we have a basic
-understanding of these terms let's understand **generators**.
+Em poucas palavras, iteração é o processo de pegar um item de algum coisa, por exemplo uma lista.
+Quando nós utilizamos um laço para iterar alguma coisa é chamado de iteração. É o nome dado ao 
+próprio processo. Agora que nós já sabemos o básico desses termos vamos entender **geradores**.
 
-Generators
+Geradores
 ^^^^^^^^^^
 
-Generators are iterators, but you can only iterate over them once. It’s
-because they do not store all the values in memory, they generate the
-values on the fly. You use them by iterating over them, either with a
-'for' loop or by passing them to any function or construct that
-iterates. Most of the time ``generators`` are implemented as functions.
-However, they do not ``return`` a value, they ``yield`` it. Here is a
-simple example of a ``generator`` function:
+Geradores são iteradores, mas você só consegue iterar com eles uma vez.
+Isso acontece porque eles não armazenam todos os valores na memória, eles geram 
+os valores em tempo real. Você os utiliza iterando sobre eles, sendo com um laço 'for' 
+ou passando eles para alguma função ou construtor que itera. A maior parte do tempo 
+``geradores`` são implemenatados como funções. No entanto, eles não ``retornam`` um valor, eles
+``produzem`` um. Abaixo você encontrará um exemplo simples de uma função ``geradora``.
 
 .. code:: python
 
@@ -70,14 +63,12 @@ simple example of a ``generator`` function:
     # 8
     # 9
 
-It is not really useful in this case. Generators are best for
-calculating large sets of results (particularly calculations involving
-loops themselves) where you don't want to allocate the memory for all
-results at the same time. Many Standard Library functions that return
-``lists`` in Python 2 have been modified to return ``generators`` in
-Python 3 because ``generators`` require fewer resources.
-
-Here is an example ``generator`` which calculates fibonacci numbers:
+Nesse exemplo a função não é muito útil. Geradores são melhores utilizados 
+para calcular grandes conjuntos de resultados (particurlamente cálculos envolvendo
+laços) onde você não deseja alocar a memória para todos os resultados ao mesmo tempo.
+Muitas funções de Bibliotecas Padrão que retornam ``listas`` no Pytho 2 estão sendo modificadas 
+para retornar ``geradores`` no Python 3 porque ``geradores`` precisam de menos recursos.
+Aqui segue um exemplo de ``gerador`` que calcula a sequência de Fibonacci:
 
 .. code:: python
 
@@ -88,15 +79,15 @@ Here is an example ``generator`` which calculates fibonacci numbers:
             yield a
             a, b = b, a + b
 
-Now we can use it like this:
+E nós podemos utilizar a função da seguinte forma:
 
 .. code:: python
 
     for x in fibon(1000000):
         print(x)
 
-This way we would not have to worry about it using a lot of resources.
-However, if we would have implemented it like this:
+Dessa forma nós não precisamos nos preocupar se a função está utilizando 
+muitos recursos. No entanto, se tivéssemos implementado assim:
 
 .. code:: python
 
@@ -108,11 +99,11 @@ However, if we would have implemented it like this:
             a, b = b, a + b
         return result
 
-It would have used up all our resources while calculating a large input.
-We have discussed that we can iterate over ``generators`` only once but
-we haven't tested it. Before testing it you need to know about one more
-built-in function of Python, ``next()``. It allows us to access the next
-element of a sequence. So let's test out our understanding:
+A função teria utilizado todos os nossos recursos para calcular uma entrada muito grande.
+
+Discutimos anteriormente que podemos iterar sobre ``geradores`` apenas uma vez, mas não chegamos a testar isso.
+Antes de testar, você precisa saber sobre mais uma função embutida do Python, ``next()``. Ela nos permite 
+acessar o próximo elemento da sequência. Vamos testar:
 
 .. code:: python
 
@@ -132,13 +123,12 @@ element of a sequence. So let's test out our understanding:
     #            File "<stdin>", line 1, in <module>
     #         StopIteration
 
-As we can see that after yielding all the values ``next()`` caused a
-``StopIteration`` error. Basically this error informs us that all the
-values have been yielded. You might be wondering that why don't we get
-this error while using a ``for`` loop? Well the answer is simple. The
-``for`` loop automatically catches this error and stops calling
-``next``. Do you know that a few built-in data types in Python also
-support iteration? Let's check it out:
+Como você pode ver, depois de produzir todos os valores, ``next()`` provocou 
+um erro` `StopIteration``. Basicamente esse erro nos informa que todos os valores já foram 
+produzidos. Você deve está se perguntando o motivo pelo qual esse erro não foi causado quando
+usamos o laço ``for``? Bom, a resposta é simples. O laço ``for`` automaticamente pega o erro e 
+encerra a chamada do método ``next``. Você sabia que alguns tipos de dados embutidos de Python 
+também suportam iteração? Vamos dar uma olhada:
 
 .. code:: python
 
@@ -148,12 +138,12 @@ support iteration? Let's check it out:
     #      File "<stdin>", line 1, in <module>
     #    TypeError: str object is not an iterator
 
-Well that's not what we expected. The error says that ``str`` is not an
-iterator. Well it's right! It's an iterable but not an iterator. This
-means that it supports iteration but we can't iterate over
-it directly. So how would we iterate over it? It's time to learn about one more
-built-in function, ``iter``. It returns an ``iterator`` object from an
-iterable. While an ``int`` isn't an iterable, we can use it on string! 
+Bom, isso não é o que esperávamos. O erro diz que ``str`` não é um iterador.
+E isso está certo! ``str`` é iterável, mas não é um iterador. Isso significa que ``str``
+suporta iteração, mas nós não podemos iterar sobre ela diretamente. Então, como podemos 
+iterar sobre ela? É hora de aprender sobre mais uma função embutida do Python, ``iter``.
+Ela retorna um objeto ``iterador`` a partir de um objeto iterável. Enquanto um ``int``
+não é iterável, nós podemos utilizá-lo em uma string que é iterável. 
 
 .. code:: python
 
@@ -169,8 +159,8 @@ iterable. While an ``int`` isn't an iterable, we can use it on string!
     print(next(my_iter))
     # Output: 'Y'
 
-Now that is much better. I am sure that you loved learning about
-generators. Do bear it in mind that you can fully grasp this concept
-only when you use it. Make sure that you follow this pattern and use
-``generators`` whenever they make sense to you. You won't be
-disappointed!
+Agora está muito melhor. Tenho certeza que você amou aprender sobre geradores. 
+Tenha em mente que você só entenderá completamento o conceito quando utilizá-lo.
+Tenha certeza de seguir esse padrão e utilizar ``geradores`` sempre que fizer sentido
+para você. Você não ficará desapontado!.
+

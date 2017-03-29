@@ -1,20 +1,16 @@
 Object introspection
 --------------------
-
-In computer programming, introspection is the ability to determine the
-type of an object at runtime. It is one of Python's strengths.
-Everything in Python is an object and we can examine those objects.
-Python ships with a few built-in functions and modules to help us.
+Na programação de computadores, introspeção é a habilidade de determinar
+o tipo de um objeto em um tempo de execução. Esse é um dos pontos fortes de Python.
+Tudo em Python é um objeto e nós podemos examinar esses objetos.
+Python vem com algumas funções e módulos embutidos para nos ajudar.
 
 ``dir``
 ^^^^^^^^^^^
 
-In this section we will learn about ``dir`` and how it facilitates us
-in introspection.
-
-It is one of the most important functions for introspection. It returns
-a list of attributes and methods belonging to an object. Here is an
-example:
+Nessa seção iremos aprender sobre o  ``dir`` e como nos facilita na introspecção. 
+É uma das funções mais importantes para introspecção. Uma lista é retornada
+com os atributos e métodos que pertencem à um objeto. Aqui vai um exemplo:
 
 .. code:: python
 
@@ -29,15 +25,14 @@ example:
     # '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop',
     # 'remove', 'reverse', 'sort']
 
-Our introspection gave us the names of all the methods of a list. This
-can be handy when you are not able to recall a method name. If we run
-``dir()`` without any argument then it returns all names in the current
-scope.
+Nossa introspecção nos dar os nomes de todos os métodos de uma lista. Isso
+pode ser conveniente quando você não consegue lembrar o nome de um método. Se rodarmos
+``dir()`` sem nenhum argumento, ele retorna todos os nomes no escopo atual. 
 
-``type`` and ``id``
+``type`` e ``id``
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The ``type`` function returns the type of an object. For example:
+A função ``type`` retorna o tipo de um objeto. Por exemplo:
 
 .. code:: python
 
@@ -56,7 +51,7 @@ The ``type`` function returns the type of an object. For example:
     print(type(3))
     # Output: <type 'int'>
 
-``id`` returns the unique ids of various objects. For instance:
+``id`` retorna o id exclusivo de vários objetos. Por exemplo:
 
 .. code:: python
 
@@ -64,12 +59,11 @@ The ``type`` function returns the type of an object. For example:
     print(id(name))
     # Output: 139972439030304
 
-``inspect`` module
+módulo ``inspect`` 
 ^^^^^^^^^^^^^^^^^^^^^^
-
-The inspect module also provides several useful functions to get
-information about live objects. For example you can check the members of
-an object by running:
+O módulo inspect também fornece várias funções úteis para pegar 
+informação sobre objetos vivos. Por exemplo, você pode checar os membros 
+de um objeto com o comando:  
 
 .. code:: python
 
@@ -77,5 +71,6 @@ an object by running:
     print(inspect.getmembers(str))
     # Output: [('__add__', <slot wrapper '__add__' of ... ...
 
-There are a couple of other methods as well which help in introspection.
-You can explore them if you wish.
+Há vários outros métodos que também ajudam na introspecção. 
+Você pode explorá-los se desejar.
+
