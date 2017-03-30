@@ -11,8 +11,8 @@ something and have an automatic counter. Here is an example:
     for counter, value in enumerate(some_list):
         print(counter, value)
 
-This is not it. ``enumerate`` also accepts some optional arguments which
-make it even more useful.
+And there is more! ``enumerate`` also accepts an optional argument which
+makes it even more useful.
 
 .. code:: python
 
