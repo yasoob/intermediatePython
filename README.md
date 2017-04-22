@@ -89,6 +89,7 @@ If you want to translate this book in any other language then kindly let [me kno
 
 - [Chinese](https://github.com/eastlakeside/interpy-zh)
 - [Russian](https://github.com/lancelote/interpy-ru)
+- [Korean](https://github.com/DDanggle/interpy-kr)
 
 License:
 -------
