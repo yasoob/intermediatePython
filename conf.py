@@ -217,7 +217,7 @@ latex_additional_files = ['flaskstyle.sty', '_static/cover.pdf']
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pythontips', u'Python Tips Documentation',
+    ('index', 'pythontips', u'Python Tips',
      [u'Muhammad Yasoob Ullah Khalid'], 1)
 ]
 
@@ -231,7 +231,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'PythonTips', u'Python Tips Documentation',
+  ('index', 'PythonTips', u'Python Tips',
    u'Muhammad Yasoob Ullah Khalid', 'PythonTips', 'One line description of project.',
    'Miscellaneous'),
 ]
@@ -255,7 +255,7 @@ texinfo_documents = [
 epub_title = u'Python Tips'
 epub_author = u'Muhammad Yasoob Ullah Khalid'
 epub_publisher = u'Muhammad Yasoob Ullah Khalid'
-epub_copyright = u'2015, Muhammad Yasoob Ullah Khalid'
+epub_copyright = u'2017, Muhammad Yasoob Ullah Khalid'
 
 
 #epub_theme = 'epub'
@@ -313,3 +313,7 @@ sys.path.append(os.path.abspath('_themes'))
 #html_theme_path = ['_themes']
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_theme = 'sphinx_rtd_theme'
+
+
+def setup(app):
+    app.add_javascript("js/ad.js")
