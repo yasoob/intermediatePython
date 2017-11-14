@@ -315,5 +315,3 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_theme = 'sphinx_rtd_theme'
 
 
-def setup(app):
-    app.add_javascript("js/ad.js")
