@@ -314,5 +314,3 @@ sys.path.append(os.path.abspath('_themes'))
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_theme = 'sphinx_rtd_theme'
 
-def setup(app):
-    app.add_stylesheet('custom.css')
