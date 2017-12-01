@@ -400,7 +400,11 @@ rebuild logit as a class instead of a function.
             with open(self.logfile, 'a') as opened_file:
                 # Now we log to the specified logfile
                 opened_file.write(log_string + '\n')
-            # Now, send a notification
+            
+            # Call the function if no return
+            func()
+            
+            # Now, send a notification
             self.notify()
         
         def notify(self):
