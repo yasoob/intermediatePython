@@ -69,8 +69,8 @@ and does the right thing. You can pass in the encoding with the
 Python -- specific default will be picked. You may be tempted to rely on
 these defaults, but the defaults are often wrong, or the default
 encoding cannot actually express all characters in the file (this will happen often on
-Python 2.x and/or Windows). So go ahead and pick an encoding. ``utf-8``
-is a terrific one. When you write a file, you can just pick the encoding
+Python 2.x and/or Windows). So go ahead and pick an encoding. Encoding is the way to instruct computers about how the numbers should be stored as bytes in memory. ``utf-8``
+is a terrific one and is supported by major browsers and programming languages. When you write a file, you can just pick the encoding
 to your liking (or the liking of the program that will eventually read
 your file).
 
