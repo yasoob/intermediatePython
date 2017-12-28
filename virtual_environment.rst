@@ -32,7 +32,7 @@ To install it, just type this command in the shell:
 The most important commands are:
 
 -  ``$ virtualenv myproject``
--  ``$ source bin/activate``
+-  ``$ source myproject/bin/activate``
 
 This first one makes an isolated virtualenv environment in the
 ``myproject`` folder and the second command activates that isolated
