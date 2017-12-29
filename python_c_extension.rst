@@ -252,7 +252,7 @@ file, it's pretty straight forward.
       long length = PyList_Size(listObj);
 
       //iterate over all the elements
-      int i, sum =0;
+      long i, sum =0;
       for(i = 0; i < length; i++){
         //get an element out of the list - the element is also a python objects
         PyObject* temp = PyList_GetItem(listObj, i);
