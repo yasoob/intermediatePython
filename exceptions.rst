@@ -111,7 +111,7 @@ example:
         print('This would be printed in every case.')
 
     # Output: I am sure no exception is going to occur!
-    # This would only run if no exception occurs.
+    # This would only run if no exception occurs. And an error here would NOT be caught
     # This would be printed in every case.
 
 The ``else`` clause would only run if no exception occurs and it would run
