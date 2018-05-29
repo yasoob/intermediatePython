@@ -67,6 +67,8 @@ is a generic cache:
 
     fibonacci(25)
 
+**Note:** memoize won't cache unhashable types (dict, lists, etc...) but only the immutable types. Keep that in mind when using it.
+
 `Here <https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/>`__
 is a fine article by Caktus Group in which they caught a bug in Django
 which occurred due to ``lru_cache``. It's an interesting read. Do check it out.
