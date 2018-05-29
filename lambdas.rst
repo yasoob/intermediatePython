@@ -21,7 +21,7 @@ normal functions and even behave like them.
     print(add(3, 5))
     # Output: 8
 
-Here are a few useful use cases for lambdas and just a few way in which
+Here are a few useful use cases for lambdas and just a few ways in which
 they are used in the wild:
 
 **List sorting**
