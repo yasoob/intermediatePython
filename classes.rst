@@ -217,6 +217,6 @@ Without the ``__getitem__`` method we would have got this error:
       File "<stdin>", line 1, in <module>
     TypeError: 'GetTest' object has no attribute '__getitem__'
 
-Static, Class & Abstract methods
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. Static, Class & Abstract methods
+.. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -55,6 +55,7 @@ Table of Contents
    object_introspection
    comprehensions
    exceptions
+   classes
    lambdas
    one_liners
    for_-_else
