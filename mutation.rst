@@ -30,7 +30,8 @@ something like this:
     bar += ['bye']
 
     print(foo)
-    # Output: ['hi']
+    # Expected Output: ['hi']
+    # Output: ['hi', 'bye']
 
     print(bar)
     # Output: ['hi', 'bye']
