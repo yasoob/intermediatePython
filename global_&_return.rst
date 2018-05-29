@@ -125,4 +125,36 @@ Or by more common convention:
     print(profile_age)
     # Output: 30
 
+Keep in mind that even in the above example we are returning a tuple (despite the lack of paranthesis) and not separate multiple values. If you want to take it one step further, you can also make use of `namedtuple <https://docs.python.org/3/library/collections.html#collections.namedtuple>`_. Here is an example:
+
+.. code:: python
+
+    from collections import namedtuple                                                                                     
+    def profile():
+        Person = namedtuple('Person', 'name age')
+        return Person(name="Danny", age=31)
+
+    # Use as namedtuple
+    p = profile()
+    print(p, type(p))
+    # Person(name='Danny', age=31) <class '__main__.Person'>
+    print(p.name)
+    # Danny
+    print(p.age)
+    #31
+
+    # Use as plain tuple
+    p = profile()
+    print(p[0])
+    # Danny
+    print(p[1])
+    #31
+
+    # Unpack it immediatly
+    name, age = profile()
+    print(name)
+    # Danny
+    print(age)
+    #31
+
 This is a better way to do it along with returning ``lists`` and ``dicts``. Don't use ``global`` keyword unless you know what you are doing. ``global`` might be a better option in a few cases but is not in most of them.
