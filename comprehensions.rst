@@ -9,6 +9,7 @@ comprehensions are supported in both Python 2 and Python 3:
 -  list comprehensions
 -  dictionary comprehensions
 -  set comprehensions
+-  generator comprehensions
 
 We will discuss them one by one. Once you get the hang of using ``list``
 comprehensions then you can use any of them easily.
@@ -91,3 +92,17 @@ that they use braces ``{}``. Here is an example:
     squared = {x**2 for x in [1, 1, 2]}
     print(squared)
     # Output: {1, 4}
+
+``generator`` comprehensions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+They are also similar to list comprehensions. The only difference is that they don't allocate memory for the whole list but generate one item at a time, thus more memory effecient.
+
+.. code:: python
+
+    multiples_gen = (i for i in range(30) if i % 3 == 0)
+    print(multiples_gen)
+    # Output: <generator object <genexpr> at 0x7fdaa8e407d8>
+    for x in multiples_gen:
+      print(x)
+      # Outputs numbers
