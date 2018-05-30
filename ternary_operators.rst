@@ -70,3 +70,25 @@ first built, then an index is found.  For the if-else ternary operator,
 it follows the normal if-else logic tree.  Thus, if one case could
 raise an exception based on the condition, or if either case is a
 computation-heavy method, using tuples is best avoided.
+
+
+**ShortHand Ternary**
+
+In python there is shorthand ternary tag (Or can call abbreviation) from which
+you can add check and use the values.
+
+Syntax was introduced in Python 2.5 and useful for python 2.5 and greater.
+
+**Example**
+.. code:: python
+>>> True or "Some"
+True
+>>> False or "Some"
+'Some'
+>>>
+
+In above case1 first statement is `True or "Some"` it will return `True`
+         case2 second statement is `False or "Some"` it will return `False`
+
+So in left hand assignment we can easily make use of this part. Some times to replace
+ternary of if / else.
