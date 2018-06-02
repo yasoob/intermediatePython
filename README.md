@@ -46,6 +46,7 @@ Table of Contents:
 4) Data structures
     - [Generators](generators.rst)
     - [Coroutines](coroutines.rst)
+    - [Classes](classes.rst)
 5) Data types
     - [Collections](collections.rst)
     - [Mutation](mutation.rst)
