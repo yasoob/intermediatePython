@@ -34,7 +34,7 @@ The common construct is to run a loop and search for an item. If the
 item is found, we break out of the loop using the ``break`` statement. There are two
 scenarios in which the loop may end. The first one is when the item is
 found and ``break`` is encountered. The second scenario is that the loop
-ends without encountering a ``break` statement. Now we may want to know which one of these is the reason for a
+ends without encountering a ``break`` statement. Now we may want to know which one of these is the reason for a
 loop's completion. One method is to set a flag and then check it once the
 loop ends. Another is to use the ``else`` clause.
 
