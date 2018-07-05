@@ -200,7 +200,7 @@ Implementing **getitem** in a class allows its instances to use the []
         def __getitem__(self,i):
             return self.info[i]
 
-    foo = OldClass()
+    foo = GetTest()
     foo['title']
     # Output: 'Yasoob'
 
