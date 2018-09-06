@@ -18,8 +18,8 @@ expressions.
 
 .. code:: python
 
-    is_fat = True
-    state = "fat" if is_fat else "not fat"
+    is_nice = True
+    state = "nice" if is_nice else "not nice"
 
 It allows to quickly test a condition instead of a multiline if
 statement. Often times it can be immensely helpful and can make your
@@ -38,10 +38,10 @@ is some sample code:
 
 .. code:: python
 
-    fat = True
-    fitness = ("skinny", "fat")[fat]
-    print("Ali is ", fitness)
-    # Output: Ali is fat
+    nice = True
+    personality = ("mean", "nice")[nice]
+    print("The cat is ", personality)
+    # Output: The cat is mean
 
 This works simply because True == 1 and False == 0, and so can be done
 with lists in addition to tuples.
