@@ -41,7 +41,7 @@ is some sample code:
     nice = True
     personality = ("mean", "nice")[nice]
     print("The cat is ", personality)
-    # Output: The cat is mean
+    # Output: The cat is nice
 
 This works simply because True == 1 and False == 0, and so can be done
 with lists in addition to tuples.
