@@ -205,7 +205,7 @@ Implementing **getitem** in a class allows its instances to use the []
     # Output: 'Yasoob'
 
     foo['number']
-    # Output: 36845124
+    # Output: 12345812
 
 Without the ``__getitem__`` method we would have got this error:
 
