@@ -81,6 +81,7 @@ Syntax was introduced in Python 2.5 and can be used in python 2.5 or greater.
 
 **Example**
 .. code:: python
+
     >>> True or "Some"
     True
     >>>
