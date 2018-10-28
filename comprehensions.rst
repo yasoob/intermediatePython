@@ -96,7 +96,7 @@ that they use braces ``{}``. Here is an example:
 ``generator`` comprehensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-They are also similar to list comprehensions. The only difference is that they don't allocate memory for the whole list but generate one item at a time, thus more memory effecient.
+They are also similar to list comprehensions. The only difference is that they don't allocate memory for the whole list but generate one item at a time, thus more memory efficient.
 
 .. code:: python
 
