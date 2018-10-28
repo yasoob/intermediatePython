@@ -201,6 +201,7 @@ Implementing **getitem** in a class allows its instances to use the []
             return self.info[i]
 
     foo = GetTest()
+
     foo['name']
     # Output: 'Yasoob'
 
