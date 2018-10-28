@@ -52,9 +52,9 @@ is a generic cache:
         memo = {}
         @wraps(function)
         def wrapper(*args):
-            if args in memo:
+            try:
                 return memo[args]
-            else:
+            except KeyError:
                 rv = function(*args)
                 memo[args] = rv
                 return rv

@@ -201,7 +201,8 @@ Implementing **getitem** in a class allows its instances to use the []
             return self.info[i]
 
     foo = GetTest()
-    foo['title']
+
+    foo['name']
     # Output: 'Yasoob'
 
     foo['number']
@@ -211,7 +212,7 @@ Without the ``__getitem__`` method we would have got this error:
 
 .. code:: python
 
-    >>> foo['title']
+    >>> foo['name']
 
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
