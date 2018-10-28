@@ -91,3 +91,13 @@ Syntax was introduced in Python 2.5 and can be used in python 2.5 or greater.
 
 The first statement (`True or "Some"`) will return `True` and the second statement (`False or "Some"`) will return `False`. 
 
+This is helpful in case where you quickly want to check for the output of a function and give a useful message if the output is empty:
+
+.. code:: python
+
+    >>> func_output = None
+    >>> msg = output or "No data returned"
+    >>> print(msg)
+    No data returned
+
+
