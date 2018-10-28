@@ -74,21 +74,18 @@ computation-heavy method, using tuples is best avoided.
 
 **ShortHand Ternary**
 
-In python there is shorthand ternary tag (Or can call abbreviation) from which
-you can add check and use the values.
+In python there is also the shorthand ternary tag which is a shorter version of the 
+normal ternary operator you have seen above. 
 
-Syntax was introduced in Python 2.5 and useful for python 2.5 and greater.
+Syntax was introduced in Python 2.5 and can be used in python 2.5 or greater.
 
 **Example**
 .. code:: python
->>> True or "Some"
-True
->>> False or "Some"
-'Some'
->>>
+    >>> True or "Some"
+    True
+    >>>
+    >>> False or "Some"
+    'Some'
 
-In above case1 first statement is `True or "Some"` it will return `True`
-         case2 second statement is `False or "Some"` it will return `False`
+The first statement (`True or "Some"`) will return `True` and the second statement (`False or "Some"`) will return `False`. 
 
-So in left hand assignment we can easily make use of this part. Some times to replace
-ternary of if / else.
