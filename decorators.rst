@@ -425,6 +425,9 @@ the same syntax as before:
     @logit
     def myfunc1():
         pass
+    
+    myfunc1()
+    # Output: myfunc1 was called
 
 Now, let's subclass logit to add email functionality (though this topic
 will not be covered here).
