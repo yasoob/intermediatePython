@@ -390,18 +390,26 @@ rebuild logit as a class instead of a function.
 .. code:: python
 
     class logit(object):
-        def __init__(self, logfile='out.log'):
-            self.logfile = logfile
+    
+        _logfile = 'out.log'
+    
+        def __init__(self, func):
+            self.func = func
         
-        def __call__(self, func):
-            log_string = func.__name__ + " was called"
+        def __call__(self, *args):
+            log_string = self.func.__name__ + " was called"
             print(log_string)
             # Open the logfile and append
-            with open(self.logfile, 'a') as opened_file:
+            with open(self._logfile, 'a') as opened_file:
                 # Now we log to the specified logfile
                 opened_file.write(log_string + '\n')
             # Now, send a notification
             self.notify()
+            
+            # return base func
+            return self.func(*args)
+            
+            
         
         def notify(self):
             # logit only logs, no more
@@ -412,10 +420,14 @@ the nested function approach, and wrapping a function still will use
 the same syntax as before:
 
 .. code:: python
-
-    @logit()
-    def myfunc1():
+    
+    logit._logfile = 'out2.log' # if change log file
+    @logit
+    def myfunc1():
         pass
+    
+    myfunc1()
+    # Output: myfunc1 was called
 
 Now, let's subclass logit to add email functionality (though this topic
 will not be covered here).
