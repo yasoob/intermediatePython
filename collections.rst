@@ -216,9 +216,15 @@ example so here you go:
 
 .. code:: python
 
-    d = deque(maxlen=30)
+    d = deque([0, 1, 2, 3, 5], maxlen=5)
+    print(d)
+    # Output: deque([0, 1, 2, 3, 5], maxlen=5)
+    
+    d.extend([6])
+    print(d)
+    #Output: deque([1, 2, 3, 5, 6], maxlen=5)
 
-Now whenever you insert values after 30, the leftmost value will be
+Now whenever you insert values after 5, the leftmost value will be
 popped from the list. You can also expand the list in any direction with
 new values:
 
