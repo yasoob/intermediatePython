@@ -53,7 +53,7 @@ Let's take a look at an example:
     b.pi
     # Output: 50
 
-There are not many issues while using mutable class variables. This is
+There are not many issues while using immutable class variables. This is
 the major reason due to which beginners do not try to learn more about
 this subject because everything works! If you also believe that instance
 and class variables can not cause any problem if used incorrectly then
