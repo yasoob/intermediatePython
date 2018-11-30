@@ -5,7 +5,7 @@ In a lot of cases you might want to develop programs which can be run in
 both Python 2+ and 3+.
 
 Just imagine that you have a very popular Python module which is used by
-hundreds of people but not all of them have Python 2 or 3. In that case
+hundreds of people but not all of them have the same version of Python (2 or 3). In that case
 you have two choices. The first one is to distribute 2 modules, one for
 Python 2 and the other for Python 3. The other choice is to modify your
 current code and make it compatible with both Python 2 and 3.
