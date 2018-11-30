@@ -167,7 +167,7 @@ Let's dissect this method a little.
 1. Python encounters the ``yield`` keyword. Due to this it creates a
    generator instead of a normal function.
 2. Due to the decoration, contextmanager is called with the function
-   name (``open\_file``) as it's argument.
+   name (``open_file``) as it's argument.
 3. The ``contextmanager`` decorator returns the generator wrapped by the
    ``GeneratorContextManager`` object.
 4. The ``GeneratorContextManager`` is assigned to the ``open_file``
