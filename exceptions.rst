@@ -56,9 +56,9 @@ trapping ALL exceptions:
 
     try:
         file = open('test.txt', 'rb')
-    except Exception:
+    except Exception as e:
         # Some logging if you want
-        raise
+        raise e
 
 This can be helpful when you have no idea about the exceptions which may
 be thrown by your program.
