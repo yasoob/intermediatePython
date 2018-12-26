@@ -95,7 +95,7 @@ This is helpful in case where you quickly want to check for the output of a func
 
 .. code:: python
 
-    >>> func_output = None
+    >>> output = None
     >>> msg = output or "No data returned"
     >>> print(msg)
     No data returned
