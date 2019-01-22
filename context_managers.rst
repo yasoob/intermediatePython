@@ -153,8 +153,10 @@ Let's see a basic, useless example:
     @contextmanager
     def open_file(name):
         f = open(name, 'w')
-        yield f
-        f.close()
+        try:
+            yield f
+        finally:
+            f.close()
 
 Okay! This way of implementing Context Managers appear to be more
 intuitive and easy. However, this method requires some knowledge about
