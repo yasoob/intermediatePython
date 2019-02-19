@@ -354,6 +354,7 @@ us specify a logfile to output to.
                 with open(logfile, 'a') as opened_file:
                     # Now we log to the specified logfile
                     opened_file.write(log_string + '\n')
+                return func(*args, **kwargs)
             return wrapped_function
         return logging_decorator
 
