@@ -177,7 +177,7 @@ previous decorator and make a little bit more usable program:
 Did you get it? We just applied the previously learned principles. This
 is exactly what the decorators do in Python! They wrap a function and
 modify its behaviour in one way or the another. Now you might be
-wondering that we did not use the @ anywhere in our code? That is just a
+wondering why we did not use the @ anywhere in our code. That is just a
 short way of making up a decorated function. Here is how we could have
 run the previous code sample using @.
 
