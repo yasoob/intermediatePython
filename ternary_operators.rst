@@ -50,7 +50,7 @@ The above example is not widely used and is generally disliked by
 Pythonistas for not being Pythonic. It is also easy to confuse where to
 put the true value and where to put the false value in the tuple.
 
-Another reason to avoid using a tupled ternery is that it results in
+Another reason to avoid using a tupled ternary is that it results in
 both elements of the tuple being evaluated, whereas the if-else
 ternary operator does not.
 
