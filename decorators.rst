@@ -176,8 +176,8 @@ previous decorator and make a little bit more usable program:
 
 Did you get it? We just applied the previously learned principles. This
 is exactly what the decorators do in Python! They wrap a function and
-modify its behaviour in one way or the another. Now you might be
-wondering that we did not use the @ anywhere in our code? That is just a
+modify its behaviour in one way or another. Now you might be
+wondering why we did not use the @ anywhere in our code? That is just a
 short way of making up a decorated function. Here is how we could have
 run the previous code sample using @.
 
@@ -206,9 +206,9 @@ Python. Now there is one problem with our code. If we run:
     # Output: wrapTheFunction
 
 That's not what we expected! Its name is
-"a\_function\_requiring\_decoration". Well our function was replaced by
+"a\_function\_requiring\_decoration". Well, our function was replaced by
 wrapTheFunction. It overrode the name and docstring of our function.
-Luckily Python provides us a simple function to solve this problem and
+Luckily, Python provides us a simple function to solve this problem and
 that is ``functools.wraps``. Let's modify our previous example to use
 ``functools.wraps``:
 
@@ -263,7 +263,7 @@ decorators.
 
 Note: ``@wraps`` takes a function to be decorated and adds the
 functionality of copying over the function name, docstring, arguments
-list, etc. This allows to access the pre-decorated function's properties
+list, etc. This allows us to access the pre-decorated function's properties
 in the decorator.
 
 Use-cases:
