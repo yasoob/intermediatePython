@@ -21,10 +21,10 @@ makes it even more useful.
         print(c, value)
 
     # Output:
-    # 1 apple
-    # 2 banana
-    # 3 grapes
-    # 4 pear
+    # 0 apple
+    # 1 banana
+    # 2 grapes
+    # 3 pear
 
 The optional argument allows us to tell ``enumerate`` from where to
 start the index. You can also create tuples containing the index and
@@ -35,5 +35,5 @@ list item using a list. Here is an example:
     my_list = ['apple', 'banana', 'grapes', 'pear']
     counter_list = list(enumerate(my_list, 1))
     print(counter_list)
-    # Output: [(1, 'apple'), (2, 'banana'), (3, 'grapes'), (4, 'pear')]
+    # Output: [(0, 'apple'), (1, 'banana'), (2, 'grapes'), (3, 'pear')]
 
