@@ -329,7 +329,7 @@ Come to think of it, isn't ``@wraps`` also a decorator?  But, it takes an
 argument like any normal function can do.  So, why can't we do that too?
 
 This is because when you use the ``@my_decorator`` syntax, you are
-applying a wrapper function with a single function as a parameter
+applying a wrapper function with a single function as a parameter.
 Remember, everything in Python is an object, and this includes
 functions!  With that in mind, we can write a function that returns
 a wrapper function.
