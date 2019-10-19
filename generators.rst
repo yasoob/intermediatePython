@@ -134,10 +134,10 @@ element of a sequence. So let's test out our understanding:
 
 As we can see that after yielding all the values ``next()`` caused a
 ``StopIteration`` error. Basically this error informs us that all the
-values have been yielded. You might be wondering that why don't we get
-this error while using a ``for`` loop? Well the answer is simple. The
+values have been yielded. You might be wondering why we don't get
+this error when using a ``for`` loop? Well the answer is simple. The
 ``for`` loop automatically catches this error and stops calling
-``next``. Do you know that a few built-in data types in Python also
+``next``. Did you know that a few built-in data types in Python also
 support iteration? Let's check it out:
 
 .. code:: python
