@@ -58,3 +58,7 @@ function.
 These are just a few commands. ``pdb`` also supports post mortem. It is
 also a really handy function. I would highly suggest you to look at the
 official documentation and learn more about it.
+
+**Note:**
+
+It might seem unintuitive to use `pdb.set_trace()` if you are new to this. Fortunately, if you are using Python 3.7+ then you can simply use the `breakpoint()` [built-in function](https://docs.python.org/3/library/functions.html#breakpoint). It automatically imports `pdb` and calls `pdb.set_trace()`.
