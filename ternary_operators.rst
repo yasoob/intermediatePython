@@ -100,4 +100,14 @@ This is helpful in case where you quickly want to check for the output of a func
     >>> print(msg)
     No data returned
 
+Or as a simple way to define function parameters with dynamic default values:
 
+.. code:: python
+
+    >>> def my_function(real_name, optional_display_name=None):
+    >>>     optional_display_name = optional_display_name or real_name
+    >>>     print(optional_display_name)
+    >>> my_function("John")
+    John
+    >>> my_function("Mike", "anonymous123")
+    anonymous123
