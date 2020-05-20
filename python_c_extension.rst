@@ -6,7 +6,7 @@ implementation is the ease of interfacing C code to Python.
 
 There are three key methods developers use to call C functions from
 their python code - ``ctypes``, ``SWIG`` and ``Python/C API``. Each
-method comes with it's own merits and demerits.
+method comes with its own merits and demerits.
 
 Firstly, why would you want to interface C with Python?
 
@@ -194,7 +194,7 @@ Python/C API
 ---------------
 
 The `C/Python API <https://docs.python.org/2/c-api/>`__ is probably the
-most widely used method - not for it's simplicity but for the fact that
+most widely used method - not for its simplicity but for the fact that
 you can manipulate python objects in your C code.
 
 This method requires your C code to be specifically written for
@@ -229,7 +229,7 @@ the addList module is not written in Python at all, but rather in C.
 Next we'll have a look at the C code that get's built into the
 ``addList`` Python module. This may seem a bit daunting at first, but
 once you understand the various components that go into writing the C
-file, it's pretty straight forward.
+file, it's pretty straightforward.
 
 *adder.c*
 
