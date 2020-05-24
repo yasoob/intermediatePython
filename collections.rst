@@ -9,7 +9,7 @@ The ones which we will talk about are:
 
 -  ``defaultdict``
 -  ``OrderedDict``
--  ``counter``
+-  ``Counter``
 -  ``deque``
 -  ``namedtuple``
 -  ``enum.Enum`` (outside of the module; Python 3.4+)
@@ -119,7 +119,7 @@ the end of the dictionary.
     #   Blue 160
     # Insertion order is preserved
 
-``counter``
+``Counter``
 ^^^^^^^^^^^^^^^
 
 Counter allows us to count the occurrences of a particular item. For
