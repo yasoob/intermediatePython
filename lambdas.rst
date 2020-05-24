@@ -39,5 +39,5 @@ they are used in the wild:
 .. code:: python
 
     data = zip(list1, list2)
-    data.sort()
+    data = sorted(data)
     list1, list2 = map(lambda t: list(t), zip(*data))
