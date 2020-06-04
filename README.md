@@ -79,6 +79,7 @@ If you want to translate this book in any other language then kindly let [me kno
 - [Russian](https://github.com/lancelote/interpy-ru)
 - [Korean](https://github.com/DDanggle/interpy-kr)
 - [Portuguese](https://github.com/joanasouza/intermediatePython)
+- [Spanish](https://github.com/cursospython/LibroPython)
 
 License:
 -------
