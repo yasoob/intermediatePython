@@ -335,7 +335,4 @@ epub_cover = ('_static/cover.png', 'epub-cover.html')
 epub_use_index = False
 
 sys.path.append(os.path.abspath('_themes'))
-#html_theme_path = ['_themes']
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_theme = 'sphinx_rtd_theme'
 
