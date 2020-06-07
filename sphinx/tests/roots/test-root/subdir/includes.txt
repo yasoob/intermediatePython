@@ -1,0 +1,18 @@
+Including in subdir
+===================
+
+.. absolute filename
+.. literalinclude:: /special/code.py
+   :lines: 1
+
+.. relative filename
+.. literalinclude:: ../special/code.py
+   :lines: 2
+
+Absolute :download:`/img.png` download.
+
+.. absolute image filename
+.. image:: /img.png
+
+.. absolute include filename
+.. include:: /test.inc
