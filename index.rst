@@ -1,9 +1,5 @@
 :orphan:
 
-.. note::
-
-   You can sign up to my `mailing list <http://eepurl.com/bwjcej>`__ so that you remain in sync with any major updates to this book or my future projects!
-
 Intermediate Python
 ===================
 
