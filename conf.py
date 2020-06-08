@@ -111,6 +111,12 @@ html_secnumber_suffix = ' '
 html_logo = "_static/images/logo.png"
 html_favicon = "_static/images/favicon.png"
 
+html_context = {
+  'display_github': True,
+  'github_user': 'yasoob',
+  'github_repo': 'intermediatepython',
+  'github_version': 'testing/'
+}
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
