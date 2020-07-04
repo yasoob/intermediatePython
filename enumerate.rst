@@ -7,12 +7,19 @@ advanced programmers are unaware of it. It allows us to loop over
 something and have an automatic counter. Here is an example:
 
 .. code:: python
+    
+    my_list = ['apple', 'banana', 'grapes', 'pear']
+    for counter, value in enumerate(my_list):
+        print counter, value
 
-    for counter, value in enumerate(some_list):
-        print(counter, value)
+    # Output:
+    # 0 apple
+    # 1 banana
+    # 2 grapes
+    # 3 pear
 
-And there is more! ``enumerate`` also accepts an optional argument which
-makes it even more useful.
+And there is more! ``enumerate`` also accepts an optional argument that
+allows us to specify the starting index of the counter.
 
 .. code:: python
 
@@ -26,9 +33,9 @@ makes it even more useful.
     # 3 grapes
     # 4 pear
 
-The optional argument allows us to tell ``enumerate`` from where to
-start the index. You can also create tuples containing the index and
-list item using a list. Here is an example:
+An example of where the optional argument of ``enumerate``comes in handy
+is creating tuples containing the index and list item using a list. Here 
+is an example:
 
 .. code:: python
 
