@@ -5,9 +5,11 @@ Exception handling is an art which once you master grants you immense
 powers. I am going to show you some of the ways in which we can handle
 exceptions.
 
-In basic terminology we are aware of ``try/except`` clause. The code
-which can cause an exception to occur is put in the ``try`` block and
+In basic terminology we are aware of the ``try/except`` structure. The code
+that can cause an exception to occur is put in the ``try`` block and
 the handling of the exception is implemented in the ``except`` block.
+The code in the ``except`` block will only execute if the ``try`` block
+runs into an exception.
 Here is a simple example:
 
 .. code:: python
