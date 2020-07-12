@@ -63,7 +63,15 @@ trapping ALL exceptions:
         raise e
 
 This can be helpful when you have no idea about the exceptions which may
-be thrown by your program.
+be thrown by your program. If you just looking to catch all execptions, 
+but don't actually care about what they are, you can even exclude the 
+``Exception as e`` part. 
+
+Note: catching all exceptions may have unintended consequences because catching 
+all exceptions may also catch the ones you want to occur; for example, in 
+many command-line based programs, pressing control+c will terminate the program, 
+but if you catch all excepts, the ``KeyboardInterrupt`` will be caught as an 
+exception, so pressing control+c will NOT terminate the program.
 
 ``finally`` clause
 ~~~~~~~~~~~~~~~~~~
