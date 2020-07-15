@@ -33,7 +33,7 @@ allows us to specify the starting index of the counter.
     # 3 grapes
     # 4 pear
 
-An example of where the optional argument of ``enumerate``comes in handy
+An example of where the optional argument of ``enumerate`` comes in handy
 is creating tuples containing the index and list item using a list. Here 
 is an example:
 
