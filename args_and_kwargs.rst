@@ -13,7 +13,7 @@ Usage of \*args
 
 \*args and \*\*kwargs are mostly used in function definitions. \*args
 and \*\*kwargs allow you to pass an unspecified number of arguments to a
-function, so when when writing the function definition, you do not need to
+function, so when writing the function definition, you do not need to
 know how many arguments will be passed to your function. \*args is used to
 send a **non-keyworded** variable length argument list to the function. 
 Here's an example to help you get a clear idea:
