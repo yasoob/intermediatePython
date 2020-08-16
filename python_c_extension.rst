@@ -36,8 +36,6 @@ Simple C code to add two numbers, save it as ``add.c``
 
     //sample C file to add 2 numbers - int and floats
 
-    #include <stdio.h>
-
     int add_int(int, int);
     float add_float(float, float);
 
