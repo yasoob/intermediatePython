@@ -273,7 +273,7 @@ Now let's take a look at the areas where decorators really shine and
 their usage makes something really easy to manage.
 
 Authorization
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 Decorators can help to check whether someone is authorized to use an
 endpoint in a web application. They are extensively used in Flask web
@@ -296,7 +296,7 @@ authentication:
         return decorated
 
 Logging
-~~~~~~~~~~~~
+~~~~~~~
 
 Logging is another area where the decorators shine. Here is an example:
 
