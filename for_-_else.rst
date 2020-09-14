@@ -1,5 +1,5 @@
 ``for/else``
-----------
+------------
 
 Loops are an integral part of any language. Likewise ``for`` loops are
 an important part of Python. However there are a few things which most
@@ -22,7 +22,7 @@ That is the very basic structure of a ``for`` loop. Now let's move on to
 some of the lesser known features of ``for`` loops in Python.
 
 ``else`` Clause
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 ``for`` loops also have an ``else`` clause which most of us are unfamiliar
 with. The ``else`` clause executes after the loop completes normally.
