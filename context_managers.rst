@@ -36,7 +36,7 @@ Let's see how we can implement our own Context Manager. This should allow
 us to understand exactly what's going on behind the scenes.
 
 Implementing a Context Manager as a Class:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 At the very least a context manager has an ``__enter__`` and
 ``__exit__`` method defined. Let's make our own file-opening Context
