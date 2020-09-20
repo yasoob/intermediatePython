@@ -50,6 +50,7 @@ Table of Contents
    virtual_environment
    collections
    enumerate
+   zip
    object_introspection
    comprehensions
    exceptions
