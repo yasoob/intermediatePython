@@ -47,7 +47,7 @@ of a list of inputs we can even have a list of functions!
 
     funcs = [multiply, add]
     for i in range(5):
-        value = list(map(lambda x: x(i), funcs))
+        value = list(map(lambda x, y=i: x(y), funcs))
         print(value)
 
     # Output:
