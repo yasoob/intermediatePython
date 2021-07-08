@@ -125,7 +125,10 @@ is a simple example:
     # or 
     print(list(itertools.chain(*a_list)))
     # Output: [1, 2, 3, 4, 5, 6]
-
+    
+    # or 
+    print([j for i in a_list for j in i])
+    # Output: [1, 2, 3, 4, 5, 6]
 
 **One-Line Constructors**
 
