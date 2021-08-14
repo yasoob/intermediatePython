@@ -84,7 +84,7 @@ to decide how to close the file and if any further steps are required.
 In our case we are not paying any attention to them.
 
 What if our file object raises an exception? We might be trying to
-access a method on the file object which it does not supports. For
+access a method on the file object which it does not support. For
 instance:
 
 .. code:: python
