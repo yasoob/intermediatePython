@@ -1,4 +1,4 @@
-Global & Return
+Global and Return
 ---------------
 
 You might have encountered some functions written in python which have a
@@ -129,7 +129,7 @@ Keep in mind that even in the above example we are returning a tuple (despite th
 
 .. code:: python
 
-    from collections import namedtuple                                                                                     
+    from collections import namedtuple
     def profile():
         Person = namedtuple('Person', 'name age')
         return Person(name="Danny", age=31)
