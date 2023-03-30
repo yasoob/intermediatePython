@@ -440,9 +440,9 @@ will not be covered here).
         A logit implementation for sending emails to admins
         when the function is called.
         '''
-        def __init__(self, email='admin@myproject.com', *args, **kwargs):
+        def __init__(self, func, email='admin@myproject.com', *args, **kwargs):
             self.email = email
-            super(email_logit, self).__init__(*args, **kwargs)
+            super(email_logit, self).__init__(func, *args, **kwargs)
             
         def notify(self):
             # Send an email to self.email
