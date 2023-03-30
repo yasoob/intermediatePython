@@ -89,10 +89,11 @@ a basic for loop:
 
 .. code:: python
 
-    product = 1
-    list = [1, 2, 3, 4]
-    for num in list: 
-        product = product * num
+    the_list = [1, 2, 3, 4]
+    the_product = the_list[0]
+    del the_list[0]
+    for num in the_list: 
+        the_product = the_product * num
     
     # product = 24
 
